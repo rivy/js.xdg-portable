@@ -2,13 +2,13 @@
 
 > Get [XDG Base Directory](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html) paths
 
+Forked from the original repository (sindresorhus/xdg-basedir) to add cross-platform portability (see <https://github.com/sindresorhus/xdg-basedir/pull/4>).
 
 ## Install
 
 ```
 $ npm install xdg-portable
 ```
-
 
 ## Usage
 
@@ -30,7 +30,6 @@ xdg.dataDirs
 //(nix)=> ['/home/rivy/.local/share', '/usr/local/share/', '/usr/share/']
 //(win)=> ['C:\\Users\\rivy\\AppData\\Roaming\\xdg.data']
 ```
-
 
 ## API
 
@@ -60,8 +59,6 @@ Preference-ordered array of base directories to search for data files in additio
 
 Preference-ordered array of base directories to search for configuration files in addition to `.config`.
 
-
 ## License
 
-MIT © Roy Ivy III
-MIT © [Sindre Sorhus](https://sindresorhus.com)
+MIT © Roy Ivy III, [Sindre Sorhus](https://sindresorhus.com)
