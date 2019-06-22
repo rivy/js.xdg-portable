@@ -3,26 +3,26 @@ import importFresh from 'import-fresh';
 
 test('.data', t => {
 	process.env.XDG_DATA_HOME = 'data';
-	const xdgBasedir = importFresh('.');
-	t.is(xdgBasedir.data, 'data');
+	const xdg = importFresh('.');
+	t.is(xdg.data, 'data');
 });
 
 test('.config', t => {
 	process.env.XDG_CONFIG_HOME = 'config';
-	const xdgBasedir = importFresh('.');
-	t.is(xdgBasedir.config, 'config');
+	const xdg = importFresh('.');
+	t.is(xdg.config, 'config');
 });
 
 test('.cache', t => {
 	process.env.XDG_CACHE_HOME = 'cache';
-	const xdgBasedir = importFresh('.');
-	t.is(xdgBasedir.cache, 'cache');
+	const xdg = importFresh('.');
+	t.is(xdg.cache, 'cache');
 });
 
 test('.runtime', t => {
 	process.env.XDG_RUNTIME_DIR = 'runtime';
-	const xdgBasedir = importFresh('.');
-	t.is(xdgBasedir.runtime, 'runtime');
+	const xdg = importFresh('.');
+	t.is(xdg.runtime, 'runtime');
 });
 
 test('.dataDirs', t => {

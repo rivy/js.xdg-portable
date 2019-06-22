@@ -1,4 +1,4 @@
-# xdg-basedir [![Build Status](https://travis-ci.org/sindresorhus/xdg-basedir.svg?branch=master)](https://travis-ci.org/sindresorhus/xdg-basedir)
+# xdg-portable [![Build Status](https://travis-ci.org/rivy/js.xdg-portable.svg?branch=master)](https://travis-ci.org/rivy/js.xdg-portable)
 
 > Get [XDG Base Directory](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html) paths
 
@@ -6,23 +6,23 @@
 ## Install
 
 ```
-$ npm install xdg-basedir
+$ npm install xdg-portable
 ```
 
 
 ## Usage
 
 ```js
-const xdgBasedir = require('xdg-basedir');
+const xdg = require('xdg-portable');
 
-xdgBasedir.data;
-//=> '/home/sindresorhus/.local/share'
+xdg.data;
+//=> '/home/rivy/.local/share'
 
-xdgBasedir.config;
-//=> '/home/sindresorhus/.config'
+xdg.config;
+//=> '/home/rivy/.config'
 
-xdgBasedir.dataDirs
-//=> ['/home/sindresorhus/.local/share', '/usr/local/share/', '/usr/share/']
+xdg.dataDirs
+//=> ['/home/rivy/.local/share', '/usr/local/share/', '/usr/share/']
 ```
 
 
@@ -57,4 +57,5 @@ Preference-ordered array of base directories to search for configuration files i
 
 ## License
 
+MIT © Roy Ivy III
 MIT © [Sindre Sorhus](https://sindresorhus.com)

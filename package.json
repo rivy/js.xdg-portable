@@ -1,13 +1,12 @@
 {
-	"name": "xdg-basedir",
+	"name": "xdg-portable",
 	"version": "5.0.0",
 	"description": "Get XDG Base Directory paths",
 	"license": "MIT",
-	"repository": "sindresorhus/xdg-basedir",
+	"repository": "rivy/js.xdg-portable",
 	"author": {
-		"name": "Sindre Sorhus",
-		"email": "sindresorhus@gmail.com",
-		"url": "sindresorhus.com"
+		"name": "Roy Ivy III",
+		"email": "rivy.dev@gmail.com"
 	},
 	"engines": {
 		"node": ">=8"
@@ -30,6 +29,7 @@
 		"cache",
 		"linux",
 		"unix",
+		"windows",
 		"spec"
 	],
 	"devDependencies": {

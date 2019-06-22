@@ -1,13 +1,13 @@
-declare const xdgBasedir: {
+declare const xdg: {
 	/**
 	Directory for user-specific data files.
 
 	@example
 	```js
-	import xdgBasedir = require('xdg-basedir');
+	import xdg = require('xdg-portable');
 
-	xdgBasedir.data;
-	//=> '/home/sindresorhus/.local/share'
+	xdg.data;
+	//=> '/home/rivy/.local/share'
 	```
 	*/
 	readonly data?: string;
@@ -17,10 +17,10 @@ declare const xdgBasedir: {
 
 	@example
 	```js
-	import xdgBasedir = require('xdg-basedir');
+	import xdg = require('xdg-portable');
 
-	xdgBasedir.config;
-	//=> '/home/sindresorhus/.config'
+	xdg.config;
+	//=> '/home/rivy/.config'
 	```
 	*/
 	readonly config?: string;
@@ -30,10 +30,10 @@ declare const xdgBasedir: {
 
 	@example
 	```js
-	import xdgBasedir = require('xdg-basedir');
+	import xdg = require('xdg-portable');
 
-	xdgBasedir.cache;
-	//=> '/home/sindresorhus/.cache'
+	xdg.cache;
+	//=> '/home/rivy/.cache'
 	```
 	*/
 	readonly cache?: string;
@@ -43,10 +43,10 @@ declare const xdgBasedir: {
 
 	@example
 	```js
-	import xdgBasedir = require('xdg-basedir');
+	import xdg = require('xdg-portable');
 
-	xdgBasedir.runtime;
-	//=> '/run/user/sindresorhus'
+	xdg.runtime;
+	//=> '/run/user/rivy'
 	```
 	*/
 	readonly runtime?: string;
@@ -56,10 +56,10 @@ declare const xdgBasedir: {
 
 	@example
 	```js
-	import xdgBasedir = require('xdg-basedir');
+	import xdg = require('xdg-portable');
 
-	xdgBasedir.dataDirs
-	//=> ['/home/sindresorhus/.local/share', '/usr/local/share/', '/usr/share/']
+	xdg.dataDirs
+	//=> ['/home/rivy/.local/share', '/usr/local/share/', '/usr/share/']
 	```
 	*/
 	readonly dataDirs: readonly string[];
@@ -69,13 +69,13 @@ declare const xdgBasedir: {
 
 	@example
 	```js
-	import xdgBasedir = require('xdg-basedir');
+	import xdg = require('xdg-portable');
 
-	xdgBasedir.configDirs;
-	//=> ['/home/sindresorhus/.config', '/etc/xdg']
+	xdg.configDirs;
+	//=> ['/home/rivy/.config', '/etc/xdg']
 	```
 	*/
 	readonly configDirs: readonly string[];
 };
 
-export = xdgBasedir;
+export = xdg;
