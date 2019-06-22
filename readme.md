@@ -16,19 +16,13 @@ $ npm install xdg-portable
 const xdg = require('xdg-portable');
 
 xdg.data;
-//(mac)=> '/Users/rivy/Library/Application Support'
-//(nix)=> '/home/rivy/.local/share'
-//(win)=> 'C:\\Users\\rivy\\AppData\\Roaming\\xdg.data'
+//=> '/home/rivy/.local/share'
 
 xdg.config;
-//(mac)=> '/Users/rivy/Library/Preferences'
-//(nix)=> '/home/rivy/.config'
-//(win)=> 'C:\\Users\\rivy\\AppData\\Roaming\\xdg.config'
+//=> '/home/rivy/.config'
 
 xdg.dataDirs
-//(mac)=> ['/Users/rivy/Library/Preferences']
-//(nix)=> ['/home/rivy/.local/share', '/usr/local/share/', '/usr/share/']
-//(win)=> ['C:\\Users\\rivy\\AppData\\Roaming\\xdg.data']
+//=> ['/home/rivy/.local/share', '/usr/local/share/', '/usr/share/']
 ```
 
 

@@ -28,16 +28,16 @@ test('.runtime', t => {
 
 test('.dataDirs', t => {
 	process.env.XDG_DATA_DIRS = ['dirs', 'data_dirs'].join(path.delimiter);
-	const xdg = importFresh('.');
-	t.is(xdg.dataDirs[0], 'data');
-	t.is(xdg.dataDirs[1], 'dirs');
-	t.is(xdg.dataDirs[2], 'data_dirs');
+	const xdgBasedir = importFresh('.');
+	t.is(xdgBasedir.dataDirs[0], 'data');
+	t.is(xdgBasedir.dataDirs[1], 'dirs');
+	t.is(xdgBasedir.dataDirs[2], 'data_dirs');
 });
 
 test('.configDirs', t => {
 	process.env.XDG_CONFIG_DIRS = ['dirs', 'config_dirs'].join(path.delimiter);
-	const xdg = importFresh('.');
-	t.is(xdg.configDirs[0], 'config');
-	t.is(xdg.configDirs[1], 'dirs');
-	t.is(xdg.configDirs[2], 'config_dirs');
+	const xdgBasedir = importFresh('.');
+	t.is(xdgBasedir.configDirs[0], 'config');
+	t.is(xdgBasedir.configDirs[1], 'dirs');
+	t.is(xdgBasedir.configDirs[2], 'config_dirs');
 });

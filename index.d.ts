@@ -7,9 +7,7 @@ declare const xdg: {
 	import xdg = require('xdg-portable');
 
 	xdg.data;
-	//(mac)=> '/Users/rivy/Library/Application Support'
-	//(nix)=> '/home/rivy/.local/share'
-	//(win)=> 'C:\\Users\\rivy\\AppData\\Roaming\\xdg.data'
+	//=> '/home/rivy/.local/share'
 	```
 	*/
 	readonly data?: string;
@@ -22,9 +20,7 @@ declare const xdg: {
 	import xdg = require('xdg-portable');
 
 	xdg.config;
-	//(mac)=> '/Users/rivy/Library/Preferences'
-	//(nix)=> '/home/rivy/.config'
-	//(win)=> 'C:\\Users\\rivy\\AppData\\Roaming\\xdg.config'
+	//=> '/home/rivy/.config'
 	```
 	*/
 	readonly config?: string;
@@ -37,9 +33,7 @@ declare const xdg: {
 	import xdg = require('xdg-portable');
 
 	xdg.cache;
-	//(mac)=> '/Users/rivy/Library/Caches'
-	//(nix)=> '/home/rivy/.cache'
-	//(win)=> 'C:\\Users\\rivy\\AppData\\Local\\cache'
+	//=> '/home/rivy/.cache'
 	```
 	*/
 	readonly cache?: string;
@@ -52,9 +46,7 @@ declare const xdg: {
 	import xdg = require('xdg-portable');
 
 	xdg.runtime;
-	//(mac)=> undefined
-	//(nix)=> '/run/user/rivy'
-	//(win)=> undefined
+	//=> '/run/user/rivy'
 	```
 	*/
 	readonly runtime?: string;
@@ -67,9 +59,7 @@ declare const xdg: {
 	import xdg = require('xdg-portable');
 
 	xdg.dataDirs
-	//(mac)=> ['/Users/rivy/Library/Preferences']
-	//(nix)=> ['/home/rivy/.local/share', '/usr/local/share/', '/usr/share/']
-	//(win)=> ['C:\\Users\\rivy\\AppData\\Roaming\\xdg.data']
+	//=> ['/home/rivy/.local/share', '/usr/local/share/', '/usr/share/']
 	```
 	*/
 	readonly dataDirs: readonly string[];
@@ -82,9 +72,7 @@ declare const xdg: {
 	import xdg = require('xdg-portable');
 
 	xdg.configDirs;
-	//(mac)=> ['/Users/rivy/Library/Preferences']
-	//(nix)=> ['/home/rivy/.config', '/etc/xdg']
-	//(win)=> ['C:\\Users\\rivy\\AppData\\Roaming\\xdg.config']
+	//=> ['/home/rivy/.config', '/etc/xdg']
 	```
 	*/
 	readonly configDirs: readonly string[];
