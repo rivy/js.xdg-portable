@@ -1,6 +1,6 @@
 {
 	"name": "xdg-portable",
-	"version": "5.0.0",
+	"version": "6.0.0",
 	"description": "Get XDG Base Directory paths",
 	"license": "MIT",
 	"repository": "rivy/js.xdg-portable",
