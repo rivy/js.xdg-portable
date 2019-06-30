@@ -1,3 +1,5 @@
+// # spell-checker:ignore macos APPDATA LOCALAPPDATA
+
 'use strict';
 
 const os = require('os');

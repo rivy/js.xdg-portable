@@ -1,3 +1,10 @@
+<!DOCTYPE markdown><!-- markdownlint-disable no-inline-html -->
+<meta charset="utf-8" content="text/markdown" lang="en">
+<!-- -## editors ## (emacs/sublime) -*- coding: utf8-nix; tab-width: 4; mode: markdown; indent-tabs-mode: nil; basic-offset: 2; st-word_wrap: 'true' -*- ## (jEdit) :tabSize=4:indentSize=4:mode=markdown: ## (notepad++) vim:tabstop=4:syntax=markdown:expandtab:smarttab:softtabstop=2 ## modeline (see <https://archive.is/djTUD>@@<http://webcitation.org/66W3EhCAP> ) -->
+<!-- spell-checker:ignore expandtab markdownlint modeline smarttab softtabstop -->
+
+<!-- spell-checker:ignore rivy Sindre Sorhus sindresorhus -->
+
 # xdg-portable [![Build Status](https://travis-ci.org/rivy/js.xdg-portable.svg?branch=master)](https://travis-ci.org/rivy/js.xdg-portable)
 
 > Get [XDG Base Directory](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html) paths
@@ -6,8 +13,8 @@ Forked from the original repository (sindresorhus/xdg-basedir) to add cross-plat
 
 ## Install
 
-```
-$ npm install xdg-portable
+```shell
+npm install xdg-portable
 ```
 
 ## Usage

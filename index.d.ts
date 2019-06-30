@@ -1,3 +1,5 @@
+// # spell-checker:ignore rivy
+
 declare const xdg: {
 	/**
 	Directory for user-specific non-essential data files.

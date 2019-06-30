@@ -13,6 +13,6 @@ expectType<string | undefined>(xdg.state);
 expectError<string>(xdg.state);
 
 expectType<readonly string[]>(xdg.configDirs);
-expectError<string[]>(xdg.configDirs);
+expectError<readonly string[]>(xdg.configDirs);
 expectType<readonly string[]>(xdg.dataDirs);
-expectError<string[]>(xdg.dataDirs);
+expectError<readonly string[]>(xdg.dataDirs);
