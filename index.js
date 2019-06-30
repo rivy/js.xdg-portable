@@ -111,4 +111,3 @@ const xdgPortable = () => {
 };
 
 module.exports = xdgPortable();
-module.exports.default = xdgPortable();
