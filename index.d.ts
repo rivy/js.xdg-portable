@@ -14,7 +14,7 @@ declare const xdg: {
 	//(win)=> 'C:\\Users\\rivy\\AppData\\Local\\cache'
 	```
 	*/
-	readonly cache?: string;
+	readonly cache: string;
 
 	/**
 	Directory for user-specific configuration files.
@@ -29,7 +29,7 @@ declare const xdg: {
 	//(win)=> 'C:\\Users\\rivy\\AppData\\Roaming\\xdg.config'
 	```
 	*/
-	readonly config?: string;
+	readonly config: string;
 
 	/**
 	Directory for user-specific data files.
@@ -44,7 +44,7 @@ declare const xdg: {
 	//(win)=> 'C:\\Users\\rivy\\AppData\\Roaming\\xdg.data'
 	```
 	*/
-	readonly data?: string;
+	readonly data: string;
 
 	/**
 	Directory for user-specific non-essential runtime files and other file objects (such as sockets, named pipes, etc).
@@ -74,7 +74,7 @@ declare const xdg: {
 	//(win)=> 'C:\\Users\\rivy\\AppData\\Local\\xdg.state'
 	```
 	*/
-	readonly state?: string;
+	readonly state: string;
 
 	/**
 	Preference-ordered array of base directories to search for configuration files in addition to `.config`.
