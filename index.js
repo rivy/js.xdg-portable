@@ -5,7 +5,7 @@
 const os = require('os');
 const path = require('path');
 
-const homedir = os.homedir();
+const homedir = os.homedir() | os.tmpdir();
 const {env} = process;
 
 // XDG references

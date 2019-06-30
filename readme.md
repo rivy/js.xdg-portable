@@ -3,7 +3,7 @@
 <!-- -## editors ## (emacs/sublime) -*- coding: utf8-nix; tab-width: 4; mode: markdown; indent-tabs-mode: nil; basic-offset: 2; st-word_wrap: 'true' -*- ## (jEdit) :tabSize=4:indentSize=4:mode=markdown: ## (notepad++) vim:tabstop=4:syntax=markdown:expandtab:smarttab:softtabstop=2 ## modeline (see <https://archive.is/djTUD>@@<http://webcitation.org/66W3EhCAP> ) -->
 <!-- spell-checker:ignore expandtab markdownlint modeline smarttab softtabstop -->
 
-<!-- spell-checker:ignore rivy Sindre Sorhus sindresorhus -->
+<!-- spell-checker:ignore rivy Sindre Sorhus sindresorhus tmpdir -->
 
 # xdg-portable [![Build Status](https://travis-ci.org/rivy/js.xdg-portable.svg?branch=master)](https://travis-ci.org/rivy/js.xdg-portable)
 
@@ -40,7 +40,7 @@ xdg.dataDirs
 
 ## API
 
-The properties `.cache`, `.config`, `.data`, `.runtime`, `.state` will return `null` in the uncommon case that both the XDG environment variable is not set and the users home directory can't be found. You need to handle this case. A common solution is to [fall back to a temp directory](https://github.com/yeoman/configstore/blob/b82690fc401318ad18dcd7d151a0003a4898a314/index.js#L15).
+In the uncommon case that both the XDG environment variable is not set and the users home directory can't be found, `os.tmpdir()` will be used as a fallback for the missing `os.homedir()` value.
 
 ### .cache
 
