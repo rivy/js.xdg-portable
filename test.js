@@ -26,6 +26,12 @@ test('.runtime', t => {
 	t.is(xdg.runtime, 'runtime');
 });
 
+test('.state', t => {
+	process.env.XDG_STATE_HOME = 'state';
+	const xdg = importFresh('.');
+	t.is(xdg.state, 'state');
+});
+
 test('.dataDirs', t => {
 	process.env.XDG_DATA_DIRS = ['dirs', 'data_dirs'].join(path.delimiter);
 	const xdg = importFresh('.');

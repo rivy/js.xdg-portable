@@ -9,6 +9,8 @@ expectType<string | undefined>(xdg.cache);
 expectError<string>(xdg.cache);
 expectType<string | undefined>(xdg.runtime);
 expectError<string>(xdg.runtime);
+expectType<string | undefined>(xdg.state);
+expectError<string>(xdg.state);
 expectType<readonly string[]>(xdg.configDirs);
 expectError<string[]>(xdg.configDirs);
 expectType<readonly string[]>(xdg.dataDirs);

@@ -34,6 +34,7 @@ const macos = () => {
 		config: _config,
 		data: _data,
 		runtime: env.XDG_RUNTIME_DIR ? env.XDG_RUNTIME_DIR : undefined,
+		state: env.XDG_STATE_HOME ? env.XDG_STATE_HOME : path.join(library, 'State'),
 		configDirs: _configDirs,
 		dataDirs: _dataDirs
 	};
@@ -44,7 +45,7 @@ const windows = () => {
 	const appData = env.APPDATA || path.join(homedir, 'AppData', 'Roaming');			// "AppData/Roaming" contains data which may follow user between machines
 	const localAppData = env.LOCALAPPDATA || path.join(homedir, 'AppData', 'Local');	// "AppData/Local" contains local-machine-only user data
 
-	// Locations for cache/config/data are invented (Windows doesn't have a popular convention)
+	// Locations for cache/config/data/state are invented (Windows doesn't have a popular convention)
 
 	const _config = env.XDG_CONFIG_HOME ? env.XDG_CONFIG_HOME : path.join(appData, 'xdg.config');
 	const _data = env.XDG_DATA_HOME ? env.XDG_DATA_HOME : path.join(appData, 'xdg.data');
@@ -64,6 +65,7 @@ const windows = () => {
 		config: _config,
 		data: _data,
 		runtime: env.XDG_RUNTIME_DIR ? env.XDG_RUNTIME_DIR : undefined,
+		state: env.XDG_STATE_HOME ? env.XDG_STATE_HOME : path.join(localAppData, 'xdg.state'),
 		configDirs: _configDirs,
 		dataDirs: _dataDirs
 	};
@@ -88,6 +90,7 @@ const linux = () => {
 		config: _config,
 		data: _data,
 		runtime: env.XDG_RUNTIME_DIR ? env.XDG_RUNTIME_DIR : undefined,
+		state: env.XDG_STATE_HOME || path.join(homedir, '.local', 'state'),
 		configDirs: _configDirs,
 		dataDirs: _dataDirs
 	};

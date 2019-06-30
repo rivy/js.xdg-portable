@@ -33,7 +33,7 @@ xdg.dataDirs
 
 ## API
 
-The properties `.data`, `.config`, `.cache`, `.runtime` will return `null` in the uncommon case that both the XDG environment variable is not set and the users home directory can't be found. You need to handle this case. A common solution is to [fall back to a temp directory](https://github.com/yeoman/configstore/blob/b82690fc401318ad18dcd7d151a0003a4898a314/index.js#L15).
+The properties `.data`, `.config`, `.cache`, `.runtime`, `.state` will return `null` in the uncommon case that both the XDG environment variable is not set and the users home directory can't be found. You need to handle this case. A common solution is to [fall back to a temp directory](https://github.com/yeoman/configstore/blob/b82690fc401318ad18dcd7d151a0003a4898a314/index.js#L15).
 
 ### .data
 
@@ -50,6 +50,10 @@ Directory for user-specific non-essential data files.
 ### .runtime
 
 Directory for user-specific non-essential runtime files and other file objects (such as sockets, named pipes, etc).
+
+### .state
+
+Directory for user-specific state files (non-essential and more volatile than configuration files).
 
 ### .dataDirs
 

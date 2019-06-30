@@ -60,6 +60,21 @@ declare const xdg: {
 	readonly runtime?: string;
 
 	/**
+	Directory for user-specific state files (non-essential and more volatile than configuration files).
+
+	@example
+	```js
+	import xdg = require('xdg-portable');
+
+	xdg.state;
+	//(mac)=> '/Users/rivy/Library/State'
+	//(nix)=> '/home/rivy/.local/state'
+	//(win)=> 'C:\\Users\\rivy\\AppData\\Local\\xdg.state'
+	```
+	*/
+	readonly state?: string;
+
+	/**
 	Preference-ordered array of base directories to search for data files in addition to `.data`.
 
 	@example
