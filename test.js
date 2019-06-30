@@ -2,10 +2,10 @@ import path from 'path';
 import {serial as test} from 'ava';
 import importFresh from 'import-fresh';
 
-test('.data', t => {
-	process.env.XDG_DATA_HOME = 'data';
+test('.cache', t => {
+	process.env.XDG_CACHE_HOME = 'cache';
 	const xdg = importFresh('.');
-	t.is(xdg.data, 'data');
+	t.is(xdg.cache, 'cache');
 });
 
 test('.config', t => {
@@ -14,10 +14,10 @@ test('.config', t => {
 	t.is(xdg.config, 'config');
 });
 
-test('.cache', t => {
-	process.env.XDG_CACHE_HOME = 'cache';
+test('.data', t => {
+	process.env.XDG_DATA_HOME = 'data';
 	const xdg = importFresh('.');
-	t.is(xdg.cache, 'cache');
+	t.is(xdg.data, 'data');
 });
 
 test('.runtime', t => {
@@ -32,18 +32,18 @@ test('.state', t => {
 	t.is(xdg.state, 'state');
 });
 
-test('.dataDirs', t => {
-	process.env.XDG_DATA_DIRS = ['dirs', 'data_dirs'].join(path.delimiter);
-	const xdg = importFresh('.');
-	t.is(xdg.dataDirs[0], 'data');
-	t.is(xdg.dataDirs[1], 'dirs');
-	t.is(xdg.dataDirs[2], 'data_dirs');
-});
-
 test('.configDirs', t => {
 	process.env.XDG_CONFIG_DIRS = ['dirs', 'config_dirs'].join(path.delimiter);
 	const xdg = importFresh('.');
 	t.is(xdg.configDirs[0], 'config');
 	t.is(xdg.configDirs[1], 'dirs');
 	t.is(xdg.configDirs[2], 'config_dirs');
+});
+
+test('.dataDirs', t => {
+	process.env.XDG_DATA_DIRS = ['dirs', 'data_dirs'].join(path.delimiter);
+	const xdg = importFresh('.');
+	t.is(xdg.dataDirs[0], 'data');
+	t.is(xdg.dataDirs[1], 'dirs');
+	t.is(xdg.dataDirs[2], 'data_dirs');
 });
