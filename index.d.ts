@@ -1,18 +1,18 @@
 declare const xdg: {
 	/**
-	Directory for user-specific data files.
+	Directory for user-specific non-essential data files.
 
 	@example
 	```js
 	import xdg = require('xdg-portable');
 
-	xdg.data;
-	//(mac)=> '/Users/rivy/Library/Application Support'
-	//(nix)=> '/home/rivy/.local/share'
-	//(win)=> 'C:\\Users\\rivy\\AppData\\Roaming\\xdg.data'
+	xdg.cache;
+	//(mac)=> '/Users/rivy/Library/Caches'
+	//(nix)=> '/home/rivy/.cache'
+	//(win)=> 'C:\\Users\\rivy\\AppData\\Local\\cache'
 	```
 	*/
-	readonly data?: string;
+	readonly cache?: string;
 
 	/**
 	Directory for user-specific configuration files.
@@ -30,19 +30,19 @@ declare const xdg: {
 	readonly config?: string;
 
 	/**
-	Directory for user-specific non-essential data files.
+	Directory for user-specific data files.
 
 	@example
 	```js
 	import xdg = require('xdg-portable');
 
-	xdg.cache;
-	//(mac)=> '/Users/rivy/Library/Caches'
-	//(nix)=> '/home/rivy/.cache'
-	//(win)=> 'C:\\Users\\rivy\\AppData\\Local\\cache'
+	xdg.data;
+	//(mac)=> '/Users/rivy/Library/Application Support'
+	//(nix)=> '/home/rivy/.local/share'
+	//(win)=> 'C:\\Users\\rivy\\AppData\\Roaming\\xdg.data'
 	```
 	*/
-	readonly cache?: string;
+	readonly data?: string;
 
 	/**
 	Directory for user-specific non-essential runtime files and other file objects (such as sockets, named pipes, etc).
@@ -75,21 +75,6 @@ declare const xdg: {
 	readonly state?: string;
 
 	/**
-	Preference-ordered array of base directories to search for data files in addition to `.data`.
-
-	@example
-	```js
-	import xdg = require('xdg-portable');
-
-	xdg.dataDirs
-	//(mac)=> ['/Users/rivy/Library/Preferences']
-	//(nix)=> ['/home/rivy/.local/share', '/usr/local/share/', '/usr/share/']
-	//(win)=> ['C:\\Users\\rivy\\AppData\\Roaming\\xdg.data']
-	```
-	*/
-	readonly dataDirs: readonly string[];
-
-	/**
 	Preference-ordered array of base directories to search for configuration files in addition to `.config`.
 
 	@example
@@ -103,6 +88,21 @@ declare const xdg: {
 	```
 	*/
 	readonly configDirs: readonly string[];
+
+	/**
+	Preference-ordered array of base directories to search for data files in addition to `.data`.
+
+	@example
+	```js
+	import xdg = require('xdg-portable');
+
+	xdg.dataDirs
+	//(mac)=> ['/Users/rivy/Library/Preferences']
+	//(nix)=> ['/home/rivy/.local/share', '/usr/local/share/', '/usr/share/']
+	//(win)=> ['C:\\Users\\rivy\\AppData\\Roaming\\xdg.data']
+	```
+	*/
+	readonly dataDirs: readonly string[];
 };
 
 export = xdg;

@@ -13,6 +13,31 @@ const {env} = process;
 // # ref: <https://wiki.debian.org/XDGBaseDirectorySpecification#state> @@ <http://archive.is/pahId>
 // # ref: <https://ploum.net/207-modify-your-application-to-use-xdg-folders> @@ <https://archive.is/f43Gk>
 
+const linux = () => {
+	const _config = env.XDG_CONFIG_HOME ? env.XDG_CONFIG_HOME : path.join(homedir, '.config');
+	const _data = env.XDG_DATA_HOME ? env.XDG_DATA_HOME : path.join(homedir, '.local', 'share');
+
+	const _configDirs = [_config];
+	if (env.XDG_CONFIG_DIRS) {
+		_configDirs.push(...env.XDG_CONFIG_DIRS.split(path.delimiter));
+	}
+
+	const _dataDirs = [_data];
+	if (env.XDG_DATA_DIRS) {
+		_dataDirs.push(...env.XDG_DATA_DIRS.split(path.delimiter));
+	}
+
+	return {
+		cache: env.XDG_CACHE_HOME || path.join(homedir, '.cache'),
+		config: _config,
+		data: _data,
+		runtime: env.XDG_RUNTIME_DIR ? env.XDG_RUNTIME_DIR : undefined,
+		state: env.XDG_STATE_HOME || path.join(homedir, '.local', 'state'),
+		configDirs: _configDirs,
+		dataDirs: _dataDirs
+	};
+};
+
 const macos = () => {
 	const library = path.join(homedir, 'Library');
 
@@ -66,31 +91,6 @@ const windows = () => {
 		data: _data,
 		runtime: env.XDG_RUNTIME_DIR ? env.XDG_RUNTIME_DIR : undefined,
 		state: env.XDG_STATE_HOME ? env.XDG_STATE_HOME : path.join(localAppData, 'xdg.state'),
-		configDirs: _configDirs,
-		dataDirs: _dataDirs
-	};
-};
-
-const linux = () => {
-	const _config = env.XDG_CONFIG_HOME ? env.XDG_CONFIG_HOME : path.join(homedir, '.config');
-	const _data = env.XDG_DATA_HOME ? env.XDG_DATA_HOME : path.join(homedir, '.local', 'share');
-
-	const _configDirs = [_config];
-	if (env.XDG_CONFIG_DIRS) {
-		_configDirs.push(...env.XDG_CONFIG_DIRS.split(path.delimiter));
-	}
-
-	const _dataDirs = [_data];
-	if (env.XDG_DATA_DIRS) {
-		_dataDirs.push(...env.XDG_DATA_DIRS.split(path.delimiter));
-	}
-
-	return {
-		cache: env.XDG_CACHE_HOME || path.join(homedir, '.cache'),
-		config: _config,
-		data: _data,
-		runtime: env.XDG_RUNTIME_DIR ? env.XDG_RUNTIME_DIR : undefined,
-		state: env.XDG_STATE_HOME || path.join(homedir, '.local', 'state'),
 		configDirs: _configDirs,
 		dataDirs: _dataDirs
 	};
