@@ -15,15 +15,15 @@ $ npm install xdg-portable
 ```js
 const xdg = require('xdg-portable');
 
-xdg.data;
-//(mac)=> '/Users/rivy/Library/Application Support'
-//(nix)=> '/home/rivy/.local/share'
-//(win)=> 'C:\\Users\\rivy\\AppData\\Roaming\\xdg.data'
-
 xdg.config;
 //(mac)=> '/Users/rivy/Library/Preferences'
 //(nix)=> '/home/rivy/.config'
 //(win)=> 'C:\\Users\\rivy\\AppData\\Roaming\\xdg.config'
+
+xdg.data;
+//(mac)=> '/Users/rivy/Library/Application Support'
+//(nix)=> '/home/rivy/.local/share'
+//(win)=> 'C:\\Users\\rivy\\AppData\\Roaming\\xdg.data'
 
 xdg.dataDirs
 //(mac)=> ['/Users/rivy/Library/Preferences']
@@ -33,19 +33,19 @@ xdg.dataDirs
 
 ## API
 
-The properties `.data`, `.config`, `.cache`, `.runtime`, `.state` will return `null` in the uncommon case that both the XDG environment variable is not set and the users home directory can't be found. You need to handle this case. A common solution is to [fall back to a temp directory](https://github.com/yeoman/configstore/blob/b82690fc401318ad18dcd7d151a0003a4898a314/index.js#L15).
+The properties `.cache`, `.config`, `.data`, `.runtime`, `.state` will return `null` in the uncommon case that both the XDG environment variable is not set and the users home directory can't be found. You need to handle this case. A common solution is to [fall back to a temp directory](https://github.com/yeoman/configstore/blob/b82690fc401318ad18dcd7d151a0003a4898a314/index.js#L15).
 
-### .data
+### .cache
 
-Directory for user-specific data files.
+Directory for user-specific non-essential data files.
 
 ### .config
 
 Directory for user-specific configuration files.
 
-### .cache
+### .data
 
-Directory for user-specific non-essential data files.
+Directory for user-specific data files.
 
 ### .runtime
 
