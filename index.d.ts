@@ -8,13 +8,13 @@ declare const xdg: {
 	```js
 	import xdg = require('xdg-portable');
 
-	xdg.cache;
+	xdg.cache();
 	//(mac)=> '/Users/rivy/Library/Caches'
 	//(nix)=> '/home/rivy/.cache'
 	//(win)=> 'C:\\Users\\rivy\\AppData\\Local\\cache'
 	```
 	*/
-	readonly cache: string;
+	cache(): string;
 
 	/**
 	Directory for user-specific configuration files.
@@ -23,13 +23,13 @@ declare const xdg: {
 	```js
 	import xdg = require('xdg-portable');
 
-	xdg.config;
+	xdg.config();
 	//(mac)=> '/Users/rivy/Library/Preferences'
 	//(nix)=> '/home/rivy/.config'
 	//(win)=> 'C:\\Users\\rivy\\AppData\\Roaming\\xdg.config'
 	```
 	*/
-	readonly config: string;
+	config(): string;
 
 	/**
 	Directory for user-specific data files.
@@ -38,13 +38,13 @@ declare const xdg: {
 	```js
 	import xdg = require('xdg-portable');
 
-	xdg.data;
+	xdg.data();
 	//(mac)=> '/Users/rivy/Library/Application Support'
 	//(nix)=> '/home/rivy/.local/share'
 	//(win)=> 'C:\\Users\\rivy\\AppData\\Roaming\\xdg.data'
 	```
 	*/
-	readonly data: string;
+	data(): string;
 
 	/**
 	Directory for user-specific non-essential runtime files and other file objects (such as sockets, named pipes, etc).
@@ -53,13 +53,13 @@ declare const xdg: {
 	```js
 	import xdg = require('xdg-portable');
 
-	xdg.runtime;
+	xdg.runtime();
 	//(mac)=> undefined
 	//(nix)=> '/run/user/rivy'
 	//(win)=> undefined
 	```
 	*/
-	readonly runtime?: string;
+	runtime(): string | undefined;
 
 	/**
 	Directory for user-specific state files (non-essential and more volatile than configuration files).
@@ -68,13 +68,13 @@ declare const xdg: {
 	```js
 	import xdg = require('xdg-portable');
 
-	xdg.state;
+	xdg.state();
 	//(mac)=> '/Users/rivy/Library/State'
 	//(nix)=> '/home/rivy/.local/state'
 	//(win)=> 'C:\\Users\\rivy\\AppData\\Local\\xdg.state'
 	```
 	*/
-	readonly state: string;
+	state(): string;
 
 	/**
 	Preference-ordered array of base directories to search for configuration files in addition to `.config`.
@@ -83,13 +83,13 @@ declare const xdg: {
 	```js
 	import xdg = require('xdg-portable');
 
-	xdg.configDirs;
+	xdg.configDirs();
 	//(mac)=> ['/Users/rivy/Library/Preferences']
 	//(nix)=> ['/home/rivy/.config', '/etc/xdg']
 	//(win)=> ['C:\\Users\\rivy\\AppData\\Roaming\\xdg.config']
 	```
 	*/
-	readonly configDirs: readonly string[];
+	configDirs(): string[];
 
 	/**
 	Preference-ordered array of base directories to search for data files in addition to `.data`.
@@ -98,13 +98,13 @@ declare const xdg: {
 	```js
 	import xdg = require('xdg-portable');
 
-	xdg.dataDirs
+	xdg.dataDirs();
 	//(mac)=> ['/Users/rivy/Library/Preferences']
 	//(nix)=> ['/home/rivy/.local/share', '/usr/local/share/', '/usr/share/']
 	//(win)=> ['C:\\Users\\rivy\\AppData\\Roaming\\xdg.data']
 	```
 	*/
-	readonly dataDirs: readonly string[];
+	dataDirs(): string[];
 };
 
 export = xdg;

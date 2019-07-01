@@ -1,5 +1,8 @@
 'use strict';
 
+const _ = require('lodash');
 const xdg = require('..');
 
-console.log(xdg);
+_.each(xdg, (value, key) => {
+	console.log(key, '=', xdg[key]());
+});

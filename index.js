@@ -1,12 +1,9 @@
 // # spell-checker:ignore macos APPDATA LOCALAPPDATA
-
+/* eslint-env es6, node */
 'use strict';
 
 const os = require('os');
 const path = require('path');
-
-const homedir = os.homedir() || os.tmpdir();
-const {env} = process;
 
 // XDG references
 // # ref: <https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html> @@ <https://archive.is/aAhtw>
@@ -16,52 +13,104 @@ const {env} = process;
 // # ref: <https://ploum.net/207-modify-your-application-to-use-xdg-folders> @@ <https://archive.is/f43Gk>
 
 const linux = () => {
-	const _config = env.XDG_CONFIG_HOME ? env.XDG_CONFIG_HOME : path.join(homedir, '.config');
-	const _data = env.XDG_DATA_HOME ? env.XDG_DATA_HOME : path.join(homedir, '.local', 'share');
-
-	const _configDirs = [_config];
-	if (env.XDG_CONFIG_DIRS) {
-		_configDirs.push(...env.XDG_CONFIG_DIRS.split(path.delimiter));
+	function _cache() {
+		return process.env.XDG_CACHE_HOME || path.join(os.homedir() || os.tmpdir(), '.cache');
 	}
 
-	const _dataDirs = [_data];
-	if (env.XDG_DATA_DIRS) {
-		_dataDirs.push(...env.XDG_DATA_DIRS.split(path.delimiter));
+	function _config() {
+		return process.env.XDG_CONFIG_HOME || path.join(os.homedir() || os.tmpdir(), '.config');
+	}
+
+	function _data() {
+		return process.env.XDG_DATA_HOME || path.join(os.homedir() || os.tmpdir(), '.local', 'share');
+	}
+
+	function _runtime() {
+		return process.env.XDG_RUNTIME_DIR || undefined;
+	}
+
+	function _state() {
+		return process.env.XDG_STATE_HOME || path.join(os.homedir() || os.tmpdir(), '.local', 'state');
+	}
+
+	function _configDirs() {
+		const dirs = [];
+		dirs.push(_config());
+		if (process.env.XDG_CONFIG_DIRS) {
+			dirs.push(...process.env.XDG_CONFIG_DIRS.split(path.delimiter));
+		}
+
+		return dirs;
+	}
+
+	function _dataDirs() {
+		const dirs = [];
+		dirs.push(_data());
+		if (process.env.XDG_DATA_DIRS) {
+			dirs.push(...process.env.XDG_DATA_DIRS.split(path.delimiter));
+		}
+
+		return dirs;
 	}
 
 	return {
-		cache: env.XDG_CACHE_HOME || path.join(homedir, '.cache'),
+		cache: _cache,
 		config: _config,
 		data: _data,
-		runtime: env.XDG_RUNTIME_DIR ? env.XDG_RUNTIME_DIR : undefined,
-		state: env.XDG_STATE_HOME || path.join(homedir, '.local', 'state'),
+		runtime: _runtime,
+		state: _state,
 		configDirs: _configDirs,
 		dataDirs: _dataDirs
 	};
 };
 
 const macos = () => {
-	const library = path.join(homedir, 'Library');
-
-	const _config = env.XDG_CONFIG_HOME ? env.XDG_CONFIG_HOME : path.join(library, 'Preferences');
-	const _data = env.XDG_DATA_HOME ? env.XDG_DATA_HOME : path.join(library, 'Application Support');
-
-	const _configDirs = [_config];
-	if (env.XDG_CONFIG_DIRS) {
-		_configDirs.push(...env.XDG_CONFIG_DIRS.split(path.delimiter));
+	function _cache() {
+		return process.env.XDG_CACHE_HOME || path.join(path.join(os.homedir() || os.tmpdir(), 'Library'), 'Caches');
 	}
 
-	const _dataDirs = [_data];
-	if (env.XDG_DATA_DIRS) {
-		_dataDirs.push(...env.XDG_DATA_DIRS.split(path.delimiter));
+	function _config() {
+		return process.env.XDG_CONFIG_HOME || path.join(path.join(os.homedir() || os.tmpdir(), 'Library'), 'Preferences');
+	}
+
+	function _data() {
+		return process.env.XDG_DATA_HOME || path.join(path.join(os.homedir() || os.tmpdir(), 'Library'), 'Application Support');
+	}
+
+	function _runtime() {
+		return process.env.XDG_RUNTIME_DIR || undefined;
+	}
+
+	function _state() {
+		return process.env.XDG_STATE_HOME || path.join(path.join(os.homedir() || os.tmpdir(), 'Library'), 'State');
+	}
+
+	function _configDirs() {
+		const dirs = [];
+		dirs.push(_config());
+		if (process.env.XDG_CONFIG_DIRS) {
+			dirs.push(...process.env.XDG_CONFIG_DIRS.split(path.delimiter));
+		}
+
+		return dirs;
+	}
+
+	function _dataDirs() {
+		const dirs = [];
+		dirs.push(_data());
+		if (process.env.XDG_DATA_DIRS) {
+			dirs.push(...process.env.XDG_DATA_DIRS.split(path.delimiter));
+		}
+
+		return dirs;
 	}
 
 	return {
-		cache: env.XDG_CACHE_HOME ? env.XDG_CACHE_HOME : path.join(library, 'Caches'),
+		cache: _cache,
 		config: _config,
 		data: _data,
-		runtime: env.XDG_RUNTIME_DIR ? env.XDG_RUNTIME_DIR : undefined,
-		state: env.XDG_STATE_HOME ? env.XDG_STATE_HOME : path.join(library, 'State'),
+		runtime: _runtime,
+		state: _state,
 		configDirs: _configDirs,
 		dataDirs: _dataDirs
 	};
@@ -69,30 +118,58 @@ const macos = () => {
 
 const windows = () => {
 	// # ref: <https://www.thewindowsclub.com/local-localnow-roaming-folders-windows-10> @@ <http://archive.is/tDEPl>
-	const appData = env.APPDATA || path.join(homedir, 'AppData', 'Roaming');			// "AppData/Roaming" contains data which may follow user between machines
-	const localAppData = env.LOCALAPPDATA || path.join(homedir, 'AppData', 'Local');	// "AppData/Local" contains local-machine-only user data
-
 	// Locations for cache/config/data/state are invented (Windows doesn't have a popular convention)
 
-	const _config = env.XDG_CONFIG_HOME ? env.XDG_CONFIG_HOME : path.join(appData, 'xdg.config');
-	const _data = env.XDG_DATA_HOME ? env.XDG_DATA_HOME : path.join(appData, 'xdg.data');
-
-	const _configDirs = [_config];
-	if (env.XDG_CONFIG_DIRS) {
-		_configDirs.push(...env.XDG_CONFIG_DIRS.split(path.delimiter));
+	function _cache() {
+		const localAppData = process.env.LOCALAPPDATA || path.join(os.homedir() || os.tmpdir(), 'AppData', 'Local');	// "AppData/Local" contains local-machine-only user data
+		return process.env.XDG_CACHE_HOME || path.join(localAppData, 'xdg.cache');
 	}
 
-	const _dataDirs = [_data];
-	if (env.XDG_DATA_DIRS) {
-		_dataDirs.push(...env.XDG_DATA_DIRS.split(path.delimiter));
+	function _config() {
+		const appData = process.env.APPDATA || path.join(os.homedir() || os.tmpdir(), 'AppData', 'Roaming');			// "AppData/Roaming" contains data which may follow user between machines
+		return process.env.XDG_CONFIG_HOME || path.join(appData, 'xdg.config');
+	}
+
+	function _data() {
+		const appData = process.env.APPDATA || path.join(os.homedir() || os.tmpdir(), 'AppData', 'Roaming');			// "AppData/Roaming" contains data which may follow user between machines
+		return process.env.XDG_DATA_HOME || path.join(appData, 'xdg.data');
+	}
+
+	function _runtime() {
+		return process.env.XDG_RUNTIME_DIR || undefined;
+	}
+
+	function _state() {
+		const localAppData = process.env.LOCALAPPDATA || path.join(os.homedir() || os.tmpdir(), 'AppData', 'Local');	// "AppData/Local" contains local-machine-only user data
+		return process.env.XDG_STATE_HOME || path.join(localAppData, 'xdg.state');
+	}
+
+	function _configDirs() {
+		const dirs = [];
+		dirs.push(_config());
+		if (process.env.XDG_CONFIG_DIRS) {
+			dirs.push(...process.env.XDG_CONFIG_DIRS.split(path.delimiter));
+		}
+
+		return dirs;
+	}
+
+	function _dataDirs() {
+		const dirs = [];
+		dirs.push(_data());
+		if (process.env.XDG_DATA_DIRS) {
+			dirs.push(...process.env.XDG_DATA_DIRS.split(path.delimiter));
+		}
+
+		return dirs;
 	}
 
 	return {
-		cache: env.XDG_CACHE_HOME ? env.XDG_CACHE_HOME : path.join(localAppData, 'xdg.cache'),
+		cache: _cache,
 		config: _config,
 		data: _data,
-		runtime: env.XDG_RUNTIME_DIR ? env.XDG_RUNTIME_DIR : undefined,
-		state: env.XDG_STATE_HOME ? env.XDG_STATE_HOME : path.join(localAppData, 'xdg.state'),
+		runtime: _runtime,
+		state: _state,
 		configDirs: _configDirs,
 		dataDirs: _dataDirs
 	};

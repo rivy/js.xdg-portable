@@ -4,6 +4,7 @@
 <!-- spell-checker:ignore expandtab markdownlint modeline smarttab softtabstop -->
 
 <!-- spell-checker:ignore rivy Sindre Sorhus sindresorhus tmpdir -->
+<!-- spell-checker:ignore APPDATA LOCALAPPDATA subdir tmpdir -->
 
 # xdg-portable [![Build Status](https://travis-ci.org/rivy/js.xdg-portable.svg?branch=master)](https://travis-ci.org/rivy/js.xdg-portable)
 
@@ -22,17 +23,17 @@ npm install xdg-portable
 ```js
 const xdg = require('xdg-portable');
 
-xdg.config;
+xdg.config();
 //(mac)=> '/Users/rivy/Library/Preferences'
 //(nix)=> '/home/rivy/.config'
 //(win)=> 'C:\\Users\\rivy\\AppData\\Roaming\\xdg.config'
 
-xdg.data;
+xdg.data();
 //(mac)=> '/Users/rivy/Library/Application Support'
 //(nix)=> '/home/rivy/.local/share'
 //(win)=> 'C:\\Users\\rivy\\AppData\\Roaming\\xdg.data'
 
-xdg.dataDirs
+xdg.dataDirs()
 //(mac)=> ['/Users/rivy/Library/Preferences']
 //(nix)=> ['/home/rivy/.local/share', '/usr/local/share/', '/usr/share/']
 //(win)=> ['C:\\Users\\rivy\\AppData\\Roaming\\xdg.data']
@@ -42,31 +43,31 @@ xdg.dataDirs
 
 In the uncommon case that both the XDG environment variable is not set and the users home directory can't be found, `os.tmpdir()` will be used as a fallback for the missing `os.homedir()` value.
 
-### .cache
+### .cache()
 
 Directory for user-specific non-essential data files.
 
-### .config
+### .config()
 
 Directory for user-specific configuration files.
 
-### .data
+### .data()
 
 Directory for user-specific data files.
 
-### .runtime
+### .runtime()
 
 Directory for user-specific non-essential runtime files and other file objects (such as sockets, named pipes, etc).
 
-### .state
+### .state()
 
 Directory for user-specific state files (non-essential and more volatile than configuration files).
 
-### .dataDirs
+### .dataDirs()
 
 Preference-ordered array of base directories to search for data files in addition to `.data`.
 
-### .configDirs
+### .configDirs()
 
 Preference-ordered array of base directories to search for configuration files in addition to `.config`.
 
