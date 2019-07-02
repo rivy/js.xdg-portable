@@ -33,34 +33,12 @@ const linux = () => {
 		return process.env.XDG_STATE_HOME || path.join(os.homedir() || os.tmpdir(), '.local', 'state');
 	}
 
-	function _configDirs() {
-		const dirs = [];
-		dirs.push(_config());
-		if (process.env.XDG_CONFIG_DIRS) {
-			dirs.push(...process.env.XDG_CONFIG_DIRS.split(path.delimiter));
-		}
-
-		return dirs;
-	}
-
-	function _dataDirs() {
-		const dirs = [];
-		dirs.push(_data());
-		if (process.env.XDG_DATA_DIRS) {
-			dirs.push(...process.env.XDG_DATA_DIRS.split(path.delimiter));
-		}
-
-		return dirs;
-	}
-
 	return {
 		cache: _cache,
 		config: _config,
 		data: _data,
 		runtime: _runtime,
-		state: _state,
-		configDirs: _configDirs,
-		dataDirs: _dataDirs
+		state: _state
 	};
 };
 
@@ -85,34 +63,12 @@ const macos = () => {
 		return process.env.XDG_STATE_HOME || path.join(path.join(os.homedir() || os.tmpdir(), 'Library'), 'State');
 	}
 
-	function _configDirs() {
-		const dirs = [];
-		dirs.push(_config());
-		if (process.env.XDG_CONFIG_DIRS) {
-			dirs.push(...process.env.XDG_CONFIG_DIRS.split(path.delimiter));
-		}
-
-		return dirs;
-	}
-
-	function _dataDirs() {
-		const dirs = [];
-		dirs.push(_data());
-		if (process.env.XDG_DATA_DIRS) {
-			dirs.push(...process.env.XDG_DATA_DIRS.split(path.delimiter));
-		}
-
-		return dirs;
-	}
-
 	return {
 		cache: _cache,
 		config: _config,
 		data: _data,
 		runtime: _runtime,
-		state: _state,
-		configDirs: _configDirs,
-		dataDirs: _dataDirs
+		state: _state
 	};
 };
 
@@ -144,9 +100,28 @@ const windows = () => {
 		return process.env.XDG_STATE_HOME || path.join(localAppData, 'xdg.state');
 	}
 
+	return {
+		cache: _cache,
+		config: _config,
+		data: _data,
+		runtime: _runtime,
+		state: _state
+	};
+};
+
+const xdgPortable = () => {
+	let exp = {};
+	if (process.platform === 'darwin') {
+		exp = macos();
+	} else 	if (process.platform === 'win32') {
+		exp = windows();
+	} else {
+		exp = linux();
+	}
+
 	function _configDirs() {
 		const dirs = [];
-		dirs.push(_config());
+		dirs.push(exp.config());
 		if (process.env.XDG_CONFIG_DIRS) {
 			dirs.push(...process.env.XDG_CONFIG_DIRS.split(path.delimiter));
 		}
@@ -156,7 +131,7 @@ const windows = () => {
 
 	function _dataDirs() {
 		const dirs = [];
-		dirs.push(_data());
+		dirs.push(exp.data());
 		if (process.env.XDG_DATA_DIRS) {
 			dirs.push(...process.env.XDG_DATA_DIRS.split(path.delimiter));
 		}
@@ -164,27 +139,10 @@ const windows = () => {
 		return dirs;
 	}
 
-	return {
-		cache: _cache,
-		config: _config,
-		data: _data,
-		runtime: _runtime,
-		state: _state,
-		configDirs: _configDirs,
-		dataDirs: _dataDirs
-	};
-};
+	exp.configDirs = _configDirs;
+	exp.dataDirs = _dataDirs;
 
-const xdgPortable = () => {
-	if (process.platform === 'darwin') {
-		return macos();
-	}
-
-	if (process.platform === 'win32') {
-		return windows();
-	}
-
-	return linux();
+	return exp;
 };
 
 module.exports = xdgPortable();
