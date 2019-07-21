@@ -111,9 +111,9 @@ const windows = () => {
 
 const xdgPortable = () => {
 	let exp = {};
-	if (process.platform === 'darwin') {
+	if (/^darwin$/i.test(process.platform)) {
 		exp = macos();
-	} else 	if (process.platform === 'win32') {
+	} else 	if (/^win/i.test(process.platform)) {
 		exp = windows();
 	} else {
 		exp = linux();
