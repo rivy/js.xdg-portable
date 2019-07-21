@@ -9,13 +9,15 @@
 
 # [xdg-portable](https://github.com/rivy/js.xdg-portable)
 
-> Get [XDG Base Directory](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html) paths
+> Get [XDG Base Directory](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html) paths (cross-platform)
 
+[![License][license-image]][license-url]
 [![Build status][travis-image]][travis-url]
 [![Build status][appveyor-image]][appveyor-url]
+[![Coverage status][coverage-image]][coverage-url]
+[![Javascript Style Guide][style-image]][style-url]
 <br/>
 [![NPM version][npm-image]][npm-url]
-[![License][license-image]][license-url]
 [![Downloads][downloads-image]][downloads-url]
 
 <!--
@@ -66,11 +68,25 @@ mkdirp.sync(stateDir, 0o700);
 
 ## API
 
+### Initialization
+
+#### `require('xdg-portable'): XDGPortable()`
+
+```js
+const xdg = require('xdg-portable')
+// or...
+const xdg = require('xdg-portable')()
+```
+
+The object returned by the module constructor is an XDGPortable Function object, augmented with attached methods. It acts a flexible constructor when called directly (eg, `const y = xdg()`) returning a newly constructed (and unrelated) XDGPortable object.
+
+### Methods
+
 All module methods return platform-compatible path strings.
 
-The returned paths are *not* guaranteed to exist. The application is responsible for construction of the directories when needed.
+The returned paths are simple strings and are *not* guaranteed to exist. The application is responsible for construction of the directories when needed. If needed, [`make-dir`](https://www.npmjs.com/package/make-dir) or [`mkdirp`](https://www.npmjs.com/package/mkdirp) can be used to create the directories.
 
-#### `.cache(): string`
+#### `xdg.cache(): string`
 
 Returns the directory for user-specific non-essential (cached) data files
 
@@ -80,7 +96,7 @@ This location would be analogous to */var/cache* for *nix.
 
 `%LocalAppData%\xdg.cache` is the default for the windows platform.
 
-#### `.config(): string`
+#### `xdg.config(): string`
 
 Returns the directory for user-specific configuration files
 
@@ -90,7 +106,7 @@ This location would be analogous to */etc* for *nix.
 
 `%AppData%\xdg.config` is the default for the windows platform.
 
-#### `.data(): string`
+#### `xdg.data(): string`
 
 Returns the directory for user-specific data files
 
@@ -100,7 +116,7 @@ This location would be analogous to */usr/share* for *nix.
 
 `%AppData%\xdg.data` is the default for the windows platform.
 
-#### `.runtime(): string | undefined`
+#### `xdg.runtime(): string?`
 
 Returns the directory for user-specific non-essential runtime data files (such as sockets, named pipes, etc); may be `undefined`
 
@@ -112,7 +128,7 @@ The XDG specification defines some fairly strict specifications for a "runtime"-
 
 - ref: [archlinux ~ XDG Base Directory](https://wiki.archlinux.org/index.php/XDG_Base_Directory#User_directories)
 
-#### `.state(): string`
+#### `xdg.state(): string`
 
 Returns the directory for user-specific state files (non-essential and more volatile than configuration files)
 
@@ -122,11 +138,11 @@ This location might hold data such as backups, input history, logs, recent file 
 
 `%LocalAppData%\xdg.state` is the default for the windows platform.
 
-#### `.configDirs(): string[]`
+#### `xdg.configDirs(): string[]`
 
 Returns a reference-ordered array of base directories to search for configuration files (includes `.config()` as the first entry)
 
-#### `.dataDirs(): string[]`
+#### `xdg.dataDirs(): string[]`
 
 Returns a preference-ordered array of base directories to search for data files (includes `.data()` as the first entry)
 
@@ -134,7 +150,7 @@ Returns a preference-ordered array of base directories to search for data files 
 
 The [XDG Base Directory Specification](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html) defines categories of user information (ie, "cache", "config", "data", ...), defines their standard storage locations, and defines the standard process for user configuration of those locations (using `XDG_CACHE_HOME`, etc).
 
-Applications supporting the XDG convention are expected to store user-specific files within these locations, either within the common/shared directory (eg, `` `${xdg.cache()}/filename` ``) or within a more isolated application-defined subdirectory (eg, `` `${xdf.config()/dir/filename` ``; `dir` usually being the application name).
+Applications supporting the XDG convention are expected to store user-specific files within these locations, either within the common/shared directory (eg, `` `${xdg.cache()}/filename` ``) or within a more isolated application-defined subdirectory (eg, `` `${xdg.config()}/dir/filename` ``; `dir` usually being the application name).
 
 ### Windows ("win32") specific notes
 
@@ -142,7 +158,7 @@ Windows has an alternate convention, offering just two standard locations for ap
 
 So, to support basic XDG-like behavior (that is, segregating the information types into type-specific directories), this module creates a new convention for Windows hosts, placing the specific types of files into subdirectories under either `%APPDATA%` or `%LOCALAPPDATA%`, as appropriate for the file type. For example, "cache"-type files will be offered placement into `%LOCALAPPDATA%\xdg.cache`, "config"-type files into `%APPDATA%\xdg.config`, "data"-type files into `%APPDATA%\xdg.data`, etc.
 
-[`xdg-app-paths`](https://github.com/rivy/js.xdg-app-paths) builds on this module and offers application specific paths more in-line with usual platform conventions, but still compatible with the XDG specification.
+[`xdg-app-paths`](https://www.npmjs.com/package/xdg-app-paths) builds on this module and offers application specific paths more in-line with usual platform conventions, but still compatible with the XDG specification.
 
 ### Fallback to `os.tmpdir()`
 
@@ -154,6 +170,11 @@ This module was forked from [sindresorhus/xdg-basedir](https://github.com/sindre
 
 - ref: <https://github.com/sindresorhus/xdg-basedir/pull/4>
 
+## Related
+
+- [`xdg-app-paths`](https://www.npmjs.com/package/xdg-app-paths) ... easy XDG for applications
+- [`xdg-basedir`](https://www.npmjs.com/package/xdg-basedir) ... inspiration for this module
+
 ## License
 
 MIT © [Roy Ivy III](https://github.com/rivy), [Sindre Sorhus](https://sindresorhus.com)
@@ -162,14 +183,24 @@ MIT © [Roy Ivy III](https://github.com/rivy), [Sindre Sorhus](https://sindresor
 
 [npm-image]: https://img.shields.io/npm/v/xdg-portable.svg?style=flat
 [npm-url]: https://npmjs.org/package/xdg-portable
+
+<!-- [appveyor-image]: https://ci.appveyor.com/api/projects/status/.../branch/master?svg=true -->
+[appveyor-image]: https://img.shields.io/appveyor/ci/rivy/js-xdg-portable.svg?style=flat&logo=AppVeyor&logoColor=silver
+[appveyor-url]: https://ci.appveyor.com/project/rivy/js-xdg-portable
 <!-- [travis-image]: https://travis-ci.org/rivy/js.xdg-portable.svg?branch=master -->
 <!-- [travis-image]: https://img.shields.io/travis/rivy/js.xdg-portable.svg?style=flat&logo=Travis-CI&logoColor=silver -->
 [travis-image]: https://img.shields.io/travis/rivy/js.xdg-portable.svg?style=flat
 [travis-url]: https://travis-ci.org/rivy/js.xdg-portable
-<!-- [appveyor-image]: https://ci.appveyor.com/api/projects/status/7akve7f2n2ei5cpx?svg=true -->
-[appveyor-image]: https://img.shields.io/appveyor/ci/rivy/js-xdg-portable.svg?style=flat&logo=AppVeyor&logoColor=silver
-[appveyor-url]: https://ci.appveyor.com/project/rivy/js-xdg-portable
-[license-image]: http://img.shields.io/npm/l/xdg-portable.svg?style=flat
-[license-url]: license
+
+<!-- [coverage-image]: https://img.shields.io/coveralls/github/rivy/xdg-portable/master.svg -->
+<!-- [coverage-url]: https://coveralls.io/github/rivy/xdg-portable -->
+[coverage-image]: https://img.shields.io/codecov/c/github/rivy/js.xdg-portable/master.svg
+[coverage-url]: https://codecov.io/gh/rivy/js.xdg-portable
 [downloads-image]: http://img.shields.io/npm/dm/xdg-portable.svg?style=flat
 [downloads-url]: https://npmjs.org/package/xdg-portable
+[license-image]: https://img.shields.io/npm/l/xdg-portable.svg?style=flat
+[license-url]: license
+<!-- [style-image]: https://img.shields.io/badge/code_style-standard-darkcyan.svg -->
+<!-- [style-url]: https://standardjs.com -->
+[style-image]: https://img.shields.io/badge/code_style-XO-darkcyan.svg
+[style-url]: https://github.com/xojs/xo
