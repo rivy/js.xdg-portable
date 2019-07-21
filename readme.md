@@ -7,9 +7,16 @@
 <!-- spell-checker:ignore rivy Sindre Sorhus sindresorhus -->
 <!-- spell-checker:ignore APPDATA LOCALAPPDATA subdir tmpdir archlinux -->
 
-# [xdg-portable](https://github.com/rivy/js.xdg-portable) [![Build Status](https://travis-ci.org/rivy/js.xdg-portable.svg?branch=master)](https://travis-ci.org/rivy/js.xdg-portable) [![Build status](https://ci.appveyor.com/api/projects/status/7akve7f2n2ei5cpx?svg=true)](https://ci.appveyor.com/project/rivy/js-xdg-portable)
+# [xdg-portable](https://github.com/rivy/js.xdg-portable)
 
 > Get [XDG Base Directory](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html) paths
+
+[![Build status][travis-image]][travis-url]
+[![Build status][appveyor-image]][appveyor-url]
+<br/>
+[![NPM version][npm-image]][npm-url]
+[![License][license-image]][license-url]
+[![Downloads][downloads-image]][downloads-url]
 
 <!--
 XDG references
@@ -150,3 +157,19 @@ This module was forked from [sindresorhus/xdg-basedir](https://github.com/sindre
 ## License
 
 MIT © [Roy Ivy III](https://github.com/rivy), [Sindre Sorhus](https://sindresorhus.com)
+
+<!-- badge references -->
+
+[npm-image]: https://img.shields.io/npm/v/xdg-portable.svg?style=flat
+[npm-url]: https://npmjs.org/package/xdg-portable
+<!-- [travis-image]: https://travis-ci.org/rivy/js.xdg-portable.svg?branch=master -->
+<!-- [travis-image]: https://img.shields.io/travis/rivy/js.xdg-portable.svg?style=flat&logo=Travis-CI&logoColor=silver -->
+[travis-image]: https://img.shields.io/travis/rivy/js.xdg-portable.svg?style=flat
+[travis-url]: https://travis-ci.org/rivy/js.xdg-portable
+<!-- [appveyor-image]: https://ci.appveyor.com/api/projects/status/7akve7f2n2ei5cpx?svg=true -->
+[appveyor-image]: https://img.shields.io/appveyor/ci/rivy/js-xdg-portable.svg?style=flat&logo=AppVeyor&logoColor=silver
+[appveyor-url]: https://ci.appveyor.com/project/rivy/js-xdg-portable
+[license-image]: http://img.shields.io/npm/l/xdg-portable.svg?style=flat
+[license-url]: license
+[downloads-image]: http://img.shields.io/npm/dm/xdg-portable.svg?style=flat
+[downloads-url]: https://npmjs.org/package/xdg-portable
