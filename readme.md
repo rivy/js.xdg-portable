@@ -74,11 +74,9 @@ mkdirp.sync(stateDir, 0o700);
 
 ```js
 const xdg = require('xdg-portable')
-// or...
-const xdg = require('xdg-portable')()
 ```
 
-The object returned by the module constructor is an XDGPortable Function object, augmented with attached methods. It acts a flexible constructor when called directly (eg, `const y = xdg()`) returning a newly constructed (and unrelated) XDGPortable object.
+The object returned by the module constructor is an XDGPortable Function object, augmented with attached methods. When called directly (eg, `const p = xdg()`), it returns a newly constructed XDGPortable object. Since the XDGPortable object contains no instance state, all constructed objects will be functionally identical.
 
 ### Methods
 
