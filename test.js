@@ -6,6 +6,12 @@ import {serial as test} from 'ava';
 
 import xdg from '.';
 
+test('alternate construction (via function)', t => {
+	const paths = xdg();
+	process.env.XDG_CACHE_HOME = 'cache';
+	t.is(paths.cache(), 'cache');
+});
+
 test('.cache', t => {
 	process.env.XDG_CACHE_HOME = 'cache';
 	t.is(xdg.cache(), 'cache');
