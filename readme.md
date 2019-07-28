@@ -60,7 +60,7 @@ stateDir = xdg.state()
 
 mkdirp.sync(configDir, 0o700);
 
-const dataDir = locatePath.sync(dataDirs) || possibleConfigPaths[0]
+const dataDir = locatePath.sync(dataDirs) || dataDirs[0]
 mkdirp.sync(dataDir, 0o700);
 
 mkdirp.sync(stateDir, 0o700);
