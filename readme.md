@@ -183,11 +183,11 @@ MIT © [Roy Ivy III](https://github.com/rivy), [Sindre Sorhus](https://sindresor
 [npm-url]: https://npmjs.org/package/xdg-portable
 
 <!-- [appveyor-image]: https://ci.appveyor.com/api/projects/status/.../branch/master?svg=true -->
-[appveyor-image]: https://img.shields.io/appveyor/ci/rivy/js-xdg-portable.svg?style=flat&logo=AppVeyor&logoColor=silver
+[appveyor-image]: https://img.shields.io/appveyor/ci/rivy/js-xdg-portable/master.svg?style=flat&logo=AppVeyor&logoColor=silver
 [appveyor-url]: https://ci.appveyor.com/project/rivy/js-xdg-portable
 <!-- [travis-image]: https://travis-ci.org/rivy/js.xdg-portable.svg?branch=master -->
-<!-- [travis-image]: https://img.shields.io/travis/rivy/js.xdg-portable.svg?style=flat&logo=Travis-CI&logoColor=silver -->
-[travis-image]: https://img.shields.io/travis/rivy/js.xdg-portable.svg?style=flat
+<!-- [travis-image]: https://img.shields.io/travis/rivy/js.xdg-portable/master.svg?style=flat&logo=Travis-CI&logoColor=silver -->
+[travis-image]: https://img.shields.io/travis/rivy/js.xdg-portable/master.svg?style=flat
 [travis-url]: https://travis-ci.org/rivy/js.xdg-portable
 
 <!-- [coverage-image]: https://img.shields.io/coveralls/github/rivy/xdg-portable/master.svg -->
