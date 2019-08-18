@@ -1,6 +1,6 @@
 // # spell-checker:ignore rivy
 
-declare const xdg: {
+declare namespace XDG {
 	/**
 	Directory for user-specific non-essential data files.
 
@@ -14,7 +14,7 @@ declare const xdg: {
 	//(win)=> 'C:\\Users\\rivy\\AppData\\Local\\cache'
 	```
 	*/
-	cache(): string;
+	function cache(): string;
 
 	/**
 	Directory for user-specific configuration files.
@@ -29,7 +29,7 @@ declare const xdg: {
 	//(win)=> 'C:\\Users\\rivy\\AppData\\Roaming\\xdg.config'
 	```
 	*/
-	config(): string;
+	function config(): string;
 
 	/**
 	Directory for user-specific data files.
@@ -44,7 +44,7 @@ declare const xdg: {
 	//(win)=> 'C:\\Users\\rivy\\AppData\\Roaming\\xdg.data'
 	```
 	*/
-	data(): string;
+	function data(): string;
 
 	/**
 	Directory for user-specific non-essential runtime files and other file objects (such as sockets, named pipes, etc).
@@ -59,7 +59,7 @@ declare const xdg: {
 	//(win)=> undefined
 	```
 	*/
-	runtime(): string | undefined;
+	function runtime(): string | undefined;
 
 	/**
 	Directory for user-specific state files (non-essential and more volatile than configuration files).
@@ -74,10 +74,10 @@ declare const xdg: {
 	//(win)=> 'C:\\Users\\rivy\\AppData\\Local\\xdg.state'
 	```
 	*/
-	state(): string;
+	function state(): string;
 
 	/**
-	Preference-ordered array of base directories to search for configuration files in addition to `.config`.
+	Preference-ordered array of base directories to search for configuration files; includes `.config()` directory as first entry.
 
 	@example
 	```js
@@ -89,10 +89,10 @@ declare const xdg: {
 	//(win)=> ['C:\\Users\\rivy\\AppData\\Roaming\\xdg.config']
 	```
 	*/
-	configDirs(): string[];
+	function configDirs(): string[];
 
 	/**
-	Preference-ordered array of base directories to search for data files in addition to `.data`.
+	Preference-ordered array of base directories to search for data files; include `.data()` directory as first entry.
 
 	@example
 	```js
@@ -104,7 +104,7 @@ declare const xdg: {
 	//(win)=> ['C:\\Users\\rivy\\AppData\\Roaming\\xdg.data']
 	```
 	*/
-	dataDirs(): string[];
-};
-
-export = xdg;
+	function dataDirs(): string[];
+}
+declare function XDG(): typeof XDG;
+export = XDG;
