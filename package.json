@@ -30,18 +30,21 @@
 		"index.d.ts"
 	],
 	"keywords": [
-		"xdg",
 		"base",
-		"directory",
 		"basedir",
-		"path",
-		"data",
-		"config",
 		"cache",
+		"config",
+		"data",
+		"directory",
 		"linux",
+		"mac",
+		"macos",
+		"osx",
+		"path",
+		"spec",
 		"unix",
 		"windows",
-		"spec"
+		"xdg"
 	],
 	"dependencies": {
 		"os-paths": "^4.0.1"
