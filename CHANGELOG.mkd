@@ -1,0 +1,150 @@
+# CHANGELOG <br/> [xdg-portable](https://github.com/rivy/js.xdg-portable)
+
+---
+
+## [v7.1.0](https://github.com/rivy/js.xdg-portable/compare/v7.0.3...v7.1.0) <small>(2019-08-18)</small>
+
+#### Fixes
+
+* fix typescript definitions and testing &ac; [`8c3c6d8`](https://github.com/rivy/js.xdg-portable/commit/8c3c6d820e4471d4a282570b500a319b04802acf)
+
+#### Documentation
+
+* docs ~ fix broken CI README badges by pointing to repo master branch &ac; [`8af5009`](https://github.com/rivy/js.xdg-portable/commit/8af500999bc71f7676868fe9a44dbf7ff0d7a1e4)
+
+---
+
+## [v7.0.3](https://github.com/rivy/js.xdg-portable/compare/v7.0.2...v7.0.3) <small>(2019-07-28)</small>
+
+#### Documentation
+
+* docs ~ fix README usage example &ac; [`963fcd4`](https://github.com/rivy/js.xdg-portable/commit/963fcd4067b04a964428866153018232909880d1)
+
+---
+
+## [v7.0.2](https://github.com/rivy/js.xdg-portable/compare/v7.0.1...v7.0.2) <small>(2019-07-28)</small>
+
+#### Documentation
+
+* docs ~ add example with more object detail &ac; [`338ca45`](https://github.com/rivy/js.xdg-portable/commit/338ca45876ff7dcd465552c6a36b60c1126eae81)
+* docs ~ polish README &ac; [`5e76c92`](https://github.com/rivy/js.xdg-portable/commit/5e76c925542968e006964a1259e36dfe2989e1e2)
+
+#### Maintenance
+
+* maint ~ add alternate construction test &ac; [`980f267`](https://github.com/rivy/js.xdg-portable/commit/980f2671bec0538c7a665d67c6983dffb657289d)
+
+#### Refactoring
+
+* refactor ~ clean up internal naming &ac; [`68100c0`](https://github.com/rivy/js.xdg-portable/commit/68100c0d1956827624b45ad6d7d537b6331bcf29)
+
+---
+
+## [v7.0.1](https://github.com/rivy/js.xdg-portable/compare/v7.0.0...v7.0.1) <small>(2019-07-27)</small>
+
+#### Documentation
+
+* docs ~ fix and polish README &ac; [`8da6270`](https://github.com/rivy/js.xdg-portable/commit/8da627034f70beb9b0de88f304bd502380e7782d)
+
+#### Maintenance
+
+* maint ~ add OSX CI testing &ac; [`a80dc4c`](https://github.com/rivy/js.xdg-portable/commit/a80dc4ceab25fd4e2153994f25d9c359d49625e5)
+* maint ~ improve code coverage testing and reporting &ac; [`89b2655`](https://github.com/rivy/js.xdg-portable/commit/89b2655d5f1e05c6a93ec4ecd79984257eb6b9d8)
+
+#### Refactoring
+
+* refactor platform testing code &ac; [`d34f19f`](https://github.com/rivy/js.xdg-portable/commit/d34f19f7522fbcca04bb2497a037fe1393a81589)
+
+---
+
+## [v7.0.0](https://github.com/rivy/js.xdg-portable/compare/v6.0.1...v7.0.0) <small>(2019-07-20)</small>
+
+#### Changes
+
+* add npm `cover` script &ac; [`8764397`](https://github.com/rivy/js.xdg-portable/commit/8764397756ad72ee41cd7788c52e15ba6541a177)
+* add AppVeyor CI &ac; [`8c7741a`](https://github.com/rivy/js.xdg-portable/commit/8c7741a8166a83af47230c29581867765c1f102b)
+* change from property to method interface &ac; [`7b29508`](https://github.com/rivy/js.xdg-portable/commit/7b29508a0f6500a1c8936ada73275411ccb8fea4)
+* change ~ remove '.default' export &ac; [`655453f`](https://github.com/rivy/js.xdg-portable/commit/655453f78ad7b06cdc04df2cc41fc567bb5d8e7a)
+
+#### Documentation
+
+* docs ~ add/update README badges &ac; [`4f03c45`](https://github.com/rivy/js.xdg-portable/commit/4f03c454c6a204660873e1c2cacbbe583484af9e)
+* docs ~ README update &ac; [`58133d6`](https://github.com/rivy/js.xdg-portable/commit/58133d6c52e7baef5f15c91cdac4489d90e98fd6)
+
+#### Refactoring
+
+* refactor ~ hoist common code from platforms into main module &ac; [`90aa8bc`](https://github.com/rivy/js.xdg-portable/commit/90aa8bce46e71742196f23c5805aa7317a8cb32c)
+* refactor ~ improve tests &ac; [`5cb8616`](https://github.com/rivy/js.xdg-portable/commit/5cb86161ab7f95e9f38f35612168199e537cb988)
+
+---
+
+## [v6.0.1](https://github.com/rivy/js.xdg-portable/compare/v6.0.0...v6.0.1) <small>(2019-06-29)</small>
+
+#### Fixes
+
+* fix os.tmpdir() fallback logic &ac; [`c1ee2ea`](https://github.com/rivy/js.xdg-portable/commit/c1ee2ea2e8c8309ae929893e60dc6da4b8fcfbaf)
+
+---
+
+## [v6.0.0](https://github.com/rivy/js.xdg-portable/compare/v4.0.0...v6.0.0) <small>(2019-06-29)</small>
+
+#### Changes
+
+* add eslint support &ac; [`f91b369`](https://github.com/rivy/js.xdg-portable/commit/f91b36991658ae53f35cca4858f354bcbf9e4fc7)
+* add os.tmpdir() as a fallback for os.homedir() &ac; [`47cb028`](https://github.com/rivy/js.xdg-portable/commit/47cb028436a80dd85a6cd1e3f509166a8104de57)
+* change ~ cleanup type info and tests &ac; [`6bbd9f3`](https://github.com/rivy/js.xdg-portable/commit/6bbd9f307d86c42e15d3501c8f1810a0e2a282c8)
+* add STATE directory support &ac; [`1023d63`](https://github.com/rivy/js.xdg-portable/commit/1023d638b3c55b4be4ce1cde8259b4324f907776)
+* add example &ac; [`189b29e`](https://github.com/rivy/js.xdg-portable/commit/189b29e41356482c30a0d601f1aa651758975f0b)
+* add cross-platform compatiblity &ac; [`cfb3467`](https://github.com/rivy/js.xdg-portable/commit/cfb3467c82e725366c854c578c31d47fe2b0a0f2)
+
+#### Documentation
+
+* docs ~ polish README &ac; [`d678235`](https://github.com/rivy/js.xdg-portable/commit/d67823528a8136bccec723465df99fd830f01db2)
+* docs ~ update description and README &ac; [`8e11070`](https://github.com/rivy/js.xdg-portable/commit/8e11070c5bb304bad5e36fe8fc6c8cd87326b74c)
+
+#### Refactoring
+
+* refactor ~ fix lint warnings &ac; [`15555e1`](https://github.com/rivy/js.xdg-portable/commit/15555e16e732e8698b02812fbd3c44b47d42e67b)
+* refactor ~ reorder tests &ac; [`dc035e5`](https://github.com/rivy/js.xdg-portable/commit/dc035e5278cf25479d45959dcc28a65d9d34eb5c)
+* refactor ~ reorder/sort function definitions &ac; [`52ef262`](https://github.com/rivy/js.xdg-portable/commit/52ef2621f36f523c06b43ee05a29f5a232bdcd63)
+
+---
+
+## [v4.0.0](https://github.com/rivy/js.xdg-portable/compare/v3.0.0...v4.0.0) <small>(2019-04-30)</small>
+
+*No changelog for this release.*
+
+---
+
+## [v3.0.0](https://github.com/rivy/js.xdg-portable/compare/v2.0.0...v3.0.0) <small>(2017-02-13)</small>
+
+#### Dependency Updates
+
+* update tests for latest AVA version &ac; [`85a4aaa`](https://github.com/rivy/js.xdg-portable/commit/85a4aaa0d9ebb91be2f7a7c608c0e03c93b20afe)
+
+---
+
+## [v2.0.0](https://github.com/rivy/js.xdg-portable/compare/v1.0.1...v2.0.0) <small>(2015-06-13)</small>
+
+#### Fixes
+
+* fix XDG_CACHE_HOME + tests &ac; [`d75b14d`](https://github.com/rivy/js.xdg-portable/commit/d75b14d0055ab19e435872ba92c4169284d9042d)
+
+#### Dependency Updates
+
+* Update .travis.yml &ac; [`cd4a8b3`](https://github.com/rivy/js.xdg-portable/commit/cd4a8b3ddb5dfa76bc0b827ef9c8b9fd92dd23e4)
+
+#### Pull Requests
+
+* Merge pull request [#1](https://github.com/rivy/js.xdg-portable/issues/1) from chocolateboy/fix_xdg_cache_home_and_tests
+
+---
+
+## [v1.0.1](https://github.com/rivy/js.xdg-portable/compare/v1.0.0...v1.0.1) <small>(2015-01-14)</small>
+
+*No changelog for this release.*
+
+---
+
+## v1.0.0 <small>(2014-10-06)</small>
+
+*No changelog for this release.*
