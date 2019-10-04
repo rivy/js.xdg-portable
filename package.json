@@ -9,7 +9,7 @@
 		"email": "rivy.dev@gmail.com"
 	},
 	"engines": {
-		"node": ">=8"
+		"node": ">=6"
 	},
 	"scripts": {
 		"coverage": "nyc report --reporter=text-lcov | codecov --disable=gcov --pipe",
@@ -43,7 +43,9 @@
 		"windows",
 		"spec"
 	],
-	"dependencies": {},
+	"dependencies": {
+		"os-paths": "^4.0.1"
+	},
 	"devDependencies": {
 		"ava": "^1.4.1",
 		"codecov": "^3.5.0",
