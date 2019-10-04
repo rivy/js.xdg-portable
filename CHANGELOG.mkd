@@ -2,6 +2,14 @@
 
 ---
 
+## [v7.2.1](https://github.com/rivy/js.xdg-portable/compare/v7.2.0...v7.2.1) <small>(2019-10-04)</small>
+
+#### Maintenance
+
+* maint/**build**: fix missing dev dependencies &ac; [`4ba5ac4`](https://github.com/rivy/js.xdg-portable/commit/4ba5ac454a37e431168e515719bd89624b5c2e51)
+
+---
+
 ## [v7.2.0](https://github.com/rivy/js.xdg-portable/compare/v7.1.0...v7.2.0) <small>(2019-10-04)</small>
 
 #### Documentation
