@@ -2,6 +2,25 @@
 
 ---
 
+## [v7.2.0](https://github.com/rivy/js.xdg-portable/compare/v7.1.0...v7.2.0) <small>(2019-10-04)</small>
+
+#### Documentation
+
+* docs ~ update README badges &ac; [`8d2ca20`](https://github.com/rivy/js.xdg-portable/commit/8d2ca209561d7640ba0cafc49d2c858c2b93dd39)
+* docs ~ add CHANGELOG &ac; [`14f2fe6`](https://github.com/rivy/js.xdg-portable/commit/14f2fe631e99509f911c7191fad63b5f4c9c438d)
+
+#### Maintenance
+
+* maint/**CI**: add testing for NodeJS v6 &ac; [`be98a00`](https://github.com/rivy/js.xdg-portable/commit/be98a008a056aecb7a59305a20df3bd83dcb5939)
+* maint/**build**: refactor lint/test run-scripts &ac; [`5b5b151`](https://github.com/rivy/js.xdg-portable/commit/5b5b151ca96df1b4430b7a041682d42af8dddf2f)
+* maint/**build**: add CHANGELOG (using `git-chglog`) configuration &ac; [`f4b46e1`](https://github.com/rivy/js.xdg-portable/commit/f4b46e176d28e5662d0984bbbbf5d0c4831d8808)
+
+#### Refactoring
+
+* refactor ~ support module use back to NodeJS v6 &ac; [`ff43b02`](https://github.com/rivy/js.xdg-portable/commit/ff43b022ec13aac218feac12dcac8e7f907d4ffd)
+
+---
+
 ## [v7.1.0](https://github.com/rivy/js.xdg-portable/compare/v7.0.3...v7.1.0) <small>(2019-08-18)</small>
 
 #### Fixes
