@@ -49,6 +49,7 @@
 	"devDependencies": {
 		"ava": "^1.4.1",
 		"codecov": "^3.5.0",
+		"coveralls": "^3.0.5",
 		"cspell": "^3.2.14",
 		"echo-cli": "^1.0.8",
 		"eslint": "^5.16.0",
