@@ -2,6 +2,14 @@
 
 ---
 
+## [7.2.2](https://github.com/rivy/js.xdg-portable/compare/v7.2.1...7.2.2) <small>(2020-09-02)</small>
+
+#### Documentation
+
+* docs ~ update module keywords &ac; [`2959218`](https://github.com/rivy/js.xdg-portable/commit/2959218f2e0e424220b709c69c7e44288f1e6302)
+
+---
+
 ## [v7.2.1](https://github.com/rivy/js.xdg-portable/compare/v7.2.0...v7.2.1) <small>(2019-10-04)</small>
 
 #### Maintenance
