@@ -10,6 +10,11 @@
 {{ range .Commits }}{{ template "format-commit" . -}}{{ end -}}
 {{ end -}}
 
+<!-- markdownlint-disable heading-increment no-duplicate-heading no-inline-html -->
+<!-- spellchecker:ignore () AppVeyor CICD Deno EditorConfig Veyor chglog gitattributes maint markdownlint repo tmpdir typeof -->
+<!-- spellchecker:ignore (names) ChocolateBoy rivy -->
+<!-- specific mis-spelled commits--><!-- spell-checker:ignoreRegexp ^.*/cfb3467c82.*$ -->
+
 # CHANGELOG <br/> [{{ $.Info.Title }}]({{ $.Info.RepositoryURL }})
 {{ if .Unreleased.CommitGroups }}{{/* <a name="unreleased"></a> */}}
 ## [Unreleased]

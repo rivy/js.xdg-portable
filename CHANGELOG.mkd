@@ -1,8 +1,13 @@
+<!-- markdownlint-disable heading-increment no-duplicate-heading no-inline-html -->
+<!-- spellchecker:ignore () AppVeyor CICD Deno EditorConfig Veyor chglog gitattributes maint markdownlint repo tmpdir typeof -->
+<!-- spellchecker:ignore (names) ChocolateBoy rivy -->
+<!-- specific mis-spelled commits--><!-- spell-checker:ignoreRegexp ^.*/cfb3467c82.*$ -->
+
 # CHANGELOG <br/> [xdg-portable](https://github.com/rivy/js.xdg-portable)
 
 ---
 
-## [7.2.2](https://github.com/rivy/js.xdg-portable/compare/v7.2.1...7.2.2) <small>(2020-09-02)</small>
+## [v7.2.2](https://github.com/rivy/js.xdg-portable/compare/v7.2.1...v7.2.2) <small>(2020-09-02)</small>
 
 #### Documentation
 
