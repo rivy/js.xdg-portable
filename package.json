@@ -11,6 +11,27 @@
 	"engines": {
 		"node": ">=6"
 	},
+	"files": [
+		"index.js",
+		"index.d.ts"
+	],
+	"keywords": [
+		"base",
+		"basedir",
+		"cache",
+		"config",
+		"data",
+		"directory",
+		"linux",
+		"mac",
+		"macos",
+		"osx",
+		"path",
+		"spec",
+		"unix",
+		"windows",
+		"xdg"
+	],
 	"scripts": {
 		"# coverage # calcuate and display (or send) code coverage [alias: 'cov']": "",
 		"coverage": "run-s --silent _:max-node-8 && echo-cli \"[coverage] WARN Code coverage skipped [for NodeJS < v10]\" 1>&2 || run-s _:coverage",
@@ -51,27 +72,6 @@
 		"prepublishOnly": "run-s update:* test _:vcs-strictly-clean-err",
 		"preversion": "run-s _:vcs-clean-err lint"
 	},
-	"files": [
-		"index.js",
-		"index.d.ts"
-	],
-	"keywords": [
-		"base",
-		"basedir",
-		"cache",
-		"config",
-		"data",
-		"directory",
-		"linux",
-		"mac",
-		"macos",
-		"osx",
-		"path",
-		"spec",
-		"unix",
-		"windows",
-		"xdg"
-	],
 	"dependencies": {
 		"os-paths": "^4.0.1"
 	},
