@@ -89,7 +89,7 @@ declare namespace XDG {
 	//(win)=> ['C:\\Users\\rivy\\AppData\\Roaming\\xdg.config']
 	```
 	*/
-	function configDirs(): string[];
+	function configDirs(): readonly string[];
 
 	/**
 	Preference-ordered array of base directories to search for data files; include `.data()` directory as first entry.
@@ -104,7 +104,7 @@ declare namespace XDG {
 	//(win)=> ['C:\\Users\\rivy\\AppData\\Roaming\\xdg.data']
 	```
 	*/
-	function dataDirs(): string[];
+	function dataDirs(): readonly string[];
 }
 declare function XDG(): typeof XDG;
 export = XDG;
