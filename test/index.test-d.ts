@@ -1,5 +1,5 @@
 import {expectType, expectError} from 'tsd';
-import xdg = require('..');
+import xdg = require('../src/lib');
 
 expectType<typeof xdg>(xdg());
 

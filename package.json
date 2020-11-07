@@ -12,13 +12,12 @@
 		"node": ">= 6.0"
 	},
 	"files": [
-		"index.js",
-		"index.d.ts",
+		"src/**/*",
 		"LICENSE",
 		"README.md"
 	],
-	"main": "index.js",
-	"types": "index.d.ts",
+	"main": "src/lib/index.js",
+	"types": "src/lib/index.d.ts",
 	"keywords": [
 		"base",
 		"basedir",
