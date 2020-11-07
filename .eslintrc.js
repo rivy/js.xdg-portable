@@ -17,7 +17,7 @@ module.exports = {
 	},
 	"overrides": [
 		{ // "test.js" (for `ava`) is in module format (ESM)
-			"files": [ "test.js" ],
+			"files": [ "unit.test.js" ],
 			"parserOptions": {
 				"sourceType": "module"
 			}
