@@ -4,22 +4,26 @@
 <!-- spell-checker:ignore expandtab markdownlint modeline smarttab softtabstop -->
 
 <!-- markdownlint-disable heading-increment -->
-<!-- spell-checker:ignore rivy Sindre Sorhus sindresorhus -->
-<!-- spell-checker:ignore APPDATA LOCALAPPDATA subdir tmpdir archlinux -->
+<!-- spell-checker:ignore (names) rivy Sindre sindresorhus Sorhus -->
+<!-- spell-checker:ignore (abbrev/jargon) CICD NodeJS -->
+<!-- spell-checker:ignore (platform/windows) APPDATA LOCALAPPDATA -->
+<!-- spell-checker:ignore () archlinux readonly subdir tmpdir -->
 
 # [xdg-portable](https://github.com/rivy/js.xdg-portable)
 
 > Get [XDG Base Directory](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html) paths (cross-platform)
 
+[![Build status][gha-image]][gha-url]
 [![Build status][travis-image]][travis-url]
 [![Build status][appveyor-image]][appveyor-url]
 [![Coverage status][coverage-image]][coverage-url]
 [![License][license-image]][license-url]
+[![Style Guide][style-image]][style-url]
 &nbsp; <br/>
 [![Repository][repository-image]][repository-url]
 [![NPM version][npm-image]][npm-url]
+[![NodeJS version][nodejsv-image]][repository-url]
 [![Downloads][downloads-image]][downloads-url]
-[![Javascript Style Guide][style-image]][style-url]
 
 <!--
 XDG references
@@ -137,11 +141,11 @@ This location might hold data such as backups, input history, logs, recent file 
 
 `%LocalAppData%\xdg.state` is the default for the windows platform.
 
-#### `xdg.configDirs(): string[]`
+#### `xdg.configDirs(): readonly string[]`
 
 Returns a reference-ordered array of base directories to search for configuration files (includes `.config()` as the first entry)
 
-#### `xdg.dataDirs(): string[]`
+#### `xdg.dataDirs(): readonly string[]`
 
 Returns a preference-ordered array of base directories to search for data files (includes `.data()` as the first entry)
 
@@ -169,6 +173,56 @@ This module was forked from [sindresorhus/xdg-basedir](https://github.com/sindre
 
 - ref: <https://github.com/sindresorhus/xdg-basedir/pull/4>
 
+## Building and Contributing
+
+### Build requirements
+
+- NodeJS >= 6.0
+- a JavaScript package/project manager ([`npm`](https://www.npmjs.com/get-npm) or [`yarn`](https://yarnpkg.com))
+
+> #### optional
+>
+> - [`git-changelog`](https://github.com/rivy-go/git-changelog) ... enables changelog automation
+
+### Build/test
+
+```shell
+npm install
+npm test
+```
+
+### Project development scripts
+
+```shell
+> npm run help
+...
+usage: `npm run TARGET [TARGET..]`
+
+TARGETs:
+
+coverage            calculate and display (or send) code coverage [alias: 'cov']
+fix                 fix package issues (automated/non-interactive)
+fix:lint            fix `ESLint` issues
+fix:style           fix `Prettier` formatting issues
+help                display help
+lint                check for package code 'lint'
+lint:lint           check for code 'lint' (using `ESLint`)
+lint:spell          check for spelling errors (using `cSpell`)
+lint:style          check for format imperfections (using `Prettier`)
+lint:types          check for type declaration errors (using `tsd`)
+test                test package
+test:code           test package code
+update:changelog    update CHANGELOG (using `git changelog ...`)
+```
+
+### Contributions
+
+Contributions are welcome.
+
+Any pull requests should be based off of the default branch (`master`). And, whenever possible, please include tests for any new code, ensuring that local (via `npm test`) and remote CI testing passes.
+
+By contributing to the project, you are agreeing to provide your contributions under the same [license](./LICENSE) as the project itself.
+
 ## Related
 
 - [`xdg-app-paths`](https://www.npmjs.com/package/xdg-app-paths) ... easy XDG for applications
@@ -176,44 +230,47 @@ This module was forked from [sindresorhus/xdg-basedir](https://github.com/sindre
 
 ## License
 
-MIT © [Roy Ivy III](https://github.com/rivy), [Sindre Sorhus](https://sindresorhus.com)
+[MIT](./LICENSE) © [Roy Ivy III](https://github.com/rivy), [Sindre Sorhus](https://sindresorhus.com)
 
 <!-- badge references -->
 
-<!-- [npm-image]: https://img.shields.io/npm/v/xdg-portable.svg?style=flat&label=%E2%81%A3&logo=NPM&logoColor=linen -->
+[repository-image]: https://img.shields.io/github/v/tag/rivy/js.xdg-portable?label=%E2%81%A3&logo=github&logoColor=white
+[repository-url]: https://github.com/rivy/js.xdg-portable
+[license-image]: https://img.shields.io/npm/l/xdg-portable.svg?color=royalblue&style=flat
+[license-url]: license
+[nodejsv-image]: https://img.shields.io/node/v/xdg-portable?color=blue
+[style-image]: https://img.shields.io/badge/code_style-prettier-mediumvioletred.svg
+[style-url]: https://prettier.io
 
-[npm-image]: https://img.shields.io/npm/v/xdg-portable.svg?style=flat
-[npm-url]: https://npmjs.org/package/xdg-portable
-
-<!-- [appveyor-image]: https://ci.appveyor.com/api/projects/status/.../branch/master?svg=true -->
+<!-- Continuous integration/deployment (CICD) -->
 
 [appveyor-image]: https://img.shields.io/appveyor/ci/rivy/js-xdg-portable/master.svg?style=flat&logo=AppVeyor&logoColor=deepskyblue
 [appveyor-url]: https://ci.appveyor.com/project/rivy/js-xdg-portable
-
-<!-- [travis-image]: https://travis-ci.org/rivy/js.xdg-portable.svg?branch=master -->
-<!-- [travis-image]: https://img.shields.io/travis/rivy/js.xdg-portable/master.svg?style=flat&logo=Travis-CI&logoColor=silver -->
-
+[gha-image]: https://img.shields.io/github/workflow/status/rivy/js.xdg-portable/CI?label=CI&logo=github
+[gha-url]: https://github.com/rivy/js.xdg-portable/actions?query=workflow%3ACI
 [travis-image]: https://img.shields.io/travis/rivy/js.xdg-portable/master.svg?style=flat&logo=travis
 [travis-url]: https://travis-ci.org/rivy/js.xdg-portable
 
-<!-- [coverage-image]: https://img.shields.io/coveralls/github/rivy/xdg-portable/master.svg -->
-<!-- [coverage-url]: https://coveralls.io/github/rivy/xdg-portable -->
+<!-- Code quality -->
 
 [coverage-image]: https://img.shields.io/codecov/c/github/rivy/js.xdg-portable/master.svg
 [coverage-url]: https://codecov.io/gh/rivy/js.xdg-portable
+
+<!-- Distributors/Registries -->
+
+[npm-image]: https://img.shields.io/npm/v/xdg-portable.svg?style=flat
+[npm-url]: https://npmjs.org/package/xdg-portable
 [downloads-image]: http://img.shields.io/npm/dm/xdg-portable.svg?style=flat
 [downloads-url]: https://npmjs.org/package/xdg-portable
-[license-image]: https://img.shields.io/npm/l/xdg-portable.svg?style=flat
-[license-url]: license
 
+<!-- Alternate/Old image/URL links -->
+
+<!-- [appveyor-image]: https://ci.appveyor.com/api/projects/status/.../branch/master?svg=true -->
+<!-- [coverage-image]: https://img.shields.io/coveralls/github/rivy/xdg-portable/master.svg -->
+<!-- [coverage-url]: https://coveralls.io/github/rivy/xdg-portable -->
+<!-- [npm-image]: https://img.shields.io/npm/v/xdg-portable.svg?style=flat&label=npm&logo=NPM&logoColor=linen -->
 <!-- [repository-image]:https://img.shields.io/badge/%E2%9D%A4-darkcyan?style=flat&logo=github -->
-<!-- note: %E2%81%A3 == utf-8 sequence of 'Unicode Character 'INVISIBLE SEPARATOR' (U+2063)' -->
-
-[repository-image]: https://img.shields.io/github/v/tag/rivy/js.xdg-portable?label=%E2%81%A3&logo=github&logoColor=white
-[repository-url]: https://github.com/rivy/js.xdg-portable
-
 <!-- [style-image]: https://img.shields.io/badge/code_style-standard-darkcyan.svg -->
 <!-- [style-url]: https://standardjs.com -->
-
-[style-image]: https://img.shields.io/badge/code_style-XO-darkcyan.svg
-[style-url]: https://github.com/xojs/xo
+<!-- [travis-image]: https://img.shields.io/travis/rivy/js.xdg-portable/master.svg?style=flat&logo=Travis-CI&logoColor=silver -->
+<!-- [travis-image]: https://travis-ci.org/rivy/js.xdg-portable.svg?branch=master -->
