@@ -96,5 +96,8 @@
 		"util": "^0.12.1",
 		"xo": "^0.24.0"
 	},
-	"optionalDependencies": {}
+	"optionalDependencies": {},
+	"tsd": {
+		"directory": "test"
+	}
 }

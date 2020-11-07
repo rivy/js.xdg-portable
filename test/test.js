@@ -4,7 +4,7 @@ import path from 'path';
 
 import {serial as test} from 'ava';
 
-import xdg from '.';
+import xdg from '..';
 
 test('alternate construction (via function)', t => {
 	const paths = xdg();
