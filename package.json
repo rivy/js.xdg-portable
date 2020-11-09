@@ -95,8 +95,7 @@
 		"nyc": "^14.1.1",
 		"open-cli": "^6.0.1",
 		"tsd": "^0.13.1",
-		"util": "^0.12.1",
-		"xo": "^0.24.0"
+		"util": "^0.12.1"
 	},
 	"optionalDependencies": {},
 	"tsd": {
