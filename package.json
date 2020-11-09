@@ -79,6 +79,7 @@
 	"dependencies": {
 		"os-paths": "^4.0.1"
 	},
+	"devDependencies:#": "* for testing, Node-v6 requires ava < v2 and nyc < v15",
 	"devDependencies": {
 		"ava": "^1.4.1",
 		"codecov": "^3.5.0",
