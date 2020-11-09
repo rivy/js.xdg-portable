@@ -12,47 +12,39 @@ const module_ = require('../src/lib');
 
 // Integration tests
 
-test('api', t => {
+test('api', (t) => {
 	const paths = module_;
-	const api = [
-		'cache',
-		'config',
-		'data',
-		'runtime',
-		'state',
-		'configDirs',
-		'dataDirs'
-	];
+	const api = ['cache', 'config', 'data', 'runtime', 'state', 'configDirs', 'dataDirs'];
 
 	t.is(typeof paths, 'function');
 	t.is(Object.keys(paths).length, api.length);
-	api.forEach(key => {
+	api.forEach((key) => {
 		t.is(typeof paths[key], 'function');
 	});
 });
 
-test('examples are executable without error (JavaScript)', t => {
+test('examples are executable without error (JavaScript)', (t) => {
 	const egDirPath = 'eg';
 	const extensions = ['.js', '.cjs', '.mjs'];
 
 	const files = fs.readdirSync(egDirPath);
 
 	files
-		.filter(file => {
+		.filter((file) => {
 			return extensions.includes(path.extname(file));
 		})
-		.forEach(file => {
+		.forEach((file) => {
 			const command = 'node';
 			const script = path.join(egDirPath, file);
 			const args = [script];
-			const options = {shell: true};
+			const options = { shell: true };
 
-			t.log({script});
+			t.log({ script });
 
-			const {error, status} = spawn.sync(command, args, options);
+			const { error, status } = spawn.sync(command, args, options);
 
-			t.log({error, status});
+			t.log({ error, status });
 
-			t.deepEqual({error, status}, {error: null, status: 0});
+			t.deepEqual({ error, status }, { error: null, status: 0 });
 		});
 });
