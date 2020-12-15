@@ -1,14 +1,10 @@
 'use strict';
 
-const util = require('util');
-
-const _ = require('lodash');
-
 const xdg = require('../src/lib');
 
 console.log('xdg.name:', xdg.name);
-console.log('xdg:', util.inspect(xdg));
+console.log({ xdg });
 
-_.each(xdg, (value, key) => {
+Object.keys(xdg).forEach((key) => {
 	console.log(key, '=', xdg[key]());
 });
