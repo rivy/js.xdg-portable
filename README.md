@@ -39,29 +39,29 @@ npm install xdg-portable
 ## Usage
 
 ```js
-const xdg = require('xdg-portable')
+const xdg = require('xdg-portable');
 
-const locatePath = require('locatePath')
-const mkdirp = require('mkdirp')
+const locatePath = require('locatePath');
+const mkdirp = require('mkdirp');
 
-configDir = xdg.config()
+configDir = xdg.config();
 //(mac)=> '/Users/rivy/Library/Preferences'
 //(nix)=> '/home/rivy/.config'
 //(win)=> 'C:\\Users\\rivy\\AppData\\Roaming\\xdg.config'
 
-dataDirs = xdg.dataDirs()
+dataDirs = xdg.dataDirs();
 //(mac)=> ['/Users/rivy/Library/Application Support']
 //(nix)=> ['/home/rivy/.local/share', '/usr/local/share/', '/usr/share/']
 //(win)=> ['C:\\Users\\rivy\\AppData\\Roaming\\xdg.data']
 
-stateDir = xdg.state()
+stateDir = xdg.state();
 //(mac)=> '/Users/rivy/Library/State'
 //(nix)=> '/home/rivy/.local/state'
 //(win)=> 'C:\\Users\\rivy\\AppData\\Local\\xdg.state'
 
 mkdirp.sync(configDir, 0o700);
 
-const dataDir = locatePath.sync(dataDirs) || dataDirs[0]
+const dataDir = locatePath.sync(dataDirs) || dataDirs[0];
 mkdirp.sync(dataDir, 0o700);
 
 mkdirp.sync(stateDir, 0o700);
@@ -74,7 +74,7 @@ mkdirp.sync(stateDir, 0o700);
 #### `require('xdg-portable'): XDGPortable()`
 
 ```js
-const xdg = require('xdg-portable')
+const xdg = require('xdg-portable');
 ```
 
 The object returned by the module constructor is an XDGPortable Function object, augmented with attached methods. When called directly (eg, `const p = xdg()`), it returns a newly constructed XDGPortable object. Since the XDGPortable object contains no instance state, all constructed objects will be functionally identical.
@@ -83,7 +83,7 @@ The object returned by the module constructor is an XDGPortable Function object,
 
 All module methods return platform-compatible path strings.
 
-The returned paths are simple strings and are *not* guaranteed to exist. The application is responsible for construction of the directories when needed. If needed, [`make-dir`](https://www.npmjs.com/package/make-dir) or [`mkdirp`](https://www.npmjs.com/package/mkdirp) can be used to create the directories.
+The returned paths are simple strings and are _not_ guaranteed to exist. The application is responsible for construction of the directories when needed. If needed, [`make-dir`](https://www.npmjs.com/package/make-dir) or [`mkdirp`](https://www.npmjs.com/package/mkdirp) can be used to create the directories.
 
 #### `xdg.cache(): string`
 
@@ -91,7 +91,7 @@ Returns the directory for user-specific non-essential (cached) data files
 
 > Deletion of the data contained here might cause the application to slow down.
 
-This location would be analogous to */var/cache* for *nix.
+This location would be analogous to _/var/cache_ for \*nix.
 
 `%LocalAppData%\xdg.cache` is the default for the windows platform.
 
@@ -101,7 +101,7 @@ Returns the directory for user-specific configuration files
 
 > Deletion of the data contained here might require the user to reconfigure the application.
 
-This location would be analogous to */etc* for *nix.
+This location would be analogous to _/etc_ for \*nix.
 
 `%AppData%\xdg.config` is the default for the windows platform.
 
@@ -111,7 +111,7 @@ Returns the directory for user-specific data files
 
 > Deletion of the data contained here might force the user to restore from backups.
 
-This location would be analogous to */usr/share* for *nix.
+This location would be analogous to _/usr/share_ for \*nix.
 
 `%AppData%\xdg.data` is the default for the windows platform.
 
@@ -181,30 +181,39 @@ MIT © [Roy Ivy III](https://github.com/rivy), [Sindre Sorhus](https://sindresor
 <!-- badge references -->
 
 <!-- [npm-image]: https://img.shields.io/npm/v/xdg-portable.svg?style=flat&label=%E2%81%A3&logo=NPM&logoColor=linen -->
+
 [npm-image]: https://img.shields.io/npm/v/xdg-portable.svg?style=flat
 [npm-url]: https://npmjs.org/package/xdg-portable
 
 <!-- [appveyor-image]: https://ci.appveyor.com/api/projects/status/.../branch/master?svg=true -->
+
 [appveyor-image]: https://img.shields.io/appveyor/ci/rivy/js-xdg-portable/master.svg?style=flat&logo=AppVeyor&logoColor=deepskyblue
 [appveyor-url]: https://ci.appveyor.com/project/rivy/js-xdg-portable
+
 <!-- [travis-image]: https://travis-ci.org/rivy/js.xdg-portable.svg?branch=master -->
 <!-- [travis-image]: https://img.shields.io/travis/rivy/js.xdg-portable/master.svg?style=flat&logo=Travis-CI&logoColor=silver -->
+
 [travis-image]: https://img.shields.io/travis/rivy/js.xdg-portable/master.svg?style=flat&logo=travis
 [travis-url]: https://travis-ci.org/rivy/js.xdg-portable
 
 <!-- [coverage-image]: https://img.shields.io/coveralls/github/rivy/xdg-portable/master.svg -->
 <!-- [coverage-url]: https://coveralls.io/github/rivy/xdg-portable -->
+
 [coverage-image]: https://img.shields.io/codecov/c/github/rivy/js.xdg-portable/master.svg
 [coverage-url]: https://codecov.io/gh/rivy/js.xdg-portable
 [downloads-image]: http://img.shields.io/npm/dm/xdg-portable.svg?style=flat
 [downloads-url]: https://npmjs.org/package/xdg-portable
 [license-image]: https://img.shields.io/npm/l/xdg-portable.svg?style=flat
 [license-url]: license
+
 <!-- [repository-image]:https://img.shields.io/badge/%E2%9D%A4-darkcyan?style=flat&logo=github -->
 <!-- note: %E2%81%A3 == utf-8 sequence of 'Unicode Character 'INVISIBLE SEPARATOR' (U+2063)' -->
-[repository-image]:https://img.shields.io/github/v/tag/rivy/js.xdg-portable?label=%E2%81%A3&logo=github&logoColor=white
-[repository-url]:https://github.com/rivy/js.xdg-portable
+
+[repository-image]: https://img.shields.io/github/v/tag/rivy/js.xdg-portable?label=%E2%81%A3&logo=github&logoColor=white
+[repository-url]: https://github.com/rivy/js.xdg-portable
+
 <!-- [style-image]: https://img.shields.io/badge/code_style-standard-darkcyan.svg -->
 <!-- [style-url]: https://standardjs.com -->
+
 [style-image]: https://img.shields.io/badge/code_style-XO-darkcyan.svg
 [style-url]: https://github.com/xojs/xo
