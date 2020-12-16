@@ -13,7 +13,7 @@
 	},
 	"files": [
 		"src/**/*",
-		"src/lib/index.d.ts",
+		"CHANGELOG.mkd",
 		"LICENSE",
 		"README.md"
 	],
