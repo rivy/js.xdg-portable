@@ -11,6 +11,8 @@
 
 # [xdg-portable](https://github.com/rivy/js.xdg-portable)
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/12475ef8b24041e296e223e6086452f3)](https://app.codacy.com/gh/rivy/js.xdg-portable?utm_source=github.com&utm_medium=referral&utm_content=rivy/js.xdg-portable&utm_campaign=Badge_Grade)
+
 > Get [XDG Base Directory](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html) paths (cross-platform)
 
 [![Build status][gha-image]][gha-url]
