@@ -1,10 +1,13 @@
+/* eslint-env es6, node */
 'use strict';
 
-import path from 'path';
+const path = require('path');
 
-import { serial as test } from 'ava';
+const test = require('ava').serial;
 
-import xdg from '../src/lib';
+const xdg = require('../build/cjs+tests');
+
+/* eslint-disable functional/immutable-data */
 
 test('alternate construction (via function)', (t) => {
 	const paths = xdg();
@@ -48,3 +51,5 @@ test('.dataDirs', (t) => {
 	process.env.XDG_DATA_DIRS = ['dirs', 'data_dirs'].join(path.delimiter);
 	t.deepEqual(xdg.dataDirs(), ['data_home', 'dirs', 'data_dirs']);
 });
+
+/* eslint-enable functional/immutable-data */
