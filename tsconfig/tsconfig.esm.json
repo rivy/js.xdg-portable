@@ -1,0 +1,18 @@
+{
+	"extends": "../tsconfig.json",
+	"compilerOptions": {
+		"outDir": "../build/esm",
+		"declaration": false, // generate side-by-side type declarations
+		"module": "es2015",
+		"noEmit": false
+	},
+	"exclude": [
+		"../eg/**",
+		"../src/esm-wrapper/**",
+		"../src/**/*.deno.ts",
+		"../src/**/*.spec.*",
+		"../src/**/*.test.*",
+		"../test/**",
+		"../node_modules/**"
+	]
+}
