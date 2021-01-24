@@ -1,42 +1,47 @@
+// spell-checker:ignore (names) rivy ; (options) iife
 module.exports = {
-	env: {
-		// "browser": true,
-		commonjs: true,
-		es6: true,
-		node: true,
-	},
+	root: true,
+	env: { es6: true },
 	ignorePatterns: ['.eslintrc.js', '.nyc_output', 'build', 'coverage', 'dist', 'node_modules'],
-	plugins: ['import'],
+	parser: '@typescript-eslint/parser',
+	// avoid `parserOptions` ~ [2020-10-29]/rivy ~ use is causing issues for eslint evaluation of files outside of `src` (see https://github.com/typescript-eslint/typescript-eslint/issues/1723)
+	// parserOptions: { ecmaVersion: 6, project: ['./tsconfig.json', './tsconfig.eslint.json'] },
+	plugins: ['import', 'functional', '@typescript-eslint'],
 	extends: [
 		'eslint:recommended',
-		// 'plugin:@typescript-eslint/recommended',
+		'plugin:@typescript-eslint/recommended',
 		'plugin:eslint-comments/recommended',
-		// 'plugin:import/typescript',
-		// 'plugin:functional/lite',
+		'plugin:functional/lite',
+		'plugin:import/typescript',
+		'plugin:security/recommended',
+		'plugin:security-node/recommended',
 		'prettier',
-		// 'prettier/@typescript-eslint',
+		'prettier/@typescript-eslint',
 	],
-	globals: {
-		Atomics: 'readonly',
-		SharedArrayBuffer: 'readonly',
-	},
-	parserOptions: {
-		ecmaVersion: 2018,
-	},
 	rules: {
+		// ref: https://eslint.org/docs/rules
 		'@typescript-eslint/explicit-module-boundary-types': 'off',
+		'@typescript-eslint/no-unused-vars': [
+			'error',
+			{ argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
+		],
 		'eslint-comments/disable-enable-pair': ['error', { allowWholeFile: true }],
-		'eslint-comments/no-unused-disable': 'error',
+		'eslint-comments/no-unused-disable': 'warn',
 		'import/order': ['error', { 'newlines-between': 'always', alphabetize: { order: 'asc' } }],
+		'no-console': ['warn'], // ref: https://eslint.org/docs/rules/no-console
+		'no-undefined': ['error'], // ref: https://eslint.org/docs/rules/no-undefined
+		'no-unused-vars': ['error', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }], // ref: https://eslint.org/docs/rules/no-unused-vars
 		'sort-imports': ['error', { ignoreDeclarationSort: true, ignoreCase: true }],
+		'wrap-iife': ['error', 'inside'], // correlate with Prettier formatting choice; ref: https://eslint.org/docs/rules/wrap-iife
 	},
 	overrides: [
 		{
-			// "test.js" (for `ava`) is in module format (ESM)
-			files: ['unit.test.js'],
-			parserOptions: {
-				sourceType: 'module',
+			files: ['*.js'],
+			rules: {
+				'@typescript-eslint/no-var-requires': 'off',
 			},
 		},
 	],
+	// globals: { BigInt: true, console: true, WebAssembly: true },
+	// globals: { Atomics: 'readonly', SharedArrayBuffer: 'readonly' },
 };
