@@ -3,6 +3,7 @@ import { expectType } from 'tsd';
 import xdg from '../src';
 
 expectType<typeof xdg>(xdg());
+expectType<typeof xdg>(new xdg());
 
 expectType<string>(xdg.cache());
 expectType<string>(xdg.config());
