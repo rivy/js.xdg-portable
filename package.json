@@ -12,13 +12,15 @@
 		"node": ">= 6.0"
 	},
 	"files": [
-		"src/**/*",
+		"dist/cjs",
+		"dist/types",
 		"CHANGELOG.mkd",
 		"LICENSE",
-		"README.md"
+		"README.md",
+		"package.json"
 	],
-	"main": "src/lib/index.js",
-	"types": "src/lib/index.d.ts",
+	"main": "./dist/cjs/index.js",
+	"types": "./dist/types/index.d.ts",
 	"keywords": [
 		"base",
 		"cache",
