@@ -21,4 +21,6 @@ UUID
 Codacy
 Deno
 EditorConfig
+JSDelivr
+npmJS
 Yargs
