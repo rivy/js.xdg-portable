@@ -95,7 +95,7 @@
 		"# show:deps # show package dependencies": "",
 		"show:deps": "run-s --silent _:show:deps:prod _:show:deps:dev || shx true",
 		"# test # test package": "",
-		"test": "run-s \"+:regen:lint/build\" \"+:regen:update\" && run-p test:*",
+		"test": "run-s \"+:regen:lint/build\" \"+:regen:dist\" && run-p test:*",
 		"# test:code # test package code": "",
 		"test:code": "run-s --silent +:max-node-8 && ava || ( run-s --silent +:min-node-10 && nyc --silent ava )",
 		"# test:types # test for type declaration errors (using `tsd`)": "",
@@ -112,7 +112,7 @@
 		"+:min-node-10": "is-node-modern 10",
 		"+:regen:build": "exec-if-updated --source package.json --source tsconfig.json --source \"tsconfig/**\" --source rollup.config.js --source \"src/**\" --target \"build/**\" run-p \"build:*\"",
 		"+:regen:build+test:code": "exec-if-updated --source package.json --source tsconfig.json --source \"tsconfig/**\" --source rollup.config.js --source \"src/**\" --target \"build/**\" run-p \"build:*\" && run-s test:code",
-		"+:regen:update": "exec-if-updated --source \"build/**\" --target \"dist/**\" --target \"dist/cjs\" --target \"dist/esm\" --target \"dist/types\" run-s --silent _:update:dist.build _:update:dist.types _:update:dist.build _:update:dist.normalizeEOL _:update:dist.pack",
+		"+:regen:dist": "exec-if-updated --source \"build/**\" --target \"dist/**\" --target \"dist/cjs\" --target \"dist/esm\" --target \"dist/types\" run-s --silent _:update:dist.build _:update:dist.types _:update:dist.build _:update:dist.normalizeEOL _:update:dist.pack",
 		"+:regen:lint/build": "exec-if-updated --source package.json --source tsconfig.json --source \"tsconfig/**\" --source rollup.config.js --source \"src/**\" --target \"build/**\" run-s lint \"+:regen:build\"",
 		"+:update:dist": "run-s --silent _:update:dist.build _:update:dist.types _:update:dist.normalizeEOL _:update:dist.pack",
 		"## _:... == sub-scripts ('hidden'; generally should be run 'silently' using `run-s/run-p --silent ...`": "",
@@ -144,6 +144,7 @@
 	"dependencies": {
 		"os-paths": "^6.2.0"
 	},
+	"devDependencies:#": "* for testing, Node-v6 requires ava < v2 and nyc < v15",
 	"devDependencies": {
 		"@ava/typescript": "^1.1.1",
 		"@commitlint/cli": "^11.0.0",
