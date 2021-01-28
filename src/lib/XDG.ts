@@ -193,10 +193,10 @@ const windows = () => {
 };
 
 // eslint-disable-next-line functional/no-class
-class XDGPortable_ {
+class XDG_ {
 	constructor() {
-		const XDGPortable = function () {
-			return new XDGPortable_();
+		const XDG = function () {
+			return new XDG_();
 		};
 
 		const isMacOS = /^darwin$/i.test(process.platform);
@@ -204,13 +204,13 @@ class XDGPortable_ {
 
 		const extension = isMacOS ? macos() : isWinOS ? windows() : linux();
 
-		XDGPortable.cache = extension.cache;
-		XDGPortable.config = extension.config;
-		XDGPortable.data = extension.data;
-		XDGPortable.runtime = extension.runtime;
-		XDGPortable.state = extension.state;
+		XDG.cache = extension.cache;
+		XDG.config = extension.config;
+		XDG.data = extension.data;
+		XDG.runtime = extension.runtime;
+		XDG.state = extension.state;
 
-		XDGPortable.configDirs = function configDirs() {
+		XDG.configDirs = function configDirs() {
 			const dirs = [];
 			dirs.push(extension.config());
 			if (process.env.XDG_CONFIG_DIRS) {
@@ -220,7 +220,7 @@ class XDGPortable_ {
 			return dirs;
 		};
 
-		XDGPortable.dataDirs = function dataDirs() {
+		XDG.dataDirs = function dataDirs() {
 			const dirs = [];
 			dirs.push(extension.data());
 			if (process.env.XDG_DATA_DIRS) {
@@ -230,9 +230,9 @@ class XDGPortable_ {
 			return dirs;
 		};
 
-		return XDGPortable;
+		return XDG;
 	}
 }
 
-const default_ = new XDGPortable_() as XDG;
+const default_ = new XDG_() as XDG;
 export default default_;
