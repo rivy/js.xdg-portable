@@ -1,0 +1,14 @@
+---
+engines:
+  duplication:
+    exclude_paths:
+      - 'eg/**'
+      - 'tests/**'
+      - '**.spec.js'
+      - '**.spec.ts'
+      - '**.test.js'
+      - '**.test.ts'
+exclude_paths:
+  - '.changelog/**'
+  - 'CHANGELOG.mkd'
+  - 'dist/**'
