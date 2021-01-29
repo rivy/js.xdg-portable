@@ -143,18 +143,16 @@ const linux = () => {
 
 const macos = () => {
 	const cache = () =>
-		process.env.XDG_CACHE_HOME ||
-		path.join(path.join(osPaths.home() || osPaths.temp(), 'Library'), 'Caches');
+		process.env.XDG_CACHE_HOME || path.join(osPaths.home() || osPaths.temp(), 'Library', 'Caches');
 	const config = () =>
 		process.env.XDG_CONFIG_HOME ||
-		path.join(path.join(osPaths.home() || osPaths.temp(), 'Library'), 'Preferences');
+		path.join(osPaths.home() || osPaths.temp(), 'Library', 'Preferences');
 	const data = () =>
 		process.env.XDG_DATA_HOME ||
-		path.join(path.join(osPaths.home() || osPaths.temp(), 'Library'), 'Application Support');
+		path.join(osPaths.home() || osPaths.temp(), 'Library', 'Application Support');
 	const runtime = () => process.env.XDG_RUNTIME_DIR || void 0;
 	const state = () =>
-		process.env.XDG_STATE_HOME ||
-		path.join(path.join(osPaths.home() || osPaths.temp(), 'Library'), 'State');
+		process.env.XDG_STATE_HOME || path.join(osPaths.home() || osPaths.temp(), 'Library', 'State');
 
 	return { cache, config, data, runtime, state };
 };
