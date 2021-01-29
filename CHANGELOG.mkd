@@ -178,7 +178,7 @@
 
 ---
 
-## [v6.0.0](https://github.com/rivy/js.xdg-portable/compare/v4.0.0...v6.0.0) <small>(2019-06-29)</small>
+## [v6.0.0](https://github.com/rivy/js.xdg-portable/compare/v5.0.0...v6.0.0) <small>(2019-06-29)</small>
 
 #### Changes
 
@@ -187,7 +187,6 @@
 * change ~ cleanup type info and tests &ac; [`6bbd9f3`](https://github.com/rivy/js.xdg-portable/commit/6bbd9f307d86c42e15d3501c8f1810a0e2a282c8)
 * add STATE directory support &ac; [`1023d63`](https://github.com/rivy/js.xdg-portable/commit/1023d638b3c55b4be4ce1cde8259b4324f907776)
 * add example &ac; [`189b29e`](https://github.com/rivy/js.xdg-portable/commit/189b29e41356482c30a0d601f1aa651758975f0b)
-* add cross-platform compatiblity &ac; [`cfb3467`](https://github.com/rivy/js.xdg-portable/commit/cfb3467c82e725366c854c578c31d47fe2b0a0f2)
 
 #### Documentation
 
@@ -199,6 +198,18 @@
 * refactor ~ fix lint warnings &ac; [`15555e1`](https://github.com/rivy/js.xdg-portable/commit/15555e16e732e8698b02812fbd3c44b47d42e67b)
 * refactor ~ reorder tests &ac; [`dc035e5`](https://github.com/rivy/js.xdg-portable/commit/dc035e5278cf25479d45959dcc28a65d9d34eb5c)
 * refactor ~ reorder/sort function definitions &ac; [`52ef262`](https://github.com/rivy/js.xdg-portable/commit/52ef2621f36f523c06b43ee05a29f5a232bdcd63)
+
+---
+
+## [v5.0.0](https://github.com/rivy/js.xdg-portable/compare/v4.0.0...v5.0.0) <small>(2019-06-22)</small>
+
+#### Changes
+
+* add cross-platform compatiblity &ac; [`cfb3467`](https://github.com/rivy/js.xdg-portable/commit/cfb3467c82e725366c854c578c31d47fe2b0a0f2)
+
+#### Maintenance
+
+* maint ~ '5.0.0'; uploaded to npmjs on 2019-06-22 &ac; [`c4993e6`](https://github.com/rivy/js.xdg-portable/commit/c4993e6249e06195cd2a8471fcfc6222260cbfca)
 
 ---
 
