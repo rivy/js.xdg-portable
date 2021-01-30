@@ -165,7 +165,7 @@ So, to support basic XDG-like behavior (that is, segregating the information typ
 
 ### Fallback to `os.tmpdir()`
 
-In the uncommon case that both the XDG environment variable is not set and the users home directory can't be found, `os.tmpdir()` will be used as a fallback for the missing `os.homedir()` value.
+In the uncommon case that both the XDG environment variable is not set and the users home directory can't be determined, `os.tmpdir()` will be used as a fallback for the missing `os.homedir()` value.
 
 ### Origins
 
