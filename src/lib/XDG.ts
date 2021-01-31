@@ -182,9 +182,9 @@ const windows = () => {
 // eslint-disable-next-line functional/no-class
 class XDG_ {
 	constructor() {
-		const XDG = function () {
-			return new XDG_();
-		};
+		function XDG(): XDG {
+			return new XDG_() as XDG;
+		}
 
 		const isMacOS = /^darwin$/i.test(process.platform);
 		const isWinOS = /^win/i.test(process.platform);
