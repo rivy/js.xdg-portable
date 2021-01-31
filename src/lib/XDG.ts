@@ -13,7 +13,7 @@ import osPaths from 'os-paths';
 // # ref: <https://wiki.debian.org/XDGBaseDirectorySpecification#state> @@ <http://archive.is/pahId>
 // # ref: <https://ploum.net/207-modify-your-application-to-use-xdg-folders> @@ <https://archive.is/f43Gk>
 
-/** Determine portable XDG Base Directory paths. */
+/** Determine XDG Base Directory paths (OS/platform portable). */
 export type XDG = {
 	/** @constructor Create an `XDG` object. */
 	new (): XDG;
@@ -21,7 +21,7 @@ export type XDG = {
 	(): XDG;
 	/* eslint-disable functional/no-method-signature */
 	/**
-	Returns the path of the directory for user-specific non-essential data files.
+	Returns the directory path for user-specific non-essential (ie, cached) data files.
 
 	@example
 	```js
@@ -36,7 +36,7 @@ export type XDG = {
 	cache(): string;
 
 	/**
-	Returns the path of the directory for user-specific configuration files.
+	Returns the directory path for user-specific configuration files.
 
 	@example
 	```js
@@ -51,7 +51,7 @@ export type XDG = {
 	config(): string;
 
 	/**
-	Returns the path of the directory for user-specific data files.
+	Returns directory path for user-specific data files.
 
 	@example
 	```js
@@ -66,7 +66,7 @@ export type XDG = {
 	data(): string;
 
 	/**
-  Returns the path of the directory for user-specific non-essential runtime files and other file objects (such as sockets, named pipes, etc).
+  Returns the directory for user-specific non-essential runtime files (such as sockets, named pipes, etc); may be `undefined`.
 
 	@example
 	```js
@@ -81,7 +81,7 @@ export type XDG = {
 	runtime(): string | undefined;
 
 	/**
-	Returns the directory for user-specific state files (non-essential and more volatile than configuration files).
+	Returns the directory path for user-specific state files (non-essential and more volatile than configuration files).
 
 	@example
 	```js
@@ -96,7 +96,7 @@ export type XDG = {
 	state(): string;
 
 	/**
-	Returns a preference-ordered array of base directories to search for configuration files; includes `.config()` directory as first entry.
+	Returns a preference-ordered array of base directory paths to search for configuration files (includes `.config()` directory as first entry).
 
 	@example
 	```js
@@ -111,7 +111,7 @@ export type XDG = {
 	configDirs(): readonly string[];
 
 	/**
-	Returns a preference-ordered array of base directories to search for data files; include `.data()` directory as first entry.
+	Returns a preference-ordered array of base directory paths to search for data files (includes `.data()` directory as first entry).
 
 	@example
 	```js

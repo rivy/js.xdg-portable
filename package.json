@@ -1,7 +1,7 @@
 {
 	"name": "xdg-portable",
 	"version": "7.3.0",
-	"description": "Determine portable XDG Base Directory paths",
+	"description": "Determine XDG Base Directory paths (OS/platform portable)",
 	"license": "MIT",
 	"repository": "rivy/js.xdg-portable",
 	"author": {
