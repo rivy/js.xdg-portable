@@ -127,32 +127,32 @@ export type XDG = {
 	/* eslint-enable functional/no-method-signature */
 };
 
+function baseDir() {
+	return osPaths.home() || osPaths.temp();
+}
+
+function valOrPath(val: string | undefined, pathSegments: readonly string[]) {
+	return val || path.join(...pathSegments);
+}
+
 const linux = () => {
-	const cache = () =>
-		process.env.XDG_CACHE_HOME || path.join(osPaths.home() || osPaths.temp(), '.cache');
-	const config = () =>
-		process.env.XDG_CONFIG_HOME || path.join(osPaths.home() || osPaths.temp(), '.config');
-	const data = () =>
-		process.env.XDG_DATA_HOME || path.join(osPaths.home() || osPaths.temp(), '.local', 'share');
+	const cache = () => valOrPath(process.env.XDG_CACHE_HOME, [baseDir(), '.cache']);
+	const config = () => valOrPath(process.env.XDG_CONFIG_HOME, [baseDir(), '.config']);
+	const data = () => valOrPath(process.env.XDG_DATA_HOME, [baseDir(), '.local', 'share']);
 	const runtime = () => process.env.XDG_RUNTIME_DIR || void 0;
-	const state = () =>
-		process.env.XDG_STATE_HOME || path.join(osPaths.home() || osPaths.temp(), '.local', 'state');
+	const state = () => valOrPath(process.env.XDG_STATE_HOME, [baseDir(), '.local', 'state']);
 
 	return { cache, config, data, runtime, state };
 };
 
 const macos = () => {
-	const cache = () =>
-		process.env.XDG_CACHE_HOME || path.join(osPaths.home() || osPaths.temp(), 'Library', 'Caches');
+	const cache = () => valOrPath(process.env.XDG_CACHE_HOME, [baseDir(), 'Library', 'Caches']);
 	const config = () =>
-		process.env.XDG_CONFIG_HOME ||
-		path.join(osPaths.home() || osPaths.temp(), 'Library', 'Preferences');
+		valOrPath(process.env.XDG_CONFIG_HOME, [baseDir(), 'Library', 'Preferences']);
 	const data = () =>
-		process.env.XDG_DATA_HOME ||
-		path.join(osPaths.home() || osPaths.temp(), 'Library', 'Application Support');
+		valOrPath(process.env.XDG_DATA_HOME, [baseDir(), 'Library', 'Application Support']);
 	const runtime = () => process.env.XDG_RUNTIME_DIR || void 0;
-	const state = () =>
-		process.env.XDG_STATE_HOME || path.join(osPaths.home() || osPaths.temp(), 'Library', 'State');
+	const state = () => valOrPath(process.env.XDG_STATE_HOME, [baseDir(), 'Library', 'State']);
 
 	return { cache, config, data, runtime, state };
 };
@@ -161,31 +161,20 @@ const windows = () => {
 	// # ref: <https://www.thewindowsclub.com/local-localnow-roaming-folders-windows-10> @@ <http://archive.is/tDEPl>
 	// Locations for cache/config/data/state are invented (Windows doesn't have a popular convention)
 
-	const cache = () => {
-		const localAppData =
-			process.env.LOCALAPPDATA || path.join(osPaths.home() || osPaths.temp(), 'AppData', 'Local'); // "AppData/Local" contains local-machine-only user data
-		return process.env.XDG_CACHE_HOME || path.join(localAppData, 'xdg.cache');
-	};
+	function appData() {
+		// ".../AppData/Roaming" contains data which may follow user between machines
+		return valOrPath(process.env.APPDATA, [baseDir(), 'AppData', 'Roaming']);
+	}
+	function localAppData() {
+		// ".../AppData/Local" contains local-machine-only user data
+		return valOrPath(process.env.LOCALAPPDATA, [baseDir(), 'AppData', 'Local']);
+	}
 
-	const config = () => {
-		const appData =
-			process.env.APPDATA || path.join(osPaths.home() || osPaths.temp(), 'AppData', 'Roaming'); // "AppData/Roaming" contains data which may follow user between machines
-		return process.env.XDG_CONFIG_HOME || path.join(appData, 'xdg.config');
-	};
-
-	const data = () => {
-		const appData =
-			process.env.APPDATA || path.join(osPaths.home() || osPaths.temp(), 'AppData', 'Roaming'); // "AppData/Roaming" contains data which may follow user between machines
-		return process.env.XDG_DATA_HOME || path.join(appData, 'xdg.data');
-	};
-
+	const cache = () => valOrPath(process.env.XDG_CACHE_HOME, [localAppData(), 'xdg.cache']);
+	const config = () => valOrPath(process.env.XDG_CONFIG_HOME, [appData(), 'xdg.config']);
+	const data = () => valOrPath(process.env.XDG_DATA_HOME, [appData(), 'xdg.data']);
 	const runtime = () => process.env.XDG_RUNTIME_DIR || void 0;
-
-	const state = () => {
-		const localAppData =
-			process.env.LOCALAPPDATA || path.join(osPaths.home() || osPaths.temp(), 'AppData', 'Local'); // "AppData/Local" contains local-machine-only user data
-		return process.env.XDG_STATE_HOME || path.join(localAppData, 'xdg.state');
-	};
+	const state = () => valOrPath(process.env.XDG_STATE_HOME, [localAppData(), 'xdg.state']);
 
 	return { cache, config, data, runtime, state };
 };
@@ -209,23 +198,17 @@ class XDG_ {
 		XDG.state = extension.state;
 
 		XDG.configDirs = function configDirs() {
-			const dirs = [];
-			dirs.push(extension.config());
-			if (process.env.XDG_CONFIG_DIRS) {
-				dirs.push(...process.env.XDG_CONFIG_DIRS.split(path.delimiter));
-			}
-
-			return dirs;
+			return [
+				extension.config(),
+				...(process.env.XDG_CONFIG_DIRS ? process.env.XDG_CONFIG_DIRS.split(path.delimiter) : []),
+			];
 		};
 
 		XDG.dataDirs = function dataDirs() {
-			const dirs = [];
-			dirs.push(extension.data());
-			if (process.env.XDG_DATA_DIRS) {
-				dirs.push(...process.env.XDG_DATA_DIRS.split(path.delimiter));
-			}
-
-			return dirs;
+			return [
+				extension.data(),
+				...(process.env.XDG_DATA_DIRS ? process.env.XDG_DATA_DIRS.split(path.delimiter) : []),
+			];
 		};
 
 		return XDG;
