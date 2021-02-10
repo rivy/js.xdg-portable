@@ -11,6 +11,7 @@
 		"../eg/**",
 		"../src/esm-wrapper/**",
 		"../src/**/*.deno.ts",
+		"../src/**/*.esm.ts",
 		"../src/**/*.spec.*",
 		"../src/**/*.test.*",
 		"../test/**",

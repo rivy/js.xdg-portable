@@ -12,8 +12,10 @@ export default [
 	{
 		preserveModules: true,
 		input: ['src/index.ts'],
-		external: ['path', 'os', 'os-paths'],
-		output: [{ exports: 'auto', dir: 'build/esm', format: 'esm', entryFileNames: '[name].mjs' }],
-		plugins: [typescript({ tsconfig: './tsconfig/tsconfig.esm.json' })],
+		external: ['path', 'os'],
+		output: [
+			{ exports: 'auto', dir: 'build/cjs', format: 'commonjs', entryFileNames: '[name].js' },
+		],
+		plugins: [typescript({ tsconfig: './tsconfig/tsconfig.cjs.json' })],
 	},
 ];

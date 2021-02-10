@@ -9,6 +9,7 @@
 	"exclude": [
 		"../eg/**",
 		"../src/esm-wrapper/**",
+		"../src/**/*.cjs.ts",
 		"../src/**/*.deno.ts",
 		"../src/**/*.spec.*",
 		"../src/**/*.test.*",

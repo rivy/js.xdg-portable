@@ -8,7 +8,7 @@ const path = require('path');
 const test = require('ava');
 const spawn = require('cross-spawn');
 
-const module_ = require('../build/cjs+tests');
+const module_ = require('../build/cjs+tests/mod.cjs.js');
 
 // const vNodeJS = process.versions.node.split('.');
 // const vNodeJSMajor = +vNodeJS[0];

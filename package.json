@@ -20,18 +20,18 @@
 		"package.json"
 	],
 	"type": "commonjs",
-	"main": "./dist/cjs/index.js",
-	"module": "./dist/cjs/esm-wrapper/index.js",
-	"types": "./dist/types/index.d.ts",
+	"main": "./dist/cjs/mod.cjs.js",
+	"module": "./dist/cjs/esm-wrapper/mod.esm.js",
+	"types": "./dist/types/mod.d.ts",
 	"exports": {
 		".": [
 			{
-				"import": "./dist/cjs/esm-wrapper/index.js",
-				"require": "./dist/cjs/index.js",
-				"types": "./dist/types/index.d.ts",
-				"default": "./dist/cjs/index.js"
+				"import": "./dist/cjs/esm-wrapper/mod.esm.js",
+				"require": "./dist/cjs/mod.cjs.js",
+				"types": "./dist/types/mod.d.ts",
+				"default": "./dist/cjs/mod.cjs.js"
 			},
-			"./dist/cjs/index.js"
+			"./dist/cjs/mod.cjs.js"
 		],
 		"./package.json": "./package.json"
 	},
@@ -103,8 +103,7 @@
 		"# rebuild # clean and (re-)build project": "",
 		"rebuild": "run-s clean build",
 		"rebuild:cjs": "shx rm -fr build/cjs && tsc -p tsconfig/tsconfig.cjs.json && shx cp -r src/esm-wrapper build/cjs && shx mkdir -p build/.targets && shx touch build/.targets/build-cjs.succeeded",
-		"## rebuild:esm * [2020-12-22; rivy] TS compiles to ESMs are broken due to extension mishandling (use `rollup`)": "tsc -p tsconfig/tsconfig.esm.json",
-		"rebuild:esm": "shx rm -fr build/esm && rollup -c .rollup.config.js && shx mkdir -p build/.targets && shx touch build/.targets/build-esm.succeeded",
+		"rebuild:esm": "shx rm -fr build/esm && tsc -p tsconfig/tsconfig.esm.json && shx cp src/esm-wrapper/package.json build/esm && shx mkdir -p build/.targets && shx touch build/.targets/build-esm.succeeded",
 		"rebuild:umd": "shx rm -fr build/umd && tsc -p tsconfig/tsconfig.umd.json && shx mkdir -p build/.targets && shx touch build/.targets/build-umd.succeeded",
 		"rebuild:tests": "shx rm -fr build/cjs+tests && tsc -p tsconfig/tsconfig.tests.json && shx mkdir -p build/.targets && shx touch build/.targets/build-cjs+tests.succeeded",
 		"rebuild:types": "shx rm -fr build/types && tsc -p tsconfig/tsconfig.types.json && shx mkdir -p build/.targets && shx touch build/.targets/build-types.succeeded",
@@ -148,7 +147,7 @@
 		"_:update:dist.build": "shx mkdir -p dist && shx rm -fr dist/cjs dist/esm && shx cp -r build/cjs build/esm dist",
 		"_:update:dist.normalizeEOL": "eolConverter lf dist/**/*.{cjs,js,mjs,ts,json}",
 		"_:update:dist.pack": "node -e \"delete process.env.NPM_CONFIG_DRY_RUN; name=require('./package.json').name; result=require('child_process').spawnSync('npm pack && shx mkdir -p dist && shx mv '+name+'-*.tgz dist/'+name+'.tgz',{shell:true,encoding:'utf-8'}); if (result.status != 0) {console.error('[update] ERR! Unable to package (into *.tgz) for distribution\\n'+result.stdout); process.exit(1);} else {console.log(result.stdout);};\"",
-		"_:update:dist.types": "shx mkdir -p dist && shx rm -fr dist/types && shx cp -r build/types dist",
+		"_:update:dist.types": "shx mkdir -p dist && shx rm -fr dist/types && rollup --config .rollup.config.types.js && shx mkdir -p dist/cjs && shx cp dist/types/*.cjs.d.ts dist/cjs",
 		"_:update:dist:rebuild": "shx rm -fr dist && run-s --silent _:update:dist.build _:update:dist.types _:update:dist.normalizeEOL _:update:dist.pack && shx mkdir -p dist/.targets && shx touch dist/.targets/update-dist.succeeded",
 		"_:version:spell:changelog_update": "run-s --silent _:exists:git-changelog && git changelog -u | cspell stdin --config \".vscode/cspell.json\" || shx echo \"[lint] WARN CHANGELOG update `cspell` exception\" 1>&2",
 		"_:version:update:changelog": "run-s --silent _:exists:git-changelog && node -e \"v=require('./package.json').version; result=require('child_process').spawnSync('git changelog --next-tag v'+v,{shell:true,encoding:'utf-8'}); if (result.status != 0) {console.error('ERR! '+result.stderr); process.exit(1);} else {require('fs').writeFileSync('CHANGELOG.mkd',result.stdout);};\" || shx echo \"[version] WARN CHANGELOG not updated\" 1>&2",
@@ -166,6 +165,7 @@
 		"@commitlint/cli": "^11.0.0",
 		"@commitlint/config-conventional": "^11.0.0",
 		"@istanbuljs/nyc-config-typescript": "^1.0.1",
+		"@rollup/plugin-replace": "^2.3.4",
 		"@types/node": "^14.14.20",
 		"@typescript-eslint/eslint-plugin": "^4.12.0",
 		"@typescript-eslint/parser": "^4.12.0",
@@ -203,6 +203,7 @@
 		"retext-syntax-urls": "^2.0.0",
 		"rimraf": "^3.0.2",
 		"rollup": "^2.36.1",
+		"rollup-plugin-dts": "^2.0.1",
 		"rollup-plugin-typescript2": "^0.29.0",
 		"shx": "^0.3.3",
 		"ts-node": "^9.0.0",

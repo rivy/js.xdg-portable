@@ -1,6 +1,6 @@
 import { expectType } from 'tsd';
 
-import xdg from '../src';
+import xdg from '../src/mod.esm';
 
 expectType<typeof xdg>(xdg());
 expectType<typeof xdg>(new xdg());
