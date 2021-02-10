@@ -350,7 +350,7 @@ By contributing to the project, you are agreeing to provide your contributions u
 <!-- Repository -->
 <!-- Note: for '[repository-image] ...', `%E2%81%A3` == utf-8 sequence of "Unicode Character 'INVISIBLE SEPARATOR' (U+2063)"; ref: <https://codepoints.net/U+2063> -->
 
-[repository-image]: https://img.shields.io/github/v/tag/rivy/js.xdg-portable?label=%E2%81%A3&logo=github&logoColor=white
+[repository-image]: https://img.shields.io/github/v/tag/rivy/js.xdg-portable?sort=semver&label=%E2%81%A3&logo=github&logoColor=white
 [repository-url]: https://github.com/rivy/js.xdg-portable
 [license-image]: https://img.shields.io/npm/l/xdg-portable.svg?color=tomato&style=flat
 [license-url]: license
@@ -373,7 +373,7 @@ By contributing to the project, you are agreeing to provide your contributions u
 [coverage-url]: https://codecov.io/gh/rivy/js.xdg-portable
 [codeclimate-url]: https://codeclimate.com/github/rivy/js.xdg-portable
 [codeclimate-image]: https://img.shields.io/codeclimate/maintainability/rivy/js.xdg-portable?label=codeclimate
-[codacy-image]: https://app.codacy.com/project/badge/grade/06ce379ca8cb437db6c79f6eeca7f2f9?label=codacy
+[codacy-image]: https://img.shields.io/codacy/grade/06ce379ca8cb437db6c79f6eeca7f2f9?label=codacy
 [codacy-url]: https://app.codacy.com/gh/rivy/js.xdg-portable/dashboard
 [codefactor-image]: https://img.shields.io/codefactor/grade/github/rivy/js.xdg-portable?label=codefactor
 [codefactor-url]: https://www.codefactor.io/repository/github/rivy/js.xdg-portable
