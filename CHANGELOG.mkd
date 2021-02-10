@@ -201,15 +201,11 @@
 
 ---
 
-## [v5.0.0](https://github.com/rivy/js.xdg-portable/compare/v4.0.0...v5.0.0) <small>(2019-06-22)</small>
+## [v5.0.0](https://github.com/rivy/js.xdg-portable/compare/v4.0.0...v5.0.0) <small>(2019-05-26)</small>
 
 #### Changes
 
 * add cross-platform compatiblity &ac; [`cfb3467`](https://github.com/rivy/js.xdg-portable/commit/cfb3467c82e725366c854c578c31d47fe2b0a0f2)
-
-#### Maintenance
-
-* maint ~ '5.0.0'; uploaded to npmjs on 2019-06-22 &ac; [`c4993e6`](https://github.com/rivy/js.xdg-portable/commit/c4993e6249e06195cd2a8471fcfc6222260cbfca)
 
 ---
 
