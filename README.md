@@ -36,12 +36,13 @@ XDG references
 # ref: <https://ploum.net/207-modify-your-application-to-use-xdg-folders> @@ <https://archive.is/f43Gk>
 -->
 
-## Installation
+## Installation (CJS/ESM/TypeScript)
 
 ```shell
 npm install xdg-portable
-# or... `npm install github:rivy/js.xdg-portable`
-# or... `npm install "https://cdn.jsdelivr.net/gh/rivy/js.xdg-portable@latest/dist/xdg-portable.tgz"`
+# or... `npm install "git:github.com/rivy/js.xdg-portable"`
+# or... `npm install "git:github.com/rivy/js.xdg-portable#v7.3.0"`
+# or... `npm install "https://cdn.jsdelivr.net/gh/rivy/js.xdg-portable/dist/xdg-portable.tgz"`
 ```
 
 ## Usage
@@ -49,7 +50,7 @@ npm install xdg-portable
 #### CommonJS (CJS)
 
 ```js
-const xdg = require('xdg-portable');
+const xdg = require('xdg-portable/cjs');
 
 const configDirs = xdg.configDirs();
 const stateDir = xdg.state();
@@ -73,23 +74,23 @@ const configDirs = xdg.configDirs();
 
 ## API
 
-### Initialization
+### Construction/Initialization
 
 #### `XDG()`
 
 ```js
-const xdg = require('xdg-portable'); // CJS
+const xdg = require('xdg-portable/cjs'); // CJS
 //or...
 //import xdg from 'xdg-portable'; // ESM/TypeScript
 ```
 
-When importing this module, the object returned is a function object, `XDG`, augmented with attached methods. Additional `XDG` objects may be constructed by direct call of the imported `XDG` object (eg, `const x = xdg()`) or by using `new` (eg, `const x = new xdg()`). Notably, since the `XDG` object contains no instance state, all `XDG` objects will be functionally identical.
+When importing this module, the object returned is a function object, `XDG`, augmented with attached methods. Additional `XDG` objects may be constructed by direct call of the imported `XDG` object (eg, `const x = xdg()`) or by using `new` (eg, `const x = new xdg()`). Notably, since the `XDG` object contains no user-facing instance state, all `XDG` objects will be functionally identical.
 
 ### Methods
 
-All module methods return platform-compatible path strings.
+All module methods return platform-compatible path strings which are normalized and have no trailing path separators.
 
-The returned paths are simple strings and are _not_ guaranteed to exist. The application is responsible for construction of the directories when needed. If needed, [`make-dir`](https://www.npmjs.com/package/make-dir) or [`mkdirp`](https://www.npmjs.com/package/mkdirp) can be used to create the directories.
+The returned paths and are _not_ guaranteed to exist on the file system. So, the user application is responsible for directory construction, if/when needed. If needed, [`make-dir`](https://www.npmjs.com/package/make-dir) or [`mkdirp`](https://www.npmjs.com/package/mkdirp) can be used to create the directories.
 
 #### `xdg.cache(): string`
 
@@ -144,7 +145,7 @@ This directory location would be analogous to _/usr/share_ for \*nix.
 
 #### `xdg.runtime(): string?`
 
-- Returns the directory for user-specific non-essential runtime files (such as sockets, named pipes, etc); may be `undefined`.
+- Returns the directory path for user-specific non-essential runtime files (such as sockets, named pipes, etc); may be `undefined`.
 
 > Deletion of the data contained here might interfere with a currently executing application but should have no effect on future executions.
 
@@ -177,7 +178,7 @@ This directory location might hold data such as backups, input history, logs, re
 
 #### `xdg.configDirs(): readonly string[]`
 
-- Returns a preference-ordered array of base directory paths to search for configuration files (includes `.config()` directory as first entry).
+- Returns a preference-ordered array of base directory paths to search for configuration files (includes `xdg.config()` directory as first entry).
 
 ```js
 const configDirs = xdg.configDirs();
@@ -188,7 +189,7 @@ const configDirs = xdg.configDirs();
 
 #### `xdg.dataDirs(): readonly string[]`
 
-- Returns a preference-ordered array of base directory paths to search for data files (includes `.data()` directory as first entry).
+- Returns a preference-ordered array of base directory paths to search for data files (includes `xdg.data()` directory as first entry).
 
 ```js
 const dataDirs = xdg.dataDirs();
@@ -214,9 +215,13 @@ const dataDirs = xdg.dataDirs();
 CJS is the basic supported output (with support for NodeJS versions as early as NodeJS-v4).
 
 ```js
-const xdg = require('xdg-portable');
+const xdg = require('xdg-portable/cjs');
 console.log(xdg.config());
 ```
+
+> Note: for CJS, `require('xdg-portable')` is supported for backward-compatibility and will execute correctly at run-time. However, this require construction links to the default package type declarations which, though _correct_ for ESM or TypeScript, are _incorrect_ for CJS. This, then, leads to incorrect analysis of CJS files by static analysis tools such as TypeScript and Intellisense.
+>
+> Using `require('xdg-portable/cjs')` is preferred as it associates the proper CJS type declarations and provides correct information to static analysis tools.
 
 #### ECMAScript modules (ESM; `*.mjs`)
 
@@ -240,7 +245,7 @@ As a consequence, TypeScript type definitions are automatically generated, bundl
 
 The [XDG Base Directory Specification](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html) defines categories of user information (ie, "cache", "config", "data", ...), defines their standard storage locations, and defines the standard process for user configuration of those locations (using `XDG_CACHE_HOME`, etc).
 
-Applications supporting the XDG convention are expected to store user-specific files within these locations, either within the common/shared directory (eg, `` `${xdg.cache()}/filename` ``) or within a more isolated application-defined subdirectory (eg, `` `${xdg.config()}/dir/filename` ``; `dir` usually being the application name).
+Applications supporting the XDG convention are expected to store user-specific files within these locations, either within the common/shared directory (eg, `` `${xdg.cache()}/filename` ``) or within a more isolated application-defined subdirectory (eg, `` `${xdg.config()}/DIR/filename` ``; `DIR` usually being the application name).
 
 ### Windows ("win32") specific notes
 
@@ -317,7 +322,7 @@ show:deps           show package dependencies
 test                test package
 test:code           test package code
 test:types          test for type declaration errors (using `tsd`)
-update              update/prepare for distribution
+update              update/prepare for distribution [alias: 'dist']
 update:changelog    update CHANGELOG (using `git changelog ...`)
 update:dist         update distribution content
 ```
