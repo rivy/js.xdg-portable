@@ -33,7 +33,11 @@
 			},
 			"./dist/cjs/mod.cjs.js"
 		],
-		"./package.json": "./package.json"
+		"./package.json": "./package.json",
+		"./cjs": {
+			"require": "./dist/cjs/mod.cjs.js",
+			"types": "./dist/cjs/mod.cjs.d.ts"
+		}
 	},
 	"keywords": [
 		"base",
