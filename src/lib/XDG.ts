@@ -25,7 +25,7 @@ export type XDG = {
 
 	@example
 	```js
-	import xdg = require('xdg-portable');
+	import xdg from 'xdg-portable';
 
 	console.log(xdg.cache());
 	//(mac)=> '/Users/rivy/Library/Caches'
@@ -40,7 +40,7 @@ export type XDG = {
 
 	@example
 	```js
-	import xdg = require('xdg-portable');
+	import xdg from 'xdg-portable';
 
 	console.log(xdg.config());
 	//(mac)=> '/Users/rivy/Library/Preferences'
@@ -55,7 +55,7 @@ export type XDG = {
 
 	@example
 	```js
-	import xdg = require('xdg-portable');
+	import xdg from 'xdg-portable';
 
 	console.log(xdg.data());
 	//(mac)=> '/Users/rivy/Library/Application Support'
@@ -66,11 +66,11 @@ export type XDG = {
 	data(): string;
 
 	/**
-  Returns the directory for user-specific non-essential runtime files (such as sockets, named pipes, etc); may be `undefined`.
+  Returns the directory path for user-specific non-essential runtime files (such as sockets, named pipes, etc); may be `undefined`.
 
 	@example
 	```js
-	import xdg = require('xdg-portable');
+	import xdg from 'xdg-portable';
 
 	console.log(xdg.runtime());
 	//(mac)=> undefined
@@ -85,7 +85,7 @@ export type XDG = {
 
 	@example
 	```js
-	import xdg = require('xdg-portable');
+	import xdg from 'xdg-portable';
 
 	xdg.state();
 	//(mac)=> '/Users/rivy/Library/State'
@@ -100,7 +100,7 @@ export type XDG = {
 
 	@example
 	```js
-	import xdg = require('xdg-portable');
+	import xdg from 'xdg-portable';
 
 	xdg.configDirs();
 	//(mac)=> ['/Users/rivy/Library/Preferences']
@@ -115,7 +115,7 @@ export type XDG = {
 
 	@example
 	```js
-	import xdg = require('xdg-portable');
+	import xdg from 'xdg-portable';
 
 	xdg.dataDirs();
 	//(mac)=> ['/Users/rivy/Library/Preferences']
