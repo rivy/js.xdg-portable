@@ -24,15 +24,16 @@
 	"module": "./dist/cjs/esm-wrapper/index.js",
 	"types": "./dist/types/index.d.ts",
 	"exports": {
-		"./package.json": "./package.json",
 		".": [
 			{
 				"import": "./dist/cjs/esm-wrapper/index.js",
 				"require": "./dist/cjs/index.js",
-				"types": "./dist/types/index.d.ts"
+				"types": "./dist/types/index.d.ts",
+				"default": "./dist/cjs/index.js"
 			},
 			"./dist/cjs/index.js"
-		]
+		],
+		"./package.json": "./package.json"
 	},
 	"keywords": [
 		"base",
