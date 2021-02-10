@@ -3,6 +3,7 @@
 build
 coverage
 dist
+dist/.targets
 node_modules
 package-lock.json
 yarn.lock
