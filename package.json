@@ -153,7 +153,7 @@
 		"_:version:spell:changelog_update": "run-s --silent _:exists:git-changelog && git changelog -u | cspell stdin --config \".vscode/cspell.json\" || shx echo \"[lint] WARN CHANGELOG update `cspell` exception\" 1>&2",
 		"_:version:update:changelog": "run-s --silent _:exists:git-changelog && node -e \"v=require('./package.json').version; result=require('child_process').spawnSync('git changelog --next-tag v'+v,{shell:true,encoding:'utf-8'}); if (result.status != 0) {console.error('ERR! '+result.stderr); process.exit(1);} else {require('fs').writeFileSync('CHANGELOG.mkd',result.stdout);};\" || shx echo \"[version] WARN CHANGELOG not updated\" 1>&2",
 		"## lifecycle scripts ##": "",
-		"prepublishOnly": "npm run test --test-for-dist && run-s --silent _:update:changelog _:update:dist.build _:update:dist.normalizeEOL && run-s --silent _:vcs-strictly-clean-err",
+		"prepublishOnly": "npm run clean && npm run test --test-for-dist && run-s --silent update _:vcs-strictly-clean-err",
 		"preversion": "run-s --silent _:version:spell:changelog_update && npm run test --test-for-dist",
 		"version": "run-s --silent _:version:update:changelog && run-s lint:spell && run-s --silent update:dist && git add CHANGELOG.mkd dist"
 	},
