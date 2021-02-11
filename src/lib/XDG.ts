@@ -66,7 +66,7 @@ export type XDG = {
 	data(): string;
 
 	/**
-  Returns the directory path for user-specific non-essential runtime files (such as sockets, named pipes, etc); may be `undefined`.
+	Returns the directory path for user-specific non-essential runtime files (such as sockets, named pipes, etc); may be `undefined`.
 
 	@example
 	```js
