@@ -41,7 +41,7 @@ XDG references
 ```shell
 npm install xdg-portable
 # or... `npm install "git:github.com/rivy/js.xdg-portable"`
-# or... `npm install "git:github.com/rivy/js.xdg-portable#v7.3.0"`
+# or... `npm install "git:github.com/rivy/js.xdg-portable#v8.0.0"`
 # or... `npm install "https://cdn.jsdelivr.net/gh/rivy/js.xdg-portable/dist/xdg-portable.tgz"`
 ```
 
