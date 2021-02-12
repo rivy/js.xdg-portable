@@ -24,15 +24,12 @@
 	"module": "./dist/cjs/esm-wrapper/mod.esm.js",
 	"types": "./dist/types/mod.d.ts",
 	"exports": {
-		".": [
-			{
-				"import": "./dist/cjs/esm-wrapper/mod.esm.js",
-				"require": "./dist/cjs/mod.cjs.js",
-				"types": "./dist/types/mod.d.ts",
-				"default": "./dist/cjs/mod.cjs.js"
-			},
-			"./dist/cjs/mod.cjs.js"
-		],
+		".": {
+			"import": "./dist/cjs/esm-wrapper/mod.esm.js",
+			"require": "./dist/cjs/mod.cjs.js",
+			"types": "./dist/types/mod.d.ts",
+			"default": "./dist/cjs/mod.cjs.js"
+		},
 		"./package.json": "./package.json",
 		"./cjs": {
 			"require": "./dist/cjs/mod.cjs.js",
