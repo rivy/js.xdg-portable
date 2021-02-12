@@ -7,6 +7,14 @@
 
 ---
 
+## [v8.0.1](https://github.com/rivy/js.xdg-portable/compare/v8.0.0...v8.0.1) <small>(2021-02-12)</small>
+
+#### Fixes
+
+* fix ~ add 'cjs' directory to distribution file list (as previously intended) &ac; [`46500b9`](https://github.com/rivy/js.xdg-portable/commit/46500b9a6e0486e8a1ca50c0cd0c53cf9b0fcd05)
+
+---
+
 ## [v8.0.0](https://github.com/rivy/js.xdg-portable/compare/v7.3.0...v8.0.0) <small>(2021-02-12)</small>
 
 #### Changes
