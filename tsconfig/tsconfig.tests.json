@@ -1,7 +1,8 @@
 {
 	"extends": "../tsconfig.json",
 	"compilerOptions": {
-		"outDir": "../build/cjs+tests",
+		"outDir": "../build/tests_",
+		"rootDir": "..",
 		"declaration": true, // generate side-by-side type declarations
 		"module": "CommonJS",
 		"noEmit": false,
@@ -11,7 +12,8 @@
 		"../eg/**",
 		"../src/esm-wrapper/**",
 		"../src/**/*.deno.ts",
-		"../test/**",
+		"../test/**/*.js",
+		"../test/**/*.test-d.ts",
 		"../node_modules/**"
 	]
 }

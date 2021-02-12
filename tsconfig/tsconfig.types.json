@@ -3,6 +3,7 @@
 	"compilerOptions": {
 		// generate (only) type declaration files to 'build/types'
 		"outDir": "../build/types",
+		"rootDir": "..",
 		"declaration": true, // generate type declarations
 		"emitDeclarationOnly": true,
 		"noEmit": false,

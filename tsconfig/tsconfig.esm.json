@@ -2,6 +2,7 @@
 	"extends": "../tsconfig.json",
 	"compilerOptions": {
 		"outDir": "../build/esm",
+		"rootDir": "..",
 		"declaration": false, // generate side-by-side type declarations
 		"module": "es2015",
 		"noEmit": false

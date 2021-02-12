@@ -9,12 +9,12 @@ export default [
 	// * ref: <https://github.com/Microsoft/TypeScript/issues/4433> , <https://github.com/google/model-viewer/issues/1502>
 	// * ref: <https://github.com/Swatinem/rollup-plugin-dts>
 	{
-		input: './build/types/mod.esm.d.ts',
+		input: './build/types/src/mod.esm.d.ts',
 		output: [{ file: './dist/types/mod.d.ts', format: 'esm' }],
 		plugins: [dts()],
 	},
 	{
-		input: './build/types/mod.cjs.d.ts',
+		input: './build/types/src/mod.cjs.d.ts',
 		output: [{ file: './dist/types/mod.cjs.d.ts', format: 'cjs' }],
 		plugins: [
 			dts(),

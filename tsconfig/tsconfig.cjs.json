@@ -2,6 +2,7 @@
 	"extends": "../tsconfig.json",
 	"compilerOptions": {
 		"outDir": "../build/cjs",
+		"rootDir": "..",
 		"declaration": false, // generate side-by-side type declarations
 		"module": "CommonJS",
 		"noEmit": false
