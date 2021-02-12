@@ -36,8 +36,8 @@ test('api', (t) => {
 	});
 });
 
-// test examples using '--test-for-dist'
-if (process.env.npm_config_test_for_dist) {
+// test examples using '--test-dist'
+if (process.env.NPM_CONFIG_TEST_DIST) {
 	test('examples are executable without error (JavaScript)', (t) => {
 		// t.timeout(30000); // 30s timeout
 
