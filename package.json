@@ -12,6 +12,7 @@
 		"node": ">= 4.0"
 	},
 	"files": [
+		"cjs",
 		"dist/cjs",
 		"dist/types",
 		"CHANGELOG.mkd",
