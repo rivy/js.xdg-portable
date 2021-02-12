@@ -1,10 +1,6 @@
 // # spell-checker:ignore macos APPDATA LOCALAPPDATA
-/* eslint-env es6, node */
-'use strict';
 
-import path from 'path';
-
-import osPaths from 'os-paths';
+import { Platform } from '../platform-adapters/_base.js';
 
 // XDG references
 // # ref: <https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html> @@ <https://archive.is/aAhtw>
@@ -14,7 +10,7 @@ import osPaths from 'os-paths';
 // # ref: <https://ploum.net/207-modify-your-application-to-use-xdg-folders> @@ <https://archive.is/f43Gk>
 
 /** Determine XDG Base Directory paths (OS/platform portable). */
-export type XDG = {
+type XDG = {
 	/** @constructor Create an `XDG` object. */
 	new (): XDG;
 	/** @constructor Create an `XDG` object. */
@@ -127,93 +123,94 @@ export type XDG = {
 	/* eslint-enable functional/no-method-signature */
 };
 
-function baseDir() {
-	return osPaths.home() || osPaths.temp();
-}
+function Adapt(adapter_: Platform.Adapter): { readonly XDG: XDG } {
+	const { env, osPaths, path } = adapter_;
 
-function valOrPath(val: string | undefined, pathSegments: readonly string[]) {
-	return val || path.join(...pathSegments);
-}
+	const isMacOS = /^darwin$/i.test(adapter_.process.platform);
+	const isWinOS = /^win/i.test(adapter_.process.platform);
 
-const linux = () => {
-	const cache = () => valOrPath(process.env.XDG_CACHE_HOME, [baseDir(), '.cache']);
-	const config = () => valOrPath(process.env.XDG_CONFIG_HOME, [baseDir(), '.config']);
-	const data = () => valOrPath(process.env.XDG_DATA_HOME, [baseDir(), '.local', 'share']);
-	const runtime = () => process.env.XDG_RUNTIME_DIR || void 0;
-	const state = () => valOrPath(process.env.XDG_STATE_HOME, [baseDir(), '.local', 'state']);
-
-	return { cache, config, data, runtime, state };
-};
-
-const macos = () => {
-	const cache = () => valOrPath(process.env.XDG_CACHE_HOME, [baseDir(), 'Library', 'Caches']);
-	const config = () =>
-		valOrPath(process.env.XDG_CONFIG_HOME, [baseDir(), 'Library', 'Preferences']);
-	const data = () =>
-		valOrPath(process.env.XDG_DATA_HOME, [baseDir(), 'Library', 'Application Support']);
-	const runtime = () => process.env.XDG_RUNTIME_DIR || void 0;
-	const state = () => valOrPath(process.env.XDG_STATE_HOME, [baseDir(), 'Library', 'State']);
-
-	return { cache, config, data, runtime, state };
-};
-
-const windows = () => {
-	// # ref: <https://www.thewindowsclub.com/local-localnow-roaming-folders-windows-10> @@ <http://archive.is/tDEPl>
-	// Locations for cache/config/data/state are invented (Windows doesn't have a popular convention)
-
-	function appData() {
-		// ".../AppData/Roaming" contains data which may follow user between machines
-		return valOrPath(process.env.APPDATA, [baseDir(), 'AppData', 'Roaming']);
-	}
-	function localAppData() {
-		// ".../AppData/Local" contains local-machine-only user data
-		return valOrPath(process.env.LOCALAPPDATA, [baseDir(), 'AppData', 'Local']);
+	function baseDir() {
+		return osPaths.home() || osPaths.temp();
 	}
 
-	const cache = () => valOrPath(process.env.XDG_CACHE_HOME, [localAppData(), 'xdg.cache']);
-	const config = () => valOrPath(process.env.XDG_CONFIG_HOME, [appData(), 'xdg.config']);
-	const data = () => valOrPath(process.env.XDG_DATA_HOME, [appData(), 'xdg.data']);
-	const runtime = () => process.env.XDG_RUNTIME_DIR || void 0;
-	const state = () => valOrPath(process.env.XDG_STATE_HOME, [localAppData(), 'xdg.state']);
+	function valOrPath(val: string | undefined, pathSegments: readonly string[]) {
+		return val || path.join(...pathSegments);
+	}
 
-	return { cache, config, data, runtime, state };
-};
+	const linux = () => {
+		const cache = () => valOrPath(env.get('XDG_CACHE_HOME'), [baseDir(), '.cache']);
+		const config = () => valOrPath(env.get('XDG_CONFIG_HOME'), [baseDir(), '.config']);
+		const data = () => valOrPath(env.get('XDG_DATA_HOME'), [baseDir(), '.local', 'share']);
+		const runtime = () => env.get('XDG_RUNTIME_DIR') || void 0;
+		const state = () => valOrPath(env.get('XDG_STATE_HOME'), [baseDir(), '.local', 'state']);
 
-// eslint-disable-next-line functional/no-class
-class XDG_ {
-	constructor() {
-		function XDG(): XDG {
-			return new XDG_() as XDG;
+		return { cache, config, data, runtime, state };
+	};
+
+	const macos = () => {
+		const cache = () => valOrPath(env.get('XDG_CACHE_HOME'), [baseDir(), 'Library', 'Caches']);
+		const config = () =>
+			valOrPath(env.get('XDG_CONFIG_HOME'), [baseDir(), 'Library', 'Preferences']);
+		const data = () =>
+			valOrPath(env.get('XDG_DATA_HOME'), [baseDir(), 'Library', 'Application Support']);
+		const runtime = () => env.get('XDG_RUNTIME_DIR') || void 0;
+		const state = () => valOrPath(env.get('XDG_STATE_HOME'), [baseDir(), 'Library', 'State']);
+
+		return { cache, config, data, runtime, state };
+	};
+
+	const windows = () => {
+		// # ref: <https://www.thewindowsclub.com/local-localnow-roaming-folders-windows-10> @@ <http://archive.is/tDEPl>
+		// Locations for cache/config/data/state are invented (Windows doesn't have a popular convention)
+
+		function appData() {
+			// ".../AppData/Roaming" contains data which may follow user between machines
+			return valOrPath(env.get('APPDATA'), [baseDir(), 'AppData', 'Roaming']);
+		}
+		function localAppData() {
+			// ".../AppData/Local" contains local-machine-only user data
+			return valOrPath(env.get('LOCALAPPDATA'), [baseDir(), 'AppData', 'Local']);
 		}
 
-		const isMacOS = /^darwin$/i.test(process.platform);
-		const isWinOS = /^win/i.test(process.platform);
+		const cache = () => valOrPath(env.get('XDG_CACHE_HOME'), [localAppData(), 'xdg.cache']);
+		const config = () => valOrPath(env.get('XDG_CONFIG_HOME'), [appData(), 'xdg.config']);
+		const data = () => valOrPath(env.get('XDG_DATA_HOME'), [appData(), 'xdg.data']);
+		const runtime = () => env.get('XDG_RUNTIME_DIR') || void 0;
+		const state = () => valOrPath(env.get('XDG_STATE_HOME'), [localAppData(), 'xdg.state']);
 
-		const extension = isMacOS ? macos() : isWinOS ? windows() : linux();
+		return { cache, config, data, runtime, state };
+	};
 
-		XDG.cache = extension.cache;
-		XDG.config = extension.config;
-		XDG.data = extension.data;
-		XDG.runtime = extension.runtime;
-		XDG.state = extension.state;
+	// eslint-disable-next-line functional/no-class
+	class XDG_ {
+		constructor() {
+			function XDG(): XDG {
+				return new XDG_() as XDG;
+			}
 
-		XDG.configDirs = function configDirs() {
-			return [
-				extension.config(),
-				...(process.env.XDG_CONFIG_DIRS ? process.env.XDG_CONFIG_DIRS.split(path.delimiter) : []),
-			];
-		};
+			const extension = isMacOS ? macos() : isWinOS ? windows() : linux();
 
-		XDG.dataDirs = function dataDirs() {
-			return [
-				extension.data(),
-				...(process.env.XDG_DATA_DIRS ? process.env.XDG_DATA_DIRS.split(path.delimiter) : []),
-			];
-		};
+			XDG.cache = extension.cache;
+			XDG.config = extension.config;
+			XDG.data = extension.data;
+			XDG.runtime = extension.runtime;
+			XDG.state = extension.state;
 
-		return XDG;
+			XDG.configDirs = function configDirs() {
+				const pathList = env.get('XDG_CONFIG_DIRS');
+				return [extension.config(), ...(pathList ? pathList.split(path.delimiter) : [])];
+			};
+
+			XDG.dataDirs = function dataDirs() {
+				const pathList = env.get('XDG_DATA_DIRS');
+				return [extension.data(), ...(pathList ? pathList.split(path.delimiter) : [])];
+			};
+
+			return XDG;
+		}
 	}
+	return { XDG: new XDG_() as XDG };
 }
 
-const default_ = new XDG_() as XDG;
-export default default_;
+export type { XDG };
+export { Adapt };

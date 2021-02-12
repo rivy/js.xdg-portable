@@ -1,4 +1,6 @@
-// spell-checker:ignore maint rivy
-import { default as default_ } from './lib/XDG.js';
+import { Adapt } from './lib/XDG.js';
+import { adapter } from './platform-adapters/node.js';
 
-export = default_;
+const _ = Adapt(adapter).XDG;
+
+export = _;
