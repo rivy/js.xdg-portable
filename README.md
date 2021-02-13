@@ -3,7 +3,7 @@
 <!-- -## editors ## (emacs/sublime) -*- coding: utf8-nix; tab-width: 4; mode: markdown; indent-tabs-mode: nil; basic-offset: 2; st-word_wrap: 'true' -*- ## (jEdit) :tabSize=4:indentSize=4:mode=markdown: ## (notepad++) vim:tabstop=4:syntax=markdown:expandtab:smarttab:softtabstop=2 ## modeline (see <https://archive.is/djTUD>@@<http://webcitation.org/66W3EhCAP> ) -->
 <!-- spell-checker:ignore expandtab markdownlint modeline smarttab softtabstop -->
 
-<!-- markdownlint-disable heading-increment -->
+<!-- markdownlint-disable heading-increment no-duplicate-heading -->
 <!-- spell-checker:ignore (names) rivy Sindre sindresorhus Sorhus -->
 <!-- spell-checker:ignore (abbrev/jargon) CICD NodeJS -->
 <!-- spell-checker:ignore (platform/windows) APPDATA LOCALAPPDATA -->
@@ -22,6 +22,7 @@
 [![Style Guide][style-image]][style-url]
 &nbsp; <br/>
 [![Repository][repository-image]][repository-url]
+[![Deno version][deno-image]][deno-url]
 [![NPM version][npm-image]][npm-url]
 [![NodeJS version][nodejsv-image]][repository-url]
 [![npmJS Downloads][downloads-image]][downloads-url]
@@ -71,6 +72,26 @@ import xdg from 'xdg-portable';
 const configDirs = xdg.configDirs();
 //...
 ```
+
+#### Deno
+
+```ts
+import osPaths from 'https://deno.land/x/xdg_portable/src/mod.deno.ts';
+//or...
+//import xdg from 'https://deno.land/x/xdg_portable@v9.0.0/src/mod.deno.ts';
+//or (via CDN, with optional version/version-range/latest/commit support)...
+//import osPaths from 'https://cdn.jsdelivr.net/gh/rivy/js.xdg-portable@9.0.0/src/mod.deno.ts'; // v9.0.0
+//import osPaths from 'https://cdn.jsdelivr.net/gh/rivy/js.xdg-portable@9/src/mod.deno.ts'; // v9.x.y
+//import osPaths from 'https://cdn.jsdelivr.net/gh/rivy/js.xdg-portable/src/mod.deno.ts'; // latest
+//import osPaths from 'https://cdn.jsdelivr.net/gh/rivy/js.xdg-portable@latest/src/mod.deno.ts'; // latest
+//import osPaths from 'https://cdn.jsdelivr.net/gh/rivy/js.xdg-portable@COMMIT/src/mod.deno.ts'; // commit
+const configDirs = xdg.configDirs();
+//...
+```
+
+##### Required Deno permissions
+
+- `--allow-env` (allow access to the process environment variables) <br/> This module/package requires access to various environment variable to determine platform configuration (eg, location of temp and user directories).
 
 ## API
 
@@ -241,6 +262,17 @@ console.log(xdg.config());
 As of `v8.0`+, `XDG` has been converted to a TypeScript-based module.
 As a consequence, TypeScript type definitions are automatically generated, bundled, and exported by the module.
 
+### Deno
+
+- <small><span title="Deno support added in v9.0">Requires `v9.0`+.</span></small>
+
+`XDG` also fully supports use by Deno.
+
+```js deno
+import xdg from 'https://deno.land/x/xdg_portable/src/mod.deno.ts';
+console.log(xdg.config());
+```
+
 ## Discussion
 
 The [XDG Base Directory Specification](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html) defines categories of user information (ie, "cache", "config", "data", ...), defines their standard storage locations, and defines the standard process for user configuration of those locations (using `XDG_CACHE_HOME`, etc).
@@ -380,6 +412,8 @@ By contributing to the project, you are agreeing to provide your contributions u
 
 <!-- Distributors/Registries -->
 
+[deno-image]: https://img.shields.io/github/package-json/v/rivy/js.xdg-portable/master?label=deno
+[deno-url]: https://deno.land/x/xdg_portable
 [downloads-image]: http://img.shields.io/npm/dm/xdg-portable.svg?style=flat
 [downloads-url]: https://npmjs.org/package/xdg-portable
 [jsdelivr-image]: https://img.shields.io/jsdelivr/gh/hm/rivy/js.xdg-portable?style=flat
