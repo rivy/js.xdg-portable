@@ -6,7 +6,7 @@ import mESM from './mod.esm.js';
 const mCJS = require('./mod.cjs.js');
 
 test('CJS <=> ESM', (t) => {
-	t.deepEqual(mCJS, mESM);
+	t.is(JSON.stringify(mCJS), JSON.stringify(mESM));
 
 	const api = ['cache', 'config', 'data', 'runtime', 'state', 'configDirs', 'dataDirs'];
 
