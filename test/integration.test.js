@@ -6,6 +6,7 @@ const fs = require('fs');
 const path = require('path');
 
 const test = require('ava');
+const commandExists = require('command-exists');
 const spawn = require('cross-spawn');
 
 const module_ = require('../build/tests_/src/mod.cjs.js');
@@ -38,6 +39,41 @@ test('api', (t) => {
 
 // test examples using '--test-dist'
 if (process.env.NPM_CONFIG_TEST_DIST) {
+	if (!commandExists.sync('deno')) {
+		test.skip('`deno` not found; Deno examples not tested', (t) => {
+			t.pass();
+		});
+	} else {
+		test('examples are executable without error (Deno)', (t) => {
+			// t.timeout(30000); // 30s timeout
+
+			const egDirPath = 'eg';
+			const extension_regexps = [/.*[.]deno[.]ts$/i];
+
+			// eslint-disable-next-line security/detect-non-literal-fs-filename
+			const files = fs.readdirSync(egDirPath);
+
+			files
+				.filter((file) => {
+					return extension_regexps.find((re) => path.basename(file).match(re));
+				})
+				.forEach((file) => {
+					const command = 'deno';
+					const script = path.join(egDirPath, file);
+					const args = ['run', '--allow-all', script];
+					const options = { shell: true, encoding: 'utf-8' };
+
+					t.log({ script });
+
+					const { error, status, stdout } = spawn.sync(command, args, options);
+
+					t.log({ error, status, stdout });
+
+					t.deepEqual({ error, status }, { error: null, status: 0 });
+				});
+		});
+	}
+
 	test('examples are executable without error (JavaScript)', (t) => {
 		// t.timeout(30000); // 30s timeout
 
