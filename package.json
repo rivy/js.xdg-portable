@@ -65,7 +65,7 @@
 	],
 	"scripts": {
 		"# build # build/compile package": "",
-		"build": "run-p --silent \"build:*\"",
+		"build": "run-s --silent \"build:*\"",
 		"build:cjs": "exec-if-updated --source package.json --source tsconfig.json --source \"tsconfig/**\" --source \"rollup.*.config.js\" --source \"src/**\" --target build/.targets/build-cjs.succeeded \"run-s -n rebuild:cjs\"",
 		"build:esm": "exec-if-updated --source package.json --source tsconfig.json --source \"tsconfig/**\" --source \"rollup.*.config.js\" --source \"src/**\" --target build/.targets/build-esm.succeeded \"run-s -n rebuild:esm\"",
 		"build:umd": "exec-if-updated --source package.json --source tsconfig.json --source \"tsconfig/**\" --source \"rollup.*.config.js\" --source \"src/**\" --target build/.targets/build-umd.succeeded \"run-s -n rebuild:umd\"",
