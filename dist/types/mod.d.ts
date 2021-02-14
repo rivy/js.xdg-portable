@@ -103,6 +103,8 @@ declare type XDG = {
     */
     dataDirs(): readonly string[];
 };
+
 declare const default_: XDG;
 
 export default default_;
+export { XDG };
