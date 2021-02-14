@@ -7,6 +7,24 @@
 
 ---
 
+## [v9.0.0](https://github.com/rivy/js.xdg-portable/compare/v8.1.0...v9.0.0) <small>(2021-02-14)</small>
+
+#### Changes
+
+* add Deno platform compatibility &ac; [`eae3269`](https://github.com/rivy/js.xdg-portable/commit/eae326949be9a6e1b1ad11f03d2d2aa9743197f8)
+
+#### Documentation
+
+* docs ~ add Deno example &ac; [`3daf730`](https://github.com/rivy/js.xdg-portable/commit/3daf730da317fae4e225da35def62c4318e074ee)
+* docs ~ README update for Deno &ac; [`ca35952`](https://github.com/rivy/js.xdg-portable/commit/ca35952934ceba7e3bad2402c8625fe8b3208983)
+
+#### Maintenance
+
+* maint/**dev**: add Deno types &ac; [`54f9696`](https://github.com/rivy/js.xdg-portable/commit/54f96966a24ae7ec61fa07a30b5d68f2ed301aaf)
+* maint/**dist**: update &ac; [`ba37ee8`](https://github.com/rivy/js.xdg-portable/commit/ba37ee81a007444ef6728bea7424d69bc2114dc9)
+
+---
+
 ## [v8.1.0](https://github.com/rivy/js.xdg-portable/compare/v8.0.1...v8.1.0) <small>(2021-02-14)</small>
 
 #### Documentation
