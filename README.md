@@ -65,7 +65,7 @@ mkdirp.sync(configDir, 0o700);
 mkdirp.sync(stateDir, 0o700);
 ```
 
-#### ECMAScript (ESM/TypeScript)
+#### ECMAScript (ESM)/TypeScript
 
 ```js
 import xdg from 'xdg-portable';
@@ -91,7 +91,7 @@ const configDirs = xdg.configDirs();
 
 ##### Required Deno permissions
 
-- `--allow-env` (allow access to the process environment variables) <br/> This module/package requires access to various environment variable to determine platform configuration (eg, location of temp and user directories).
+- `--allow-env` (allow access to the process environment variables) <br/> This module/package requires access to various environment variable to determine platform and user configuration (eg, XDG configuration variables, location of temp and user directories, ...).
 
 ## API
 
@@ -241,7 +241,7 @@ const xdg = require('xdg-portable/cjs');
 console.log(xdg.config());
 ```
 
-> Note: for CJS, `require('xdg-portable')` is supported for backward-compatibility and will execute correctly at run-time. However, this require construction links to the default package type declarations which, though _correct_ for ESM or TypeScript, are _incorrect_ for CJS. This, then, leads to incorrect analysis of CJS files by static analysis tools such as TypeScript and Intellisense.
+> Note: for CJS, `require('xdg-portable')` is supported for backward-compatibility and will execute correctly at run-time. However, `require('xdg-portable')` links to the default package type declarations which, though _correct_ for ESM or TypeScript, are _incorrect_ for CJS. This, then, leads to incorrect analysis of CJS files by static analysis tools such as TypeScript and Intellisense.
 >
 > Using `require('xdg-portable/cjs')` is preferred as it associates the proper CJS type declarations and provides correct information to static analysis tools.
 
@@ -343,6 +343,7 @@ fix:style           fix Prettier formatting issues
 help                display help
 lint                check for package code 'lint'
 lint:commits        check for commit flaws (using `commitlint` and `cspell`)
+lint:editorconfig   check for EditorConfig format flaws (using `editorconfig-checker`)
 lint:lint           check for code 'lint' (using `eslint`)
 lint:markdown       check for markdown errors (using `remark`)
 lint:spell          check for spelling errors (using `cspell`)
