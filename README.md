@@ -103,6 +103,7 @@ const configDirs = xdg.configDirs();
 const xdg = require('xdg-portable/cjs'); // CJS
 //or...
 //import xdg from 'xdg-portable'; // ESM/TypeScript
+//import xdg from 'https://deno.land/x/xdg/src/mod.deno.ts'; // Deno
 ```
 
 When importing this module, the object returned is a function object, `XDG`, augmented with attached methods. Additional `XDG` objects may be constructed by direct call of the imported `XDG` object (eg, `const x = xdg()`) or by using `new` (eg, `const x = new xdg()`). Notably, since the `XDG` object contains no user-facing instance state, all `XDG` objects will be functionally identical.
