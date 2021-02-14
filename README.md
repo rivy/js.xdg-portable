@@ -4,11 +4,11 @@
 <!-- spell-checker:ignore expandtab markdownlint modeline smarttab softtabstop -->
 
 <!-- markdownlint-disable heading-increment no-duplicate-heading -->
-<!-- spell-checker:ignore (names) rivy Sindre sindresorhus Sorhus -->
-<!-- spell-checker:ignore (abbrev/jargon) CICD NodeJS -->
+<!-- spell-checker:ignore (abbrev/names) ArchLinux CICD Codacy Deno JSDelivr NodeJS npmJS -->
+<!-- spell-checker:ignore (jargon) readonly subdir tmpdir -->
 <!-- spell-checker:ignore (platform/windows) APPDATA LOCALAPPDATA -->
 <!-- spell-checker:ignore (targets) realclean -->
-<!-- spell-checker:ignore () archlinux readonly subdir tmpdir -->
+<!-- spell-checker:ignore (people) rivy -->
 
 # [xdg-portable](https://github.com/rivy/js.xdg-portable)
 
