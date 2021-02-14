@@ -76,9 +76,9 @@ const configDirs = xdg.configDirs();
 #### Deno
 
 ```ts
-import osPaths from 'https://deno.land/x/xdg_portable/src/mod.deno.ts';
+import osPaths from 'https://deno.land/x/xdg/src/mod.deno.ts';
 //or...
-//import xdg from 'https://deno.land/x/xdg_portable@v9.0.0/src/mod.deno.ts';
+//import xdg from 'https://deno.land/x/xdg@v9.0.0/src/mod.deno.ts';
 //or (via CDN, with optional version/version-range/latest/commit support)...
 //import osPaths from 'https://cdn.jsdelivr.net/gh/rivy/js.xdg-portable@9.0.0/src/mod.deno.ts'; // v9.0.0
 //import osPaths from 'https://cdn.jsdelivr.net/gh/rivy/js.xdg-portable@9/src/mod.deno.ts'; // v9.x.y
@@ -269,7 +269,7 @@ As a consequence, TypeScript type definitions are automatically generated, bundl
 `XDG` also fully supports use by Deno.
 
 ```js deno
-import xdg from 'https://deno.land/x/xdg_portable/src/mod.deno.ts';
+import xdg from 'https://deno.land/x/xdg/src/mod.deno.ts';
 console.log(xdg.config());
 ```
 
@@ -413,7 +413,7 @@ By contributing to the project, you are agreeing to provide your contributions u
 <!-- Distributors/Registries -->
 
 [deno-image]: https://img.shields.io/github/package-json/v/rivy/js.xdg-portable/master?label=deno
-[deno-url]: https://deno.land/x/xdg_portable
+[deno-url]: https://deno.land/x/xdg
 [downloads-image]: http://img.shields.io/npm/dm/xdg-portable.svg?style=flat
 [downloads-url]: https://npmjs.org/package/xdg-portable
 [jsdelivr-image]: https://img.shields.io/jsdelivr/gh/hm/rivy/js.xdg-portable?style=flat
