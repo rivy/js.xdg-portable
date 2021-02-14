@@ -24,5 +24,6 @@ chglog
 commitlint
 grep
 markdownlint
+mkdir
 rollup
 sed
