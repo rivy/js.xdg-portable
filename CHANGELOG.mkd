@@ -7,6 +7,24 @@
 
 ---
 
+## [v9.1.0](https://github.com/rivy/js.xdg-portable/compare/v9.0.0...v9.1.0) <small>(2021-02-14)</small>
+
+#### Documentation
+
+* docs ~ (README) add archival links &ac; [`8af9631`](https://github.com/rivy/js.xdg-portable/commit/8af9631e58f1a6a46b2a639e47da0cfca9dc752b)
+* docs ~ add cSpell word exceptions &ac; [`d2fc3e1`](https://github.com/rivy/js.xdg-portable/commit/d2fc3e1fca5b84f3991f639dbca586bd14695659)
+* docs ~ README polish &ac; [`b6e463d`](https://github.com/rivy/js.xdg-portable/commit/b6e463d9a58cdcb766df08535a0b6261fcb50649)
+* docs ~ (README) revise spell-checker exceptions &ac; [`679a5eb`](https://github.com/rivy/js.xdg-portable/commit/679a5eb58ab20f075aa0bcbbcb588aabb0966586)
+* docs ~ (README) additional Deno notations &ac; [`4e5ced3`](https://github.com/rivy/js.xdg-portable/commit/4e5ced3cdbebd13a8319e122040076ea5d546194)
+* docs ~ use 'xdg' as the deno.land module name for Deno imports &ac; [`0aeefb9`](https://github.com/rivy/js.xdg-portable/commit/0aeefb99a4e668a363626545411a80bc5b5b442f)
+
+#### Maintenance
+
+* maint/**dev**: (scripts) build in series (await parallel `shx mkdir` fix) &ac; [`8c369d9`](https://github.com/rivy/js.xdg-portable/commit/8c369d946029a1e472e3ef58b623ad6a6478eb1c)
+* maint/**dev**: remove now-unneeded `rollup` configs for CJS and ESM &ac; [`5a6a4a4`](https://github.com/rivy/js.xdg-portable/commit/5a6a4a49370cdf1cde0dfbd752bdc318ea2a525a)
+
+---
+
 ## [v9.0.0](https://github.com/rivy/js.xdg-portable/compare/v8.1.0...v9.0.0) <small>(2021-02-14)</small>
 
 #### Changes
