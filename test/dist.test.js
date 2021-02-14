@@ -8,6 +8,9 @@ const path = require('path');
 
 const test = require('ava');
 
+const vNodeJS = process.versions.node.split('.');
+const vNodeJSMajor = +vNodeJS[0];
+
 // Distribution tests
 
 const packagePath = '../package.json';
@@ -18,8 +21,7 @@ const pkg = require(packagePath);
 const packageCJSPath = path.resolve(__dirname, packagePath, '..', pkg.exports['.'].require);
 const packageESMPath = path.resolve(__dirname, packagePath, '..', pkg.exports['.'].import);
 
-const vNodeJS = process.versions.node.split('.');
-const vNodeJSMajor = +vNodeJS[0];
+const packageAPI = ['cache', 'config', 'data', 'runtime', 'state', 'configDirs', 'dataDirs'];
 
 function isObject(obj) {
 	return Object.prototype.toString.call(obj) === '[object Object]';
@@ -49,13 +51,12 @@ if (!process.env.NPM_CONFIG_TEST_DIST) {
 			const mESM = (await import('file:/' + packageESMPath)).default;
 
 			t.deepEqual(mCJS, mESM);
-			const api = ['cache', 'config', 'data', 'runtime', 'state', 'configDirs', 'dataDirs'];
 
 			t.is(typeof mCJS, 'function');
 			t.is(typeof mCJS, typeof mESM);
-			t.is(Object.keys(mCJS).length, api.length);
+			t.is(Object.keys(mCJS).length, packageAPI.length);
 			t.is(Object.keys(mCJS).length, Object.keys(mESM).length);
-			api.forEach((key) => {
+			packageAPI.forEach((key) => {
 				/* eslint-disable security/detect-object-injection */
 				t.is(typeof mCJS[key], 'function');
 				t.is(typeof mCJS[key], typeof mESM[key]);
