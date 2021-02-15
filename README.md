@@ -108,6 +108,18 @@ const xdg = require('xdg-portable/cjs'); // CJS
 
 When importing this module, the object returned is a function object, `XDG`, augmented with attached methods. Additional `XDG` objects may be constructed by direct call of the imported `XDG` object (eg, `const x = xdg()`) or by using `new` (eg, `const x = new xdg()`). Notably, since the `XDG` object contains no user-facing instance state, all `XDG` objects will be functionally identical.
 
+### Types
+
+- `XDG` ~ primary module function object
+
+Types named here are exported individually by name (eg, as "XDG").
+
+```js
+import type { XDG } from 'xdg-portable'; // TypeScript
+//or...
+//import type { XDG } from 'https://deno.land/x/xdg/src/mod.deno.ts'; // Deno
+```
+
 ### Methods
 
 All module methods return platform-compatible path strings which are normalized and have no trailing path separators.
