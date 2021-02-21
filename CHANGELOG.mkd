@@ -13,9 +13,35 @@
 
 ---
 
+## [v9.2.0](https://github.com/rivy/js.xdg-portable/compare/v9.1.0...v9.2.0) <small>(2021-02-21)</small>
+
+<details open><summary><small><em>[v9.2.0; details]</em></small></summary>
+
+#### Changes
+
+* change ~ improve type exports for static tooling (eg, Intellisense) &ac; [`02ebd58`](https://github.com/rivy/js.xdg-portable/commit/02ebd58e70f322c5d1bb90a06aed5dff4e125742)
+
+#### Documentation
+
+* docs ~ disable `remark` lint complaint (maximum-heading-length) &ac; [`1307b3a`](https://github.com/rivy/js.xdg-portable/commit/1307b3af33e6224dd81edfd6fe597d05ae2ae906)
+* docs ~ README corrections &ac; [`9d3060a`](https://github.com/rivy/js.xdg-portable/commit/9d3060a7c2fc550fec153913f69dec798497fe3a)
+* docs ~ CHANGELOG update &ac; [`de29ea8`](https://github.com/rivy/js.xdg-portable/commit/de29ea8539ea13a203154c58e846e5422d85c6d1)
+* docs ~ revise/update CHANGELOG template &ac; [`7d1310f`](https://github.com/rivy/js.xdg-portable/commit/7d1310ffc4e0234302b19298073aeead86e692a8)
+* docs ~ (README) fix `markdownlint` complaint (first-line-h1) &ac; [`2b23408`](https://github.com/rivy/js.xdg-portable/commit/2b234084a656eafbe342d4ef9301c94956d50575)
+* docs ~ remove simplistic (distracting) JSDocs [@example](https://github.com/example)'s &ac; [`66e8864`](https://github.com/rivy/js.xdg-portable/commit/66e8864d9672360188af636f5938257451aba054)
+* docs ~ (README) add type notes &ac; [`d298c90`](https://github.com/rivy/js.xdg-portable/commit/d298c9069f21651940b92574fc87f3d74b6fd366)
+
+#### Refactoring
+
+* refactor ~ improve CJS ESM-wrapper &ac; [`b8df673`](https://github.com/rivy/js.xdg-portable/commit/b8df673b74fbcd2327340a1a1d06ec1a5ae09d57)
+
+</details>
+
+---
+
 ## [v9.1.0](https://github.com/rivy/js.xdg-portable/compare/v9.0.0...v9.1.0) <small>(2021-02-14)</small>
 
-<details open><summary><small><em>[v9.1.0; details]</em></small></summary>
+<details><summary><small><em>[v9.1.0; details]</em></small></summary>
 
 #### Documentation
 
