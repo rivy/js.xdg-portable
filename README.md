@@ -42,7 +42,7 @@ XDG references
 ```shell
 npm install xdg-portable
 # or... `npm install "git:github.com/rivy/js.xdg-portable"`
-# or... `npm install "git:github.com/rivy/js.xdg-portable#v8.0.0"`
+# or... `npm install "git:github.com/rivy/js.xdg-portable#v9.0.0"`
 # or... `npm install "https://cdn.jsdelivr.net/gh/rivy/js.xdg-portable/dist/xdg-portable.tgz"`
 ```
 
@@ -76,22 +76,24 @@ const configDirs = xdg.configDirs();
 #### Deno
 
 ```ts
-import osPaths from 'https://deno.land/x/xdg/src/mod.deno.ts';
+import xdg from 'https://deno.land/x/xdg/src/mod.deno.ts';
 //or...
 //import xdg from 'https://deno.land/x/xdg@v9.0.0/src/mod.deno.ts';
 //or (via CDN, with optional version/version-range/latest/commit support)...
-//import osPaths from 'https://cdn.jsdelivr.net/gh/rivy/js.xdg-portable@9.0.0/src/mod.deno.ts'; // v9.0.0
-//import osPaths from 'https://cdn.jsdelivr.net/gh/rivy/js.xdg-portable@9/src/mod.deno.ts'; // v9.x.y
-//import osPaths from 'https://cdn.jsdelivr.net/gh/rivy/js.xdg-portable/src/mod.deno.ts'; // latest
-//import osPaths from 'https://cdn.jsdelivr.net/gh/rivy/js.xdg-portable@latest/src/mod.deno.ts'; // latest
-//import osPaths from 'https://cdn.jsdelivr.net/gh/rivy/js.xdg-portable@COMMIT/src/mod.deno.ts'; // commit
+//import xdg from 'https://cdn.jsdelivr.net/gh/rivy/js.xdg-portable@9.0.0/src/mod.deno.ts'; // v9.0.0
+//import xdg from 'https://cdn.jsdelivr.net/gh/rivy/js.xdg-portable@9/src/mod.deno.ts'; // v9.x.y
+//import xdg from 'https://cdn.jsdelivr.net/gh/rivy/js.xdg-portable/src/mod.deno.ts'; // latest
+//import xdg from 'https://cdn.jsdelivr.net/gh/rivy/js.xdg-portable@latest/src/mod.deno.ts'; // latest
+//import xdg from 'https://cdn.jsdelivr.net/gh/rivy/js.xdg-portable@COMMIT/src/mod.deno.ts'; // commit
 const configDirs = xdg.configDirs();
 //...
 ```
 
 ##### Required Deno permissions
 
-- `--allow-env` (allow access to the process environment variables) <br/> This module/package requires access to various environment variable to determine platform and user configuration (eg, XDG configuration variables, location of temp and user directories, ...).
+###### `--allow-env` &middot; _allow access to the process environment variables_
+
+This module/package requires access to various environment variable to determine platform and user configuration (eg, XDG configuration variables, location of temp and user directories, ...).
 
 ## API
 
