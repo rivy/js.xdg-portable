@@ -27,3 +27,4 @@ markdownlint
 mkdir
 rollup
 sed
+typedoc
