@@ -9,11 +9,13 @@ import { Platform } from '../platform-adapters/_base.js';
 // # ref: <https://wiki.debian.org/XDGBaseDirectorySpecification#state> @@ <http://archive.is/pahId>
 // # ref: <https://ploum.net/207-modify-your-application-to-use-xdg-folders> @@ <https://archive.is/f43Gk>
 
-/** Determine XDG Base Directory paths (OS/platform portable). */
-type XDG = {
-	/** @constructor Create an `XDG` object. */
+/** `XDG` (API) Determine XDG Base Directory paths (OS/platform portable). */
+// eslint-disable-next-line functional/prefer-type-literal
+interface XDG {
+	/** @constructor Create an `XDG` object (`new` is optional). */
+	// eslint-disable-next-line @typescript-eslint/no-misused-new
 	new (): XDG;
-	/** @constructor Create an `XDG` object. */
+	/** @constructor Create an `XDG` object (`new` is optional). */
 	(): XDG;
 
 	/* eslint-disable functional/no-method-signature */
@@ -40,7 +42,7 @@ type XDG = {
 	dataDirs(): readonly string[];
 
 	/* eslint-enable functional/no-method-signature */
-};
+}
 
 function Adapt(adapter_: Platform.Adapter): { readonly XDG: XDG } {
 	const { env, osPaths, path } = adapter_;
