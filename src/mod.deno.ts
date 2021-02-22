@@ -11,5 +11,7 @@ import { XDG } from '../dist/types/mod.d.ts';
 // @ts-ignore
 import { adapter } from './platform-adapters/deno.deno.ts';
 
+const _: XDG = Adapt(adapter).XDG;
+
 export type { XDG };
-export default Adapt(adapter).XDG as XDG;
+export default _;
