@@ -13,9 +13,31 @@
 
 ---
 
+## [v9.3.0](https://github.com/rivy/js.xdg-portable/compare/v9.2.0...v9.3.0) <small>(2021-02-21)</small>
+
+<details open><summary><small><em>[v9.3.0; details]</em></small></summary>
+
+#### Documentation
+
+* docs ~ redefine `XDG` as interface for better automatic doc generation &ac; [`1a6dae8`](https://github.com/rivy/js.xdg-portable/commit/1a6dae887d389d2e55c654f8ff9b20d948e2f704)
+
+#### Maintenance
+
+* maint *(build)*: name revision (tests_ => testbed) &ac; [`effde5b`](https://github.com/rivy/js.xdg-portable/commit/effde5b34c7043deb79beb8b8b6f9897bc72287f)
+* maint *(build)*: fix CJS type rewrite &ac; [`3720ad1`](https://github.com/rivy/js.xdg-portable/commit/3720ad131546ad6f55062cc4544b35fe1f71a882)
+
+#### Refactoring
+
+* refactor ~ add default export intermediate object for improved `deno doc` results &ac; [`70d9556`](https://github.com/rivy/js.xdg-portable/commit/70d9556513eb9e488bcfaa463da2a5e9c19f3ef6)
+* refactor ~ remove unneeded intermediate 'default' export object &ac; [`7b14316`](https://github.com/rivy/js.xdg-portable/commit/7b1431684e0e95de5c6d4c1ac51ffb1bc9c61728)
+
+</details>
+
+---
+
 ## [v9.2.0](https://github.com/rivy/js.xdg-portable/compare/v9.1.0...v9.2.0) <small>(2021-02-21)</small>
 
-<details open><summary><small><em>[v9.2.0; details]</em></small></summary>
+<details><summary><small><em>[v9.2.0; details]</em></small></summary>
 
 #### Changes
 

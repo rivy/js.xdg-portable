@@ -1,8 +1,8 @@
-/** Determine XDG Base Directory paths (OS/platform portable). */
-declare type XDG = {
-    /** @constructor Create an `XDG` object. */
+/** `XDG` (API) Determine XDG Base Directory paths (OS/platform portable). */
+interface XDG {
+    /** @constructor Create an `XDG` object (`new` is optional). */
     new (): XDG;
-    /** @constructor Create an `XDG` object. */
+    /** @constructor Create an `XDG` object (`new` is optional). */
     (): XDG;
     /** Returns the directory path for user-specific non-essential (ie, cached) data files. */
     cache(): string;
@@ -18,8 +18,8 @@ declare type XDG = {
     configDirs(): readonly string[];
     /** Returns a preference-ordered array of base directory paths to search for data files (includes `.data()` directory as first entry). */
     dataDirs(): readonly string[];
-};
+}
 
-declare const default_: XDG;
+declare const _default: XDG;
 
-export default default_;
+export = _default;
