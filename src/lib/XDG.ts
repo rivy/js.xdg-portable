@@ -12,11 +12,12 @@ import { Platform } from '../platform-adapters/_base.js';
 /** `XDG` (API) Determine XDG Base Directory paths (OS/platform portable). */
 // eslint-disable-next-line functional/prefer-type-literal
 interface XDG {
-	/** @constructor Create an `XDG` object (`new` is optional). */
+	/** Create an `XDG` object (a preceding `new` is optional). */
+	(): XDG;
+
+	/** Create an `XDG` object (`new` is optional). */
 	// eslint-disable-next-line @typescript-eslint/no-misused-new
 	new (): XDG;
-	/** @constructor Create an `XDG` object (`new` is optional). */
-	(): XDG;
 
 	/* eslint-disable functional/no-method-signature */
 
