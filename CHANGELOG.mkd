@@ -13,9 +13,26 @@
 
 ---
 
+## [v9.4.0](https://github.com/rivy/js.xdg-portable/compare/v9.3.0...v9.4.0) <small>(2021-02-27)</small>
+
+<details open><summary><small><em>[v9.4.0; details]</em></small></summary>
+
+#### Documentation
+
+* docs ~ JSDocs polish &ac; [`dca0038`](https://github.com/rivy/js.xdg-portable/commit/dca00384035bec20d87dbbf09c97192ce9f6c7eb)
+* docs ~ add `cspell` dictionary word(s) &ac; [`d9edc65`](https://github.com/rivy/js.xdg-portable/commit/d9edc65ef5f79f77965a6480ce9ba23a3eb17bcc)
+
+#### Maintenance
+
+* maint *(deps)*: add 'typedoc' (dev; for future use) &ac; [`215711c`](https://github.com/rivy/js.xdg-portable/commit/215711c37c44b8645b06a89f56ac1b2c4b86ca6b)
+
+</details>
+
+---
+
 ## [v9.3.0](https://github.com/rivy/js.xdg-portable/compare/v9.2.0...v9.3.0) <small>(2021-02-21)</small>
 
-<details open><summary><small><em>[v9.3.0; details]</em></small></summary>
+<details><summary><small><em>[v9.3.0; details]</em></small></summary>
 
 #### Documentation
 

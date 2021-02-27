@@ -1,9 +1,9 @@
 /** `XDG` (API) Determine XDG Base Directory paths (OS/platform portable). */
 interface XDG {
-    /** @constructor Create an `XDG` object (`new` is optional). */
-    new (): XDG;
-    /** @constructor Create an `XDG` object (`new` is optional). */
+    /** Create an `XDG` object (a preceding `new` is optional). */
     (): XDG;
+    /** Create an `XDG` object (`new` is optional). */
+    new (): XDG;
     /** Returns the directory path for user-specific non-essential (ie, cached) data files. */
     cache(): string;
     /** Returns the directory path for user-specific configuration files.	*/
