@@ -8,7 +8,7 @@
 <!-- spell-checker:ignore (jargon) readonly subdir tmpdir -->
 <!-- spell-checker:ignore (platform/windows) APPDATA LOCALAPPDATA -->
 <!-- spell-checker:ignore (targets) realclean -->
-<!-- spell-checker:ignore (people) rivy -->
+<!-- spell-checker:ignore (people) Roy Ivy III * rivy ; Sindre Sorhus * sindresorhus -->
 
 # [xdg-portable](https://github.com/rivy/js.xdg-portable)
 
