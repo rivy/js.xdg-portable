@@ -1,10 +1,14 @@
+<!-- dprint-ignore-file -->
+<!-- deno-fmt-ignore-start -->
+
+<!-- @prettier -->
 <!DOCTYPE markdown><!-- markdownlint-disable first-line-h1 no-inline-html -->
 <meta charset="utf-8" content="text/markdown" lang="en">
 <!-- -## editors ## (emacs/sublime) -*- coding: utf8-nix; tab-width: 4; mode: markdown; indent-tabs-mode: nil; basic-offset: 2; st-word_wrap: 'true' -*- ## (jEdit) :tabSize=4:indentSize=4:mode=markdown: ## (notepad++) vim:tabstop=4:syntax=markdown:expandtab:smarttab:softtabstop=2 ## modeline (see <https://archive.is/djTUD>@@<http://webcitation.org/66W3EhCAP> ) -->
 <!-- spell-checker:ignore expandtab markdownlint modeline smarttab softtabstop -->
 
 <!-- markdownlint-disable heading-increment no-duplicate-heading -->
-<!-- spell-checker:ignore (abbrev/names) ArchLinux CICD Codacy Deno JSDelivr NodeJS npmJS -->
+<!-- spell-checker:ignore (abbrev/names) ArchLinux CICD Codacy Deno DPrint JSDelivr NodeJS npmJS -->
 <!-- spell-checker:ignore (jargon) readonly subdir tmpdir -->
 <!-- spell-checker:ignore (platform/windows) APPDATA LOCALAPPDATA -->
 <!-- spell-checker:ignore (targets) realclean -->
@@ -193,7 +197,7 @@ The XDG specification defines some fairly strict specifications for a "runtime"-
 
 `undefined` is the default for the windows platform.
 
-- ref: [archlinux ~ XDG Base Directory](https://wiki.archlinux.org/index.php/XDG_Base_Directory#User_directories)<small><sup>[`@`](https://archive.is/VdO9n#3.9%)</sup></small>
+- ref: [archlinux ~ XDG Base Directory](https://wiki.archlinux.org/index.php/XDG_Base_Directory#User_directories)<small><sup>&shy;[`@`](https://archive.is/VdO9n#3.9%)</sup></small>
 
 #### `xdg.state(): string`
 
@@ -274,8 +278,7 @@ console.log(xdg.config());
 
 - <small><span title="TypeScript support added in v8.0">Requires `v8.0`+.</span></small>
 
-As of `v8.0`+, `XDG` has been converted to a TypeScript-based module.
-As a consequence, TypeScript type definitions are automatically generated, bundled, and exported by the module.
+As of `v8.0`+, `XDG` has been converted to a TypeScript-based module. As a consequence, TypeScript type definitions are automatically generated, bundled, and exported by the module.
 
 ### Deno
 
@@ -290,7 +293,7 @@ console.log(xdg.config());
 
 ## Discussion
 
-The [XDG Base Directory Specification](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html)<small><sup>[`@`](https://archive.is/J0mTC)</sup></small> defines categories of user information (ie, "cache", "config", "data", ...), defines their standard storage locations, and defines the standard process for user configuration of those locations (using `XDG_CACHE_HOME`, etc).
+The [XDG Base Directory Specification](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html)<small><sup>&shy;[@](https://archive.is/J0mTC)</sup></small> defines categories of user information (ie, "cache", "config", "data", ...), defines their standard storage locations, and defines the standard process for user configuration of those locations (using `XDG_CACHE_HOME`, etc).
 
 Applications supporting the XDG convention are expected to store user-specific files within these locations, either within the common/shared directory (eg, `` `${xdg.cache()}/filename` ``) or within a more isolated application-defined subdirectory (eg, `` `${xdg.config()}/DIR/filename` ``; `DIR` usually being the application name).
 
