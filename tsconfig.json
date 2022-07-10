@@ -39,10 +39,11 @@
 		// "emitDecoratorMetadata": true /* Enables experimental support for emitting type metadata for decorators. */,
 
 		"types": ["node"],
-		"typeRoots": ["node_modules/@types", "src/types", "dist/types"],
+		"typeRoots": ["node_modules/@types", "src/types", "dist/types", "vendor/types"],
 
 		"allowJs": true,
 		"noEmit": true,
+		"isolatedModules": true /* Enables warnings for code which may be interpreted incorrectly by single-file transpilation tools */,
 
 		"removeComments": true
 	},
