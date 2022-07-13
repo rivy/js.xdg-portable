@@ -38,7 +38,9 @@ test('api', (t) => {
 });
 
 // test examples using '--test-dist'
-if (process.env.NPM_CONFIG_TEST_DIST) {
+if (!process.env.npm_config_test_dist) {
+	test('examples are executable...skipped (enable with `npm test --test-dist`)', (t) => t.pass());
+} else {
 	if (!commandExists.sync('deno')) {
 		test.skip('`deno` not found; Deno examples not tested', (t) => {
 			t.pass();
