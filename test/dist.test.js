@@ -48,7 +48,7 @@ if (!process.env.NPM_CONFIG_TEST_DIST) {
 		test(testID$CJStoESM, async (t) => {
 			// eslint-disable-next-line security/detect-non-literal-require , security-node/detect-non-literal-require-calls
 			const mCJS = require(packageCJSPath);
-			const mESM = (await import('file:/' + packageESMPath)).default;
+			const mESM = (await import('file://' + packageESMPath)).default;
 
 			t.deepEqual(mCJS, mESM);
 
