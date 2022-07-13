@@ -4,6 +4,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const util = require('util');
 
 const test = require('ava');
 const commandExists = require('command-exists');
@@ -65,11 +66,16 @@ if (!process.env.npm_config_test_dist) {
 					const args = ['run', '--allow-all', script];
 					const options = { shell: true, encoding: 'utf-8' };
 
-					t.log({ script });
-
 					const { error, status, stdout } = spawn.sync(command, args, options);
 
-					t.log({ error, status, stdout });
+					if (error === null && status === 0) {
+						t.log(
+							util.inspect(script, /* showHidden */ void 0, /* depth */ void 0, /* color */ true),
+							`(exit_status=${status})`
+						);
+					} else {
+						t.log({ script, error, status, stdout });
+					}
 
 					t.deepEqual({ error, status }, { error: null, status: 0 });
 				});
@@ -96,11 +102,16 @@ if (!process.env.npm_config_test_dist) {
 					const args = [script];
 					const options = { shell: true, encoding: 'utf-8' };
 
-					t.log({ script });
-
 					const { error, status, stdout } = spawn.sync(command, args, options);
 
-					t.log({ error, status, stdout });
+					if (error === null && status === 0) {
+						t.log(
+							util.inspect(script, /* showHidden */ void 0, /* depth */ void 0, /* color */ true),
+							`(exit_status=${status})`
+						);
+					} else {
+						t.log({ script, error, status, stdout });
+					}
 
 					t.deepEqual({ error, status }, { error: null, status: 0 });
 				}
@@ -131,16 +142,21 @@ if (!process.env.npm_config_test_dist) {
 					const args = ['node_modules/ts-node/dist/bin.js', script];
 					const options = { shell: true, encoding: 'utf8' };
 
+					const { error, status, stdout } = spawn.sync(command, args, options);
+
 					const basename = path.basename(file);
 					const extension = path.extname(file);
 					const name = path.basename(file, extension);
 					const nameExtension = path.extname(name);
 
-					t.log({ script, basename, name, extension, nameExtension });
-
-					const { error, status, stdout } = spawn.sync(command, args, options);
-
-					t.log({ error, status, stdout });
+					if (error === null && status === 0) {
+						t.log(
+							util.inspect(script, /* showHidden */ void 0, /* depth */ void 0, /* color */ true),
+							`(exit_status=${status})`
+						);
+					} else {
+						t.log({ script, basename, name, extension, nameExtension, error, status, stdout });
+					}
 
 					t.deepEqual({ error, status }, { error: null, status: 0 });
 				}
