@@ -1,3 +1,4 @@
+# v2002-07-13 [rivy]
 # JavaScript/TypeScript
 # ref: https://docs.codeclimate.com/docs/advanced-configuration
 # spell-checker:ignore () EditorConfig MarkdownLint ShellCheck StyleLint
@@ -39,6 +40,8 @@ plugins:
     enabled: true
     exclude_patterns:
       - 'eg/'
+      - 'dist/'
+      - 'vendor/'
   editorconfig:
     enabled: true
   # ref: https://docs.codeclimate.com/docs/eslint
