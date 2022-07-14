@@ -1,8 +1,20 @@
-.history
-.nyc_output
+# v2022-13-07 [rivy]
+
+# NOTE: Git GLOBSTAR syntax [see `git help gitignore`]
+# * ref: [.gitignore] http://git-scm.com/docs/gitignore @@ http://archive.is/Rk6rO
+
+# ignore build artifacts
 build
+[._@#$]build
+dist
+target
+
+# ignore coverage data
 coverage
-dist/.targets
+[._@#$]coverage
+.nyc_output
+
+# ignore JS import/package-related files
 node_modules
 package-lock.json
 yarn.lock
