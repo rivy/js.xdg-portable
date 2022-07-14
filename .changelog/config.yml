@@ -1,5 +1,7 @@
-# spell-checker:ignore bugfix maint
-# spell-checker:ignore chglog
+# `git-changelog` configuration
+# ref: <https://github.com/rivy-go/git-changelog#configuration>
+# v2022-07-13
+# spell-checker: ignore bugfix maint
 info:
   title: xdg-portable
   repository_url: https://github.com/rivy/js.xdg-portable
@@ -16,10 +18,8 @@ options:
         - maint
         - perf
         - refactor
-        # - style
         - test
         - update
-        # - version
     type_maps:
       # basic types (enables type match case-insensitivity)
       change: change
@@ -30,9 +30,7 @@ options:
       perf: perf
       refactor: refactor
       test: test
-      # style: style
       update: update
-      # version: version
       # aggregating types
       add: change
       added: change
@@ -55,10 +53,8 @@ options:
       maint: Maintenance
       perf: Enhancements
       refactor: Refactoring
-      # style: Style Improvements
       test: Test Improvements
       update: Dependency Updates
-      # version: Version Changes
   header:
     pattern: "^(\\w+)(?:\\s*\\/(\\S+))\\s*[~:]?\\s(.*)$|^(\\w+)(?:\\s*\\(([^)]+)\\))?\\s*[~:]?\\s(.*)$"
     pattern_maps:
