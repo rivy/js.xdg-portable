@@ -1,3 +1,4 @@
+// v2022-07-13 [rivy]
 // spell-checker:ignore (names) rivy ; (options) iife
 module.exports = {
 	root: true,
