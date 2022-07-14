@@ -45,9 +45,12 @@ symlink
 symlinks
 syscall
 tokenize
+transpile
+transpilation
 truthy
 unbuffered
 unportable
+vendored
 whitespace
 wordlist
 wordlists
@@ -55,5 +58,6 @@ wordlists
 consts
 deps
 dev
+eval
 maint
 procs
