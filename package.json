@@ -199,7 +199,7 @@
 		"nyc": "^15.1.0",
 		"open-cli": ">=6.0 <7.0",
 		"prettier": "^2.1.1",
-		"remark-cli": "^9.0.0",
+		"remark-cli": "=9.0.0",
 		"remark-footnotes": "^3.0.0",
 		"remark-preset-lint-consistent": "^4.0.0",
 		"remark-preset-lint-markdown-style-guide": "^4.0.0",
