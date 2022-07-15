@@ -1,6 +1,6 @@
 name: CI
 
-# spell-checker:ignore (names) MacOS
+# spell-checker:ignore (names) MacOS deps
 
 on: [push]
 
@@ -21,6 +21,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm install
+      - run: npm run show:deps
       - run: npm run build --if-present
       - run: npm test
         env:
