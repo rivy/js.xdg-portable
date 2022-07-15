@@ -160,9 +160,9 @@
 		"_:version:spell:changelog_update": "run-s --silent _:exists:git-changelog && git changelog -u | cspell stdin --config \".vscode/cspell.json\" || shx echo \"[lint] WARN CHANGELOG update `cspell` exception\" 1>&2",
 		"_:version:update:changelog": "run-s --silent _:exists:git-changelog && node -e \"v=require('./package.json').version; result=require('child_process').spawnSync('git changelog --next-tag-now --next-tag v'+v,{shell:true,encoding:'utf-8'}); if (result.status != 0) {console.error('ERR! '+result.stderr); process.exit(1);} else {require('fs').writeFileSync('CHANGELOG.mkd',result.stdout);};\" || shx echo \"[version] WARN CHANGELOG not updated\" 1>&2",
 		"## npm lifecycle scripts ##": "",
-		"prepublishOnly": "npm run clean && npm run test --test-dist && run-s --silent update _:vcs-strictly-clean-err",
+		"prepublishOnly": "npm run clean && cross-env npm_config_test_dist=true npm run test && run-s --silent update _:vcs-strictly-clean-err",
 		"## npm-version scripts ##": "",
-		"preversion": "run-s --silent _:version:spell:changelog_update && npm run test --test-dist",
+		"preversion": "run-s --silent _:version:spell:changelog_update && cross-env npm_config_test_dist=true npm run test",
 		"version": "run-s --silent _:version:update:changelog && run-s lint:spell && run-s --silent update:dist && git add CHANGELOG.mkd dist"
 	},
 	"dependencies": {
@@ -181,6 +181,7 @@
 		"codecov": "^3.5.0",
 		"command-exists": "^1.2.9",
 		"coveralls": "^3.0.5",
+		"cross-env": "^7.0.3",
 		"cross-spawn": "^7.0.3",
 		"cspell": "^4.2.7",
 		"editorconfig-checker": "^3.3.0",
