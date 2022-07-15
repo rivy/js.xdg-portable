@@ -1,4 +1,9 @@
-// spell-checker:ignore frontmatter retext
+// remark configuration (ref: <https://remark.js.org>)
+// ref: <https://github.com/remarkjs/remark/tree/main/packages/remark-cli#example-config-files-json-yaml-js>
+// v2022-07-13 [rivy]
+
+// spell-checker:ignore (people) Roy Ivy III * rivy (words) frontmatter retext
+
 exports.plugins = [
 	require('remark-footnotes'),
 	// require('remark-frontmatter'),
