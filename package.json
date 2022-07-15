@@ -103,7 +103,7 @@
 		"# lint:spell # check for spelling errors (using `cspell`)": "",
 		"lint:spell": "cspell {eg,examples,src,test}/**/* CHANGELOG{,.md,.mkd} README{,.md,.mkd} --no-summary --config \".vscode/cspell.json\"",
 		"# lint:style # check for format imperfections (using `prettier`)": "",
-		"lint:style": "prettier . --list-different",
+		"lint:style": "prettier . --list-different --loglevel warn",
 		"# realclean # remove all generated files": "",
 		"realclean": "run-s clean && rimraf coverage .nyc_output",
 		"# rebuild # clean and (re-)build project": "",
