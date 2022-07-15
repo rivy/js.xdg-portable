@@ -16,8 +16,17 @@ import { Platform } from './_base.ts';
 // @ts-ignore
 const deno = Deno;
 
+// Deno general permission(s) at time of import
+// * Deno.Permissions (stabilized in v1.8.0)
+// * hack: b/c of missing sync permissions API, general initial permission(s) are used to avoid requiring async access to env()
+// * ref: [Expose sync versions of Deno.permissions functions](https://github.com/denoland/deno/issues/6388)
+const queryEnv = await deno?.permissions?.query({ name: 'env' });
+const allowEnv = (queryEnv?.state ?? 'granted') === 'granted';
+
 export const adapter: Platform.Adapter = {
-	env: { get: deno.env.get },
+	atImportPermissions: { env: allowEnv },
+	// env: { get: (name: string) => adapter.atImportPermissions.env ? deno.env.get(name) : void 0 },
+	env: { get: allowEnv ? deno.env.get : (_: string) => void 0 },
 	osPaths,
 	path,
 	process: { platform: deno.build.os },
