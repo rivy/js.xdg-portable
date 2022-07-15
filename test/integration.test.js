@@ -10,7 +10,9 @@ const test = require('ava');
 const commandExists = require('command-exists');
 const spawn = require('cross-spawn');
 
-const module_ = require('../build/testbed/src/mod.cjs.js');
+const modulePath = '../build/testbed/src/mod.cjs.js';
+// eslint-disable-next-line security/detect-non-literal-require , security-node/detect-non-literal-require-calls
+const module_ = require(modulePath);
 
 const vNodeJS = process.versions.node.split('.');
 const vNodeJSMajor = +vNodeJS[0];
@@ -38,7 +40,7 @@ test('api', (t) => {
 	});
 });
 
-// test examples using '--test-dist'
+// test examples using `--test-dist` (for version changes or distribution)
 if (!process.env.npm_config_test_dist) {
 	test('examples are executable...skipped (enable with `npm test --test-dist`)', (t) => t.pass());
 } else {
