@@ -1,5 +1,12 @@
+// Prettier configuration
+// ref: <https://prettier.io/docs/en/options.html>
+// v2022-07-13 [rivy]
+
+// spell-checker:ignore (people) Roy Ivy III * rivy
+
 module.exports = {
 	printWidth: 100,
+	proseWrap: 'preserve',
 	singleQuote: true,
 	useTabs: true,
 	tabWidth: 2,

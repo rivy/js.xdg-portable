@@ -1,17 +1,18 @@
 # Prettier "ignore" list
+# v2022-07-13 [rivy]
 
 # * otherwise managed files
 .vscode
 package.json
 
 # * build/coverage/dev artifacts
-.history
 .nyc_output
 build
 coverage
 CHANGELOG
 CHANGELOG.*
 dist
+target
 
 # * format-sensitive files
 .changelog/*.tpl.*
