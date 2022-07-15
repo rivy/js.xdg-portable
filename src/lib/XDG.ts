@@ -10,7 +10,6 @@ import { Platform } from '../platform-adapters/_base.js';
 // # ref: <https://ploum.net/207-modify-your-application-to-use-xdg-folders> @@ <https://archive.is/f43Gk>
 
 /** `XDG` (API) Determine XDG Base Directory paths (OS/platform portable). */
-// eslint-disable-next-line functional/prefer-type-literal
 interface XDG {
 	/** Create an `XDG` object (a preceding `new` is optional). */
 	(): XDG;
