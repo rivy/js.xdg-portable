@@ -192,7 +192,7 @@
 		"eslint-plugin-import": "^2.22.0",
 		"eslint-plugin-security": "^1.4.0",
 		"eslint-plugin-security-node": "^1.0.14",
-		"exec-if-updated": "https://cdn.jsdelivr.net/gh/rivy/js-cli.exec-if-updated@36c75b5b2d/dist/pkg/exec-if-updated.tgz",
+		"exec-if-updated": "https://cdn.jsdelivr.net/gh/rivy/js-cli.exec-if-updated@2.2.0/dist/pkg/exec-if-updated.tgz",
 		"is-ci": "^2.0.0",
 		"is-node-modern": "^1.0.0",
 		"npm-run-all": "^4.1.5",
