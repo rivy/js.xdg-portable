@@ -47,7 +47,7 @@ test('api', (t) => {
 	});
 });
 
-// test examples using `--test-dist` (for version changes or distribution)
+// test examples when using `--test-dist` (ie, with version changes or prior to distribution)
 if (!process.env.npm_config_test_dist) {
 	test('examples are executable...skipped (enable with `npm test --test-dist`)', (t) => t.pass());
 } else {
