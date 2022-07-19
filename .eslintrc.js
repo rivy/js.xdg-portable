@@ -1,5 +1,9 @@
-// v2022-07-13 [rivy]
+// ESLint configuration
+// ref: <https://eslint.org/docs/latest/user-guide/configuring/configuration-files>
+// v2022-07-18 [rivy]
+
 // spell-checker:ignore (names) rivy ; (options) iife
+
 module.exports = {
 	root: true,
 	env: { es6: true },
