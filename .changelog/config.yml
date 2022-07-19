@@ -1,7 +1,9 @@
 # `git-changelog` configuration
 # ref: <https://github.com/rivy-go/git-changelog#configuration>
-# v2022-07-13
+# v2022-07-18
+
 # spell-checker: ignore bugfix maint
+
 info:
   title: xdg-portable
   repository_url: https://github.com/rivy/js.xdg-portable
