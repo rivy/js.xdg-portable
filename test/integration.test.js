@@ -14,9 +14,13 @@ const test = require('ava');
 const commandExists = require('command-exists');
 const spawn = require('cross-spawn');
 
-const modulePath = '../build/lab/src/mod.cjs.js';
+const modulePath = '../build/lab/src/mod.cjs.js'; // ? change to package.main?
+const packagePath = '../package.json';
+
 // eslint-disable-next-line security/detect-non-literal-require , security-node/detect-non-literal-require-calls
 const mod = require(modulePath);
+// eslint-disable-next-line security/detect-non-literal-require , security-node/detect-non-literal-require-calls
+const pkg = require(packagePath);
 
 const vNodeJS = process.versions.node.split('.');
 const vNodeJSMajor = +vNodeJS[0];
@@ -52,6 +56,22 @@ if (!process.env.npm_config_test_dist) {
 			t.pass();
 		});
 	} else {
+		test('module loads without panic while using `--no-prompt` (Deno)', (t) => {
+			const denoModulePath = pkg.exports['.'].deno;
+
+			const command = 'deno';
+			const args = ['run', '--no-prompt', denoModulePath];
+			const options = { shell: true, encoding: 'utf-8' };
+
+			const { error, status, stdout } = spawn.sync(command, args, options);
+
+			if (!(error === null && status === 0)) {
+				t.log({ denoModulePath, error, status, stdout });
+			}
+
+			t.deepEqual({ error, status }, { error: null, status: 0 });
+		});
+
 		test('examples are executable without error (Deno)', (t) => {
 			// t.timeout(30000); // 30s timeout
 
