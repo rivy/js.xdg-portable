@@ -1,5 +1,8 @@
+// CommitLint configuration
+// ref: <https://commitlint.js.org/#/reference-configuration>
 // v2022-07-13 [rivy]
-// spell-checker:ignore () commitLint
+
+// spell-checker:ignore (names) commitLint (people) Roy Ivy III * rivy
 
 const commitTags = [
 	'Add',
