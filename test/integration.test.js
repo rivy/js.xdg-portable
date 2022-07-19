@@ -1,5 +1,7 @@
 /* eslint-env es6, node */
+
 // # spell-checker:ignore (modules) Deno ESM ESMs vNodeJSMajor vNodeJSminor cyclomatic execa
+
 'use strict';
 
 const fs = require('fs');

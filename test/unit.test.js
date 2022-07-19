@@ -1,5 +1,7 @@
 /* eslint-env es6, node */
+
 // # spell-checker:ignore AllUsersProfile HomeDrive HomePath LocalAppData SystemDrive SystemRoot UserProfile windir
+
 'use strict';
 
 const os = require('os');
