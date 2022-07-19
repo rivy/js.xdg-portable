@@ -1,6 +1,7 @@
 name: CI
 
-# spell-checker:ignore (names) MacOS deps
+# v2022-07-13 [rivy]
+# spell-checker:ignore (names) MacOS deps ; (people) Roy Ivy III * rivy
 
 on: [push]
 
