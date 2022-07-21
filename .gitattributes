@@ -1,4 +1,5 @@
-# v2022.06.23 [rivy]
+# v2022.07.30 [rivy]
+# spell-checker:ignore (people) Roy Ivy III * rivy (words) deps EOLs MSVC
 
 # default; use LF EOLs for text files
 * text=auto eol=lf
@@ -7,3 +8,7 @@
 *.[bB][aA][tT]    text eol=crlf
 *.[cC][mM][dD]    text eol=crlf
 *.[sS][lL][nN]    text eol=crlf
+
+# assert '.deps-lock' lock files as 'binary' (avoids useless diffs)
+.deps-lock/*.lock         binary
+.deps-lock/*-lock.json    binary

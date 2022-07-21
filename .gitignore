@@ -1,4 +1,4 @@
-# v2022-07-18 [rivy]
+# v2022-07-23 [rivy]
 
 # NOTE: Git GLOBSTAR syntax [see `git help gitignore`]
 # * ref: [.gitignore] http://git-scm.com/docs/gitignore @@ http://archive.is/Rk6rO
@@ -18,3 +18,6 @@ coverage
 node_modules
 package-lock.json
 yarn.lock
+# * allow packaging of lock files into '.deps-lock'
+!.deps-lock/package-lock.json
+!.deps-lock/yarn.lock
