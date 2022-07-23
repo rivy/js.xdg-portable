@@ -126,7 +126,7 @@ import type { XDG } from 'xdg-portable'; // TypeScript
 
 All module methods return platform-compatible path strings which are normalized and have no trailing path separators.
 
-The returned paths and are _not_ guaranteed to exist on the file system. So, the user application is responsible for directory construction, if/when needed. If needed, [`make-dir`](https://www.npmjs.com/package/make-dir) or [`mkdirp`](https://www.npmjs.com/package/mkdirp) can be used to create the directories.
+The returned path strings are _not_ guaranteed to already exist on the file system. So, the user application is responsible for directory construction, if/when needed. If needed, [`make-dir`](https://www.npmjs.com/package/make-dir) or [`mkdirp`](https://www.npmjs.com/package/mkdirp) can be used to create the directories.
 
 #### `xdg.cache(): string`
 
@@ -255,7 +255,7 @@ const xdg = require('xdg-portable/cjs');
 console.log(xdg.config());
 ```
 
-> Note: for CJS, `require('xdg-portable')` is supported for backward-compatibility and will execute correctly at run-time. However, `require('xdg-portable')` links to the default package type declarations which, though _correct_ for ESM or TypeScript, are _incorrect_ for CJS. This, then, leads to incorrect analysis of CJS files by static analysis tools such as TypeScript and Intellisense.
+> Note: for CJS, `require('xdg-portable')` is supported for backward-compatibility and will execute correctly at run-time. However, `require('xdg-portable')` links to the default package type declarations which, though _correct_ for Deno/ESM/TypeScript, are _incorrect_ for CJS. This, then, leads to incorrect analysis of CJS files by static analysis tools such as TypeScript and Intellisense.
 >
 > Using `require('xdg-portable/cjs')` is preferred as it associates the proper CJS type declarations and provides correct information to static analysis tools.
 
@@ -332,6 +332,7 @@ This module was forked from [sindresorhus/xdg-basedir](https://github.com/sindre
 > #### optional
 >
 > - [`git-changelog`](https://github.com/rivy-go/git-changelog) (v1.1+) ... enables changelog automation
+> - [`perl`](https://www.perl.org) ... enables automated version updates to **`package.json`** during packaging
 
 ### Build/test
 
