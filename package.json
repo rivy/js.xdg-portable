@@ -104,6 +104,8 @@
 		"lint:spell": "cspell {eg,examples,src,test}/**/* CHANGELOG{,.md,.mkd} README{,.md,.mkd} --no-summary --config \".vscode/cspell.json\"",
 		"# lint:style # check for format imperfections (using `prettier`)": "",
 		"lint:style": "prettier . --check --loglevel warn",
+		"# prerelease # clean, rebuild, and fully test prior to publish/release": "",
+		"prerelease": "run-s prepublishOnly",
 		"# realclean # remove all generated files": "",
 		"realclean": "run-s clean && rimraf coverage .nyc_output",
 		"# rebuild # clean and (re-)build project": "",
