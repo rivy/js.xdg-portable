@@ -1,8 +1,8 @@
 // CommitLint configuration
 // ref: <https://commitlint.js.org/#/reference-configuration>
-// v2022-07-13 [rivy]
+// v2022-07-30 [rivy]
 
-// spell-checker:ignore (names) commitLint (people) Roy Ivy III * rivy
+// spell-checker:ignore (names) commitLint (people) Roy Ivy III * rivy (words) maint
 
 const commitTags = [
 	'Add',
@@ -33,7 +33,12 @@ const commitTags = [
 
 module.exports = {
 	extends: ['@commitlint/config-conventional'],
-	parserPreset: './.commitlint.parser-preset.js',
+	parserPreset: {
+		parserOpts: {
+			headerPattern: /^(\w+)!?(?:\s*(?:[/(]([\w,/]+)[)]?))?!?\s*[~:]?\s*(.*)$/,
+			headerCorrespondence: ['type', 'scope', 'subject'],
+		},
+	},
 	plugins: [
 		{
 			rules: {
