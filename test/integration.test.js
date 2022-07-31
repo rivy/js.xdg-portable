@@ -49,12 +49,10 @@ test('api', (t) => {
 
 // test examples when using `--test-dist` (ie, with version changes or prior to distribution)
 if (!process.env.npm_config_test_dist) {
-	test('examples are executable...skipped (enable with `npm test --test-dist`)', (t) => t.pass());
+	test.skip('examples are executable...skipped (enable with `npm test --test-dist`)', () => void 0);
 } else {
 	if (!commandExists.sync('deno')) {
-		test.skip('`deno` not found; Deno examples not tested', (t) => {
-			t.pass();
-		});
+		test.skip('examples are executable (Deno)...skipped (`deno` not found)', () => void 0);
 	} else {
 		test('module loads without panic while using `--no-prompt` (Deno)', (t) => {
 			const denoModulePath = pkg.exports['.'].deno;
