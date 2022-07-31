@@ -331,19 +331,36 @@ This module was forked from [sindresorhus/xdg-basedir](https://github.com/sindre
 
 - NodeJS >= 10.14
 - a JavaScript package/project manager ([`npm`](https://www.npmjs.com/get-npm) or [`yarn`](https://yarnpkg.com))
+- [`git`](https://git-scm.com)
 
 > #### optional
 >
 > - [`git-changelog`](https://github.com/rivy-go/git-changelog) (v1.1+) ... enables changelog automation
 > - [`perl`](https://www.perl.org) ... enables automated version updates to **`package.json`** during packaging
 
-### Build/test
+### Quick build/test
 
 ```shell
 npm install-test
 ```
 
-### Project development scripts
+### Contributions/development
+
+#### _Reproducible_ setup (for CI or local development)
+
+```shell
+git clone "https://github.com/rivy/js.xdg-portable"
+cd js.os-paths
+# * note: for WinOS, replace `cp` with `copy`
+# npm
+cp .deps-lock/package-lock.json .
+npm clean-install
+# yarn
+cp .deps-lock/yarn.lock .
+yarn --immutable --immutable-cache --check-cache
+```
+
+#### Project development scripts
 
 ```shell
 > npm run help
@@ -368,6 +385,7 @@ lint:spell          check for spelling errors (using `cspell`)
 lint:style          check for format imperfections (using `prettier`)
 realclean           remove all generated files
 rebuild             clean and (re-)build project
+rebuild:all         clean and fully reconstruct project distribution
 retest              clean and (re-)test project
 reset:hard          remove *all* generated files and reinstall dependencies
 show:deps           show package dependencies
@@ -399,6 +417,9 @@ git add dist
 git commit --amend --no-edit
 # tag VERSION commit
 git tag -f "v${VERSION}"
+# (optional) save dependency locks
+mkdir .deps-lock 2> /dev/null
+cp package-lock.json yarn.lock .deps-lock/
 #=== * WinOS
 @rem ::# next VERSION in M.m.r (semver) format
 set VERSION=...
@@ -414,6 +435,10 @@ git add dist
 git commit --amend --no-edit
 @rem ::# tag VERSION commit
 git tag -f "v%VERSION%"
+@rem ::# (optional) save dependency locks
+mkdir .deps-lock 2>NUL
+copy package-lock.json .deps-lock/
+copy yarn.lock .deps-lock/
 ```
 
 ##### Publish
