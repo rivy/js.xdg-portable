@@ -22,6 +22,8 @@ const mod = require(modulePath);
 // eslint-disable-next-line security/detect-non-literal-require , security-node/detect-non-literal-require-calls
 const pkg = require(packagePath);
 
+const haveDeno = commandExists.sync('deno');
+
 const vNodeJS = process.versions.node.split('.');
 const vNodeJSMajor = +vNodeJS[0];
 const vNodeJSminor = +vNodeJS[1];
@@ -47,14 +49,14 @@ test('api', (t) => {
 	});
 });
 
-// test examples when using `--test-dist` (ie, with version changes or prior to distribution)
+// ensure *no-panic* static load for Deno
 if (!process.env.npm_config_test_dist) {
-	test.skip('examples are executable...skipped (enable with `npm test --test-dist`)', () => void 0);
+	test.skip('module load test (Deno)...skipped (enable with `npm test --test-dist`)', () => void 0);
 } else {
-	if (!commandExists.sync('deno')) {
-		test.skip('examples are executable (Deno)...skipped (`deno` not found)', () => void 0);
+	if (!haveDeno) {
+		test.skip('module load tests (Deno)...skipped (`deno` not found)', () => void 0);
 	} else {
-		test('module loads without panic while using `--no-prompt` (Deno)', (t) => {
+		test('module loads without panic (no permissions and `--no-prompt`; Deno)', (t) => {
 			const denoModulePath = pkg.exports['.'].deno;
 
 			const command = 'deno';
@@ -69,7 +71,16 @@ if (!process.env.npm_config_test_dist) {
 
 			t.deepEqual({ error, status }, { error: null, status: 0 });
 		});
+	}
+}
 
+// test examples when using `--test-dist` (ie, with version changes or prior to distribution)
+if (!process.env.npm_config_test_dist) {
+	test.skip('examples are executable...skipped (enable with `npm test --test-dist`)', () => void 0);
+} else {
+	if (!haveDeno) {
+		test.skip('examples are executable (Deno)...skipped (`deno` not found)', () => void 0);
+	} else {
 		test('examples are executable without error (Deno)', (t) => {
 			// t.timeout(30000); // 30s timeout
 
