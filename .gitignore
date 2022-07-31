@@ -1,8 +1,9 @@
 # v2022-07-23 [rivy]
+# spell-checker:ignore (people) Roy Ivy III * rivy (words) globstar
 
 # NOTE: Git GLOBSTAR syntax [see `git help gitignore`]
 # * ref: [.gitignore] http://git-scm.com/docs/gitignore @@ http://archive.is/Rk6rO
-# * ref: [Generate gitignore's](https://gitignore.io) ; eg, <https://gitignore.io/api/node>
+# * ref: [Generate a 'gitignore'](https://gitignore.io) ; eg, <https://gitignore.io/api/node>
 
 # ignore intermediate build artifacts
 build
