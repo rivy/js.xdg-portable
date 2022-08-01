@@ -72,7 +72,7 @@
 #### {{ .Title }}
 
 {{ range .Notes }}
-{{ .Body }}
+{{- .Body }}
 {{ end -}}
 {{ end -}}
 {{ end -}}
