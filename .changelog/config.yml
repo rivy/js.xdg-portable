@@ -42,6 +42,7 @@ options:
       chore: maint
       fixed: fix
       fixes: fix
+      tests: test
       updated: update
       upkeep: maint
   commit_groups:
