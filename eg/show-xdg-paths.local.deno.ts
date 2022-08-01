@@ -27,6 +27,12 @@ function objectEntries(obj: any) {
 console.log({ xdg });
 console.log(objectEntries(xdg));
 
+const queryEnv = await Deno?.permissions?.query({ name: 'env' });
+if (queryEnv?.state !== 'granted') {
+	console.warn('ERROR: environment permissions are required (try re-run with `--allow-env`)');
+	Deno.exit(1);
+}
+
 /* eslint-enable no-console , functional/immutable-data , security/detect-object-injection, security-node/detect-crlf , @typescript-eslint/no-explicit-any */
 
 /* eslint-enable @typescript-eslint/ban-ts-comment */
