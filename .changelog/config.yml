@@ -59,8 +59,11 @@ options:
       test: Test Improvements
       update: Dependency Updates
   header:
-    pattern: "^(\\w+)(?:\\s*\\/(\\S+))\\s*[~:]?\\s(.*)$|^(\\w+)(?:\\s*\\(([^)]+)\\))?\\s*[~:]?\\s(.*)$"
+    pattern: "^(\\w+)([!])\\s*[~:]?\\s(.*)$|^(\\w+)\\s*\\/(\\S+)\\s*[~:]?\\s(.*)$|^(\\w+)(?:\\s*\\(([^)]+)\\))?\\s*[~:]?\\s(.*)$"
     pattern_maps:
+      - Type
+      - Scope
+      - Subject
       - Type
       - Scope
       - Subject
