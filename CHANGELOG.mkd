@@ -1,4 +1,6 @@
-<!-- markdownlint-disable --><!-- spellchecker:ignore markdownlint --><!-- spellchecker:disable -->
+<!-- lint disable -->
+<!-- markdownlint-disable -->
+<!-- spellchecker:disable -->
 
 # CHANGELOG <br/> [xdg-portable](https://github.com/rivy/js.xdg-portable)
 
@@ -13,9 +15,132 @@
 
 ---
 
+## [v10.0.0](https://github.com/rivy/js.xdg-portable/compare/v9.4.0...v10.0.0) <small>(2022-08-03)</small>
+
+<details open><summary><small><em>[v10.0.0; details]</em></small></summary>
+
+#### Changes
+
+* change *(!)*: add graceful degradation for missing permission(s) (avoiding Deno panic or prompt) &ac; [`6c53212`](https://github.com/rivy/js.xdg-portable/commit/6c53212e947386ea5116c3ecbc042ee4fd37973b)
+
+#### Fixes
+
+* fix *(deps)*: hack around early version `npm ci` failure &ac; [`002a61f`](https://github.com/rivy/js.xdg-portable/commit/002a61f329a47b03dff13cbfda3ce23e8f93bc19)
+
+#### Dependency Updates
+
+* update *(deps)*: (up-to OSPaths-v7.0.0); *no-panic*/*no-prompt* import &ac; [`657a688`](https://github.com/rivy/js.xdg-portable/commit/657a688ce190ac7485c538f1af145ba4ef965bba)
+
+#### Documentation
+
+* docs ~ (tests) revise spell-checker exceptions &ac; [`b32ae06`](https://github.com/rivy/js.xdg-portable/commit/b32ae0632e065192616895a7afb2ea26a03b42ed)
+* docs ~ (eg) add example permission query and resultant error if not 'granted' &ac; [`fc61dfc`](https://github.com/rivy/js.xdg-portable/commit/fc61dfc3263340e9829adb4c66ee29be05c4b560)
+* docs ~ (README) add clarity/polish &ac; [`a9a92d5`](https://github.com/rivy/js.xdg-portable/commit/a9a92d56fe3649e5d6b01bf7545b59fcaa705fa0)
+* docs ~ (README) updated build/contribution documentation &ac; [`4c25cee`](https://github.com/rivy/js.xdg-portable/commit/4c25ceee4196a3e2a33d837b01a15fdae2b0df54)
+* docs ~ (README) revise fix for `markdownlint` complaint (first-line-h1/heading) &ac; [`10a8b1d`](https://github.com/rivy/js.xdg-portable/commit/10a8b1db962e5e9c4f736ea02c67543cffacfc61)
+* docs ~ (README) stabilize formatting against changes by deno and/or dprint formatters &ac; [`fb0f0ed`](https://github.com/rivy/js.xdg-portable/commit/fb0f0edd73e0b7a0c2c24f284beb1d353dd79b02)
+* docs ~ (README) make text corrections &ac; [`2d5d725`](https://github.com/rivy/js.xdg-portable/commit/2d5d7254c50a28835d392fbc18f6f00c92636cb5)
+* docs ~ (README) add spell-checker exceptions &ac; [`e54b5fd`](https://github.com/rivy/js.xdg-portable/commit/e54b5fd9eba2af58b1023728322048b3b48d7a38)
+* docs ~ (README) add packaging and publishing notes &ac; [`c6a91ae`](https://github.com/rivy/js.xdg-portable/commit/c6a91aeed103370a534a28976f31ca4bef6e4e03)
+* docs ~ add `cspell` dictionary word(s) &ac; [`96305d6`](https://github.com/rivy/js.xdg-portable/commit/96305d6167c868e68dd8a869b908423ea17faa15)
+* docs *(tests)*: polish commentary &ac; [`74d79b4`](https://github.com/rivy/js.xdg-portable/commit/74d79b471272dee796082adf9a091c8ebd992859)
+
+#### Maintenance
+
+* maint *(CI)*: add commentary (version stamp) &ac; [`a71ea1c`](https://github.com/rivy/js.xdg-portable/commit/a71ea1cd70fa8ecf8e106b77ebb2f7ce968d26bc)
+* maint *(CICD)*: add a step showing dependencies to GHA CI &ac; [`e6ce1d2`](https://github.com/rivy/js.xdg-portable/commit/e6ce1d28d1abc2f92d21818f66f7f80d6fcecd89)
+* maint *(build)*: improve Prettier feedback output &ac; [`1a6418e`](https://github.com/rivy/js.xdg-portable/commit/1a6418e41da9da7364c6b3b2409cb739f191cfe6)
+* maint *(build)*: improve feedback from run targets (by including stderr output for errors) &ac; [`bfbd310`](https://github.com/rivy/js.xdg-portable/commit/bfbd310c192723b8defb6fb2e55fc9eaec6e78ea)
+* maint *(build)*: fix `--dry-run` flag manipulation for dist packaging &ac; [`d884cb6`](https://github.com/rivy/js.xdg-portable/commit/d884cb60a25c52d35289b53f8ed1d773273b12e2)
+* maint *(build)*: add `rebuild:all` run target &ac; [`204ee00`](https://github.com/rivy/js.xdg-portable/commit/204ee00d83d149118446ef3e6edef3d7a42a9723)
+* maint *(build)*: refactor with 'cross-env' to increase `yarn` compatibility &ac; [`7ce3560`](https://github.com/rivy/js.xdg-portable/commit/7ce3560f4d209f2aa320f21fb6515690ebdcbe12)
+* maint *(build)*: add 'prerelease' run target &ac; [`db674ee`](https://github.com/rivy/js.xdg-portable/commit/db674ee3a9933b7186e7ca21e2f8a06fb2ab71b8)
+* maint *(build)*: suppress extraneous Prettier lint output &ac; [`7736709`](https://github.com/rivy/js.xdg-portable/commit/773670921fad98d0ba9b555a7ec0dddd93ea978d)
+* maint *(build)*: name revision (testbed => lab) &ac; [`f8d220f`](https://github.com/rivy/js.xdg-portable/commit/f8d220fed2db5ab73fbd714f26f93174e418315b)
+* maint *(build)*: move 'update-dist.succeeded' target to 'build' intermediate directory &ac; [`ec3756c`](https://github.com/rivy/js.xdg-portable/commit/ec3756c15b3acc10a13dfdb472f9a3055dc47a8d)
+* maint *(build)*: add 'deno' to main exports to publicize Deno support &ac; [`cb46e55`](https://github.com/rivy/js.xdg-portable/commit/cb46e551594fcdc29f893ae3939347934f6b2fe6)
+* maint *(build)*: (package.json) add verbose test support and revise 'prerelease' &ac; [`76896fc`](https://github.com/rivy/js.xdg-portable/commit/76896fc215d09d41a5a7b00f5211e1fe33368186)
+* maint *(deps)*: store package locks (for CI/dev reproducibility) &ac; [`cd199f8`](https://github.com/rivy/js.xdg-portable/commit/cd199f8bed767ff4b76910f258748a0695cc0f3e)
+* maint *(dev)*: update vendored deno types (up-to Deno v1.8.0) &ac; [`eb46cf1`](https://github.com/rivy/js.xdg-portable/commit/eb46cf1a7a9c81f56a89e3784736d2eedef1b3ad)
+* maint *(dev)*: update vendored deno types (up-to Deno v1.8.0) &ac; [`a653cb7`](https://github.com/rivy/js.xdg-portable/commit/a653cb719f146a771cbc2f5e1d83048c2d0b422f)
+* maint *(dev)*: (gitignore) fix spell-checker complaints &ac; [`53dc4f3`](https://github.com/rivy/js.xdg-portable/commit/53dc4f331177d6b230740e0cdd9efdf87bf3c99b)
+* maint *(dev)*: configure git for storage of package lock files within '.deps-lock' &ac; [`6e1d3f6`](https://github.com/rivy/js.xdg-portable/commit/6e1d3f62306ca5317ac42f219a97e037fddf7a37)
+* maint *(dev)*: (gitignore) update/fix configuration &ac; [`70e5718`](https://github.com/rivy/js.xdg-portable/commit/70e5718081c01bb41de6ff3cd787e7c5d083d0d8)
+* maint *(dev)*: consolidate CommitLint configuration &ac; [`d75712b`](https://github.com/rivy/js.xdg-portable/commit/d75712b68cc27446863440534066aab9f9f05fb7)
+* maint *(dev)*: update EditorConfig (fix spelling + support nushell configs) &ac; [`0e78fb4`](https://github.com/rivy/js.xdg-portable/commit/0e78fb4765babb818a4c9e53a05fd0548fe55d87)
+* maint *(dev)*: add Scrutinizer configuration &ac; [`2db5c4c`](https://github.com/rivy/js.xdg-portable/commit/2db5c4ce5af0c64fc6549e10f2ce444fe336ae2e)
+* maint *(dev)*: update Prettier configuration/ignores &ac; [`07f7c83`](https://github.com/rivy/js.xdg-portable/commit/07f7c83d91eb60026c731a143b09a11769d39535)
+* maint *(dev)*: update EditorConfig-checker configuration &ac; [`b428018`](https://github.com/rivy/js.xdg-portable/commit/b42801884bbb4e040037db116b6a7a50a4d3c5f4)
+* maint *(dev)*: (vendor) treat all vendor code as 'binary' to reduce useless diff output &ac; [`463853f`](https://github.com/rivy/js.xdg-portable/commit/463853f3645158a78e1b448d57c5cff84f860981)
+* maint *(dev)*: (ESLint) ignore 'vendor' files &ac; [`f04710a`](https://github.com/rivy/js.xdg-portable/commit/f04710a8cbbdb88905c8eebba1cfbc968974e105)
+* maint *(dev)*: update `git-changelog` config (polish) &ac; [`bf2a9e1`](https://github.com/rivy/js.xdg-portable/commit/bf2a9e1f7c94d602cb2da21c4fef8e2f3cdc18d0)
+* maint *(dev)*: update `commitlint` configuration (polish) &ac; [`690802f`](https://github.com/rivy/js.xdg-portable/commit/690802fe0c2ab9c796263d16f915da48341b6c2e)
+* maint *(dev)*: update ESLint configuration (polish) &ac; [`2c29f5d`](https://github.com/rivy/js.xdg-portable/commit/2c29f5d03adaf7d4f7911691a52c9099529e52bf)
+* maint *(dev)*: (QA) update CodeClimate config (polish) &ac; [`9434253`](https://github.com/rivy/js.xdg-portable/commit/94342530ed9872f9a229c6e8edcbf8d69e81f7b4)
+* maint *(dev)*: (QA) update Codacy config (polish) &ac; [`e065d86`](https://github.com/rivy/js.xdg-portable/commit/e065d86496336c1b8d6b7c83b371e846e967d023)
+* maint *(dev)*: (markdown-lint/Remark) disable list-item-spacing checks &ac; [`6aff9c4`](https://github.com/rivy/js.xdg-portable/commit/6aff9c47398bc61aa6ce186487fe80c3cc03436c)
+* maint *(dev)*: (deps) use specific commit of 'exec-if-updated' (awaiting v2.2.0) &ac; [`b3a0275`](https://github.com/rivy/js.xdg-portable/commit/b3a0275e13ee5f7cb54d7a9b08d64c078ab9c419)
+* maint *(dev)*: (deps) *pin* 'remark-cli' to v9.0.0 (o/w v10+ requires NodeJS v12+) &ac; [`42982aa`](https://github.com/rivy/js.xdg-portable/commit/42982aa90e3753853448758379dbae3acb8cccf0)
+* maint *(dev)*: (deps) *pin* 'open-cli' to v6.0 (o/w v7.0 requires NodeJS v14+) &ac; [`29bddd3`](https://github.com/rivy/js.xdg-portable/commit/29bddd341fe8db47dc7f65f586581d8ff725427b)
+* maint *(dev)*: (deps) remove unused 'coveralls' &ac; [`855da37`](https://github.com/rivy/js.xdg-portable/commit/855da378547efee86884a4f523c73cbc6170cab9)
+* maint *(dev)*: narrow required version of 'typescript' to satisfy 'typescript-eslint' and 'typedoc' &ac; [`ae911dc`](https://github.com/rivy/js.xdg-portable/commit/ae911dc3276282bc38d13c8c82afbaa344f298d5)
+* maint *(dev)*: change to jsDelivr as supplier for 'exec-if-updated' package &ac; [`0d82c8f`](https://github.com/rivy/js.xdg-portable/commit/0d82c8f3d681508138ea31fb30f55f4d9c070600)
+* maint *(dev)*: (deps) update to 'exec-if-updated' v2.2.0 (includes fixes) &ac; [`371489a`](https://github.com/rivy/js.xdg-portable/commit/371489a3b44217e27a856ccc5f61a155f13557ff)
+* maint *(dev)*: (git-changelog) disable `remark` linting of CHANGELOG &ac; [`62ecb29`](https://github.com/rivy/js.xdg-portable/commit/62ecb2921397150968af0b2a4e6436cdcf72e7e2)
+* maint *(dev)*: (git-changelog) remove needless leading newlines within 'Notes' &ac; [`b9d5fb4`](https://github.com/rivy/js.xdg-portable/commit/b9d5fb456d142d1ee04a878a71aebc25a31f04ae)
+* maint *(dev)*: suppress `nyc` analysis of CJS, ESM, and UMD build directories &ac; [`c748d9e`](https://github.com/rivy/js.xdg-portable/commit/c748d9e81f22788deab58dfac5e865cf154c78eb)
+* maint *(dev)*: (git-changelog) fix missing 'Test Improvements' section &ac; [`b52a4d7`](https://github.com/rivy/js.xdg-portable/commit/b52a4d743dd0e5dbe10ba902cdabc8907545d9ff)
+* maint *(dev)*: (git-changelog) add support for trailing '!' within 'Type' &ac; [`74dbd9d`](https://github.com/rivy/js.xdg-portable/commit/74dbd9d76c8992091752fb3561affaf627952ae3)
+* maint *(dev)*: (gitattributes) localize 'binary' attribute settings for '.deps-lock' &ac; [`5a5db48`](https://github.com/rivy/js.xdg-portable/commit/5a5db486fae4d01c068b51becb91107a8a06782e)
+* maint *(dev)*: (package) fix 'rebuild:lab' to include a copy of esm-wrapper &ac; [`53f7d86`](https://github.com/rivy/js.xdg-portable/commit/53f7d868679e2a2459918888050e8a9a8e939c91)
+* maint *(dev)*: revise `rollup` type bundling process &ac; [`5f085b2`](https://github.com/rivy/js.xdg-portable/commit/5f085b2c5d331bcaceb675ab1e18d867cd2b9b64)
+* maint *(dev)*: (QA) update CodeClimate config &ac; [`1b2079e`](https://github.com/rivy/js.xdg-portable/commit/1b2079e33262dbff0cf3a209c9fe93cac7e98e49)
+* maint *(dev)*: (QA) update Codacy config &ac; [`4cbd7c3`](https://github.com/rivy/js.xdg-portable/commit/4cbd7c3237dc933ad34f4c62804b979c117f39a3)
+* maint *(dev)*: update Remark (markdown-linting) configuration (adds version stamp) &ac; [`143361a`](https://github.com/rivy/js.xdg-portable/commit/143361acd6e178a1ba9487d2cabaf8980577fa9d)
+* maint *(dev)*: update Prettier config and ignore files &ac; [`f08f5bb`](https://github.com/rivy/js.xdg-portable/commit/f08f5bb440d1bcb33d100120bd724b01aa7966ac)
+* maint *(dev)*: update ESLint configuration (adds version stamp) &ac; [`4bf5f3b`](https://github.com/rivy/js.xdg-portable/commit/4bf5f3bee13d671e4f3d85d60a6fc2c9de3a2ebf)
+* maint *(dev)*: update `commitlint` configuration (adds version stamp) &ac; [`c90f2cc`](https://github.com/rivy/js.xdg-portable/commit/c90f2ccd3703095c45ce18953831828a09b51ee2)
+* maint *(dev)*: update `git-changelog` config &ac; [`a48c1c6`](https://github.com/rivy/js.xdg-portable/commit/a48c1c6d467cabc102874c2802dd71e9b61236dc)
+* maint *(dev)*: add and use EditorConfig-checker config file &ac; [`c1418f6`](https://github.com/rivy/js.xdg-portable/commit/c1418f6f1ff1d65b1954164dbb9b00d412b62207)
+* maint *(dev)*: update EditorConfig &ac; [`2ba134a`](https://github.com/rivy/js.xdg-portable/commit/2ba134a9c0907157324b136f84d390950c3c0592)
+* maint *(dev)*: update VSCode settings &ac; [`67b77ae`](https://github.com/rivy/js.xdg-portable/commit/67b77aece3d470fe3fcd5cd866c81cc72616da1b)
+* maint *(dev)*: add custom VSCode workspace settings (for 'prettier' and 'indent-rainbow') &ac; [`b2f1b30`](https://github.com/rivy/js.xdg-portable/commit/b2f1b3098f86ec8c1bdc0750200175aa53eef342)
+* maint *(dev)*: revise/update TypeScript 'tsconfig' files &ac; [`1c91e33`](https://github.com/rivy/js.xdg-portable/commit/1c91e33734610b7078e66d51c30a0d365edf0736)
+* maint *(dev)*: (gitignore) add ignored files and version stamp &ac; [`31ecb50`](https://github.com/rivy/js.xdg-portable/commit/31ecb50cd6002cc4592e1acd36f1f8262e39f01a)
+* maint *(dev)*: (gitattributes) revise commentary and add version stamp &ac; [`e67b60a`](https://github.com/rivy/js.xdg-portable/commit/e67b60ac66591d7f3ae0ae8d629df31a40b7c299)
+* maint *(dev)*: (fix) use 'https:' protocol (instead of 'git:') for direct GitHub dependency &ac; [`b1abca9`](https://github.com/rivy/js.xdg-portable/commit/b1abca9ddc531b2e9b3a0025bc1d98c49821db59)
+
+#### Test Improvements
+
+* tests ~ add additional type tests &ac; [`8cb5bb1`](https://github.com/rivy/js.xdg-portable/commit/8cb5bb1c19521515c8004149ca6acb0259ee9c4d)
+* tests ~ revise skip text for Deno execution testing of examples &ac; [`75441e1`](https://github.com/rivy/js.xdg-portable/commit/75441e1d83dcc74c86a7edb33f4dafe1c3baff6d)
+* tests ~ fix `deno lint` complaint &ac; [`42f45e1`](https://github.com/rivy/js.xdg-portable/commit/42f45e1a349a50adaa6b483cb1e502d0960e300f)
+* tests ~ revise eslint exceptions &ac; [`9fa3fa7`](https://github.com/rivy/js.xdg-portable/commit/9fa3fa74efa35cf8477e3642e3f4221c9a292f06)
+* tests ~ version gate Deno tests &ac; [`fcdeb99`](https://github.com/rivy/js.xdg-portable/commit/fcdeb99d8778e49fa552892de2635b24b6c664d1)
+* tests ~ revise Deno module load test(s) &ac; [`a7fe4ec`](https://github.com/rivy/js.xdg-portable/commit/a7fe4ec0294333fdd1fd6333fe9bf86c94b43842)
+* tests ~ add any STDERR output to test logs &ac; [`56744f1`](https://github.com/rivy/js.xdg-portable/commit/56744f152879d814b4482e972e77304c5c30bf37)
+* tests ~ improve 'skip' user feedback &ac; [`b473da6`](https://github.com/rivy/js.xdg-portable/commit/b473da62e1a1dfaab1bcdfd454b9ff3fc34c2457)
+* tests ~ deno loads module without panic or prompt (while using *no permissions*) &ac; [`7f656c0`](https://github.com/rivy/js.xdg-portable/commit/7f656c0b0d4cfdefb0f2043fc7cc5393181a96c2)
+* tests ~ add ESLint per-file customization &ac; [`6f295a4`](https://github.com/rivy/js.xdg-portable/commit/6f295a4ef073c0ca3f3bb433b085810f45bdacab)
+* tests ~ perform more exact API test &ac; [`792856a`](https://github.com/rivy/js.xdg-portable/commit/792856a52276ebfc51bab483fe47c6c45cdc9a46)
+* tests ~ refactor - rename `module_` => `mod` &ac; [`d4a5e71`](https://github.com/rivy/js.xdg-portable/commit/d4a5e711029ef6693649acbf20221f96964bcac1)
+* tests ~ restyle spell-checker exceptions for visibility &ac; [`6024737`](https://github.com/rivy/js.xdg-portable/commit/60247379644699bd145a4e26903e90dbdf3069ed)
+* tests ~ refactor 'integration.test.js' (improved clarity/DRY and polish commentary) &ac; [`279d821`](https://github.com/rivy/js.xdg-portable/commit/279d8210e781de15f3956d8b49ace3cd68742642)
+* tests ~ feedback improvements for some integration tests &ac; [`7718605`](https://github.com/rivy/js.xdg-portable/commit/7718605768e5cd9d758874e86dcea75329c6a98b)
+* tests ~ fix `--test-dist` flag detection &ac; [`9d66208`](https://github.com/rivy/js.xdg-portable/commit/9d66208568e0c77eee801dac0c950bdca2288ba8)
+* tests ~ fix ESM import module file name generation &ac; [`22c94e4`](https://github.com/rivy/js.xdg-portable/commit/22c94e4d965dfd6a1787efcc72e8d231e6c08431)
+
+#### BREAKING CHANGE
+
+Adds a Deno v1.8.0+ minimum version requirement.
+
+</details>
+
+---
+
 ## [v9.4.0](https://github.com/rivy/js.xdg-portable/compare/v9.3.0...v9.4.0) <small>(2021-02-27)</small>
 
-<details open><summary><small><em>[v9.4.0; details]</em></small></summary>
+<details><summary><small><em>[v9.4.0; details]</em></small></summary>
 
 #### Documentation
 
@@ -96,6 +221,10 @@
 * maint *(dev)*: (scripts) build in series (await parallel `shx mkdir` fix) &ac; [`8c369d9`](https://github.com/rivy/js.xdg-portable/commit/8c369d946029a1e472e3ef58b623ad6a6478eb1c)
 * maint *(dev)*: remove now-unneeded `rollup` configs for CJS and ESM &ac; [`5a6a4a4`](https://github.com/rivy/js.xdg-portable/commit/5a6a4a49370cdf1cde0dfbd752bdc318ea2a525a)
 
+#### Test Improvements
+
+* tests ~ refactor distribution tests for easier package portability &ac; [`5c3ee2f`](https://github.com/rivy/js.xdg-portable/commit/5c3ee2fc88cf2189e138c9a7e5251e5ea4dbb57c)
+
 </details>
 
 ---
@@ -117,6 +246,10 @@
 
 * maint *(dev)*: add Deno types &ac; [`54f9696`](https://github.com/rivy/js.xdg-portable/commit/54f96966a24ae7ec61fa07a30b5d68f2ed301aaf)
 * maint *(dist)*: update &ac; [`ba37ee8`](https://github.com/rivy/js.xdg-portable/commit/ba37ee81a007444ef6728bea7424d69bc2114dc9)
+
+#### Test Improvements
+
+* tests ~ test Deno example (when `--test-dist`) &ac; [`25e348b`](https://github.com/rivy/js.xdg-portable/commit/25e348b586e1b33c8ccf7a3a57b012b46c5edc71)
 
 </details>
 
@@ -141,6 +274,11 @@
 #### Refactoring
 
 * refactor ~ add support (Platform.Adapter) for other platforms (eg, Deno) &ac; [`2cc65c3`](https://github.com/rivy/js.xdg-portable/commit/2cc65c305ef8cf1a06c64eeb35c2b5335c141bee)
+
+#### Test Improvements
+
+* tests ~ add further dist/exports testing &ac; [`bd45f3d`](https://github.com/rivy/js.xdg-portable/commit/bd45f3d16f30a2ec95dd380ec95f52677122607c)
+* tests ~ fix CJS/ESM comparison testing for Platform.Adapter refactor &ac; [`87f6a3c`](https://github.com/rivy/js.xdg-portable/commit/87f6a3c7f0046a8661e186d9bd9d2c451007e3be)
 
 </details>
 
@@ -237,6 +375,16 @@
 * refactor ~ build/return `XDG` instead of `XDGPortable` &ac; [`b6a48c8`](https://github.com/rivy/js.xdg-portable/commit/b6a48c8dd4ab749afd9cc800e27a9e7c342ab9ad)
 * refactor ~ convert to TypeScript &ac; [`e356726`](https://github.com/rivy/js.xdg-portable/commit/e3567261d938417ec291dcb3df70150b39632d4d)
 
+#### Test Improvements
+
+* tests ~ add distribution tests &ac; [`1d1afc1`](https://github.com/rivy/js.xdg-portable/commit/1d1afc134d6bd14e498c89c6254a13aaf431101d)
+* tests ~ replace use of '--test-dist' instead of '--test-for-dist' &ac; [`eefdebf`](https://github.com/rivy/js.xdg-portable/commit/eefdebf6331b3d50928406781e3b0b99834cf385)
+* tests ~ enable test runs of CJS, ESM, and TypeScript examples &ac; [`b2f33b1`](https://github.com/rivy/js.xdg-portable/commit/b2f33b1cef627b60f00ad60759a48bd27279f65e)
+* tests ~ increase 'ava' global test timeout &ac; [`5493029`](https://github.com/rivy/js.xdg-portable/commit/549302918db8ed20ec71fcdd429c747c1255f639)
+* tests ~ fix per-test resets and expand test coverage &ac; [`fbf5275`](https://github.com/rivy/js.xdg-portable/commit/fbf52753db8990e1603498f983ef94e8f7c9ee06)
+* tests ~ refactor tests and add OS/platform-specific testing &ac; [`e982831`](https://github.com/rivy/js.xdg-portable/commit/e982831e0b84baca691e068c2f729852e0c1d869)
+* tests ~ add more type tests &ac; [`edf0cb1`](https://github.com/rivy/js.xdg-portable/commit/edf0cb128243b9d896ba40faaf8bd3c2944d23a2)
+
 </details>
 
 ---
@@ -293,6 +441,13 @@
 * refactor ~ consolidate testing code into 'test' directory &ac; [`cdabf1c`](https://github.com/rivy/js.xdg-portable/commit/cdabf1cdd0481e15dc6d2c52a65e1dd2fcca84fe)
 * refactor *(polish)*: fix ESLint complaints &ac; [`da3bedb`](https://github.com/rivy/js.xdg-portable/commit/da3bedba1b8c9fa78c5d408b3f1b8d60eef8d68f)
 * refactor *(polish)*: `npx prettier . --write` re-format &ac; [`a4fe2f4`](https://github.com/rivy/js.xdg-portable/commit/a4fe2f4c14e4899352dbe194bd063a79756bc1e9)
+
+#### Test Improvements
+
+* tests ~ refactor string[] unit tests to test whole array &ac; [`af2be7f`](https://github.com/rivy/js.xdg-portable/commit/af2be7f2559fd30330850a265741478708975092)
+* tests ~ add integration tests &ac; [`07a6ab6`](https://github.com/rivy/js.xdg-portable/commit/07a6ab6296e8ca991ce33a92c9c37ca49f6fd1d9)
+* tests ~ refine test categorization (using filename hints) &ac; [`e4b1609`](https://github.com/rivy/js.xdg-portable/commit/e4b1609f8bd15ee5f0beb4526a898c6efa894f55)
+* tests ~ refactor types tests (reorganization + add `readonly`) &ac; [`fa46cda`](https://github.com/rivy/js.xdg-portable/commit/fa46cda3f9e2f0bc5f3d9b902585606676d27d18)
 
 </details>
 

@@ -22,5 +22,4 @@ interface XDG {
 
 declare const _: XDG;
 
-export default _;
-export { XDG };
+export { XDG, _ as default };
