@@ -23,6 +23,20 @@ const mod = require(modulePath);
 const pkg = require(packagePath);
 
 const haveDeno = commandExists.sync('deno');
+const denoVersion =
+	/* `-T` (interpret as TypeScript; available v1.0+); used for older `deno` versions (< v1.16.2) which cache eval compilation incorrectly; ref: <https://github.com/denoland/deno/issues/9733> */
+	((
+		spawn.sync('deno', ['eval', '-T', '"console.log(Deno.version.deno)"'], {
+			encoding: 'utf-8',
+			shell: true,
+		}).stdout || ''
+	).match(/(?<=^|\s)\d+(?:[.]\d+)*/ /* eslint-disable-line security/detect-unsafe-regex */) || [
+		'0.0.0',
+	])[0];
+
+function versionCompare(a, b) {
+	return a.localeCompare(b, /* locales */ void 0, { numeric: true });
+}
 
 const vNodeJS = process.versions.node.split('.');
 const vNodeJSMajor = +vNodeJS[0];
@@ -53,8 +67,12 @@ test('api', (t) => {
 if (!process.env.npm_config_test_dist) {
 	test.skip('module load test (Deno)...skipped (enable with `npm test --test-dist`)', () => void 0);
 } else {
+	const minDenoVersion = '1.19.0';
 	if (!haveDeno) {
 		test.skip('module load tests (Deno)...skipped (`deno` not found)', () => void 0);
+	} else if (versionCompare(denoVersion, minDenoVersion) < 0) {
+		test.skip(`module load tests (Deno)...skipped (using Deno v${denoVersion} [v${minDenoVersion}+ needed for use of \`--no-prompt\`])`, () =>
+			void 0);
 	} else {
 		test('module loads without panic (no permissions and `--no-prompt`; Deno)', (t) => {
 			const denoModulePath = pkg.exports['.'].deno;
@@ -78,8 +96,12 @@ if (!process.env.npm_config_test_dist) {
 if (!process.env.npm_config_test_dist) {
 	test.skip('examples are executable...skipped (enable with `npm test --test-dist`)', () => void 0);
 } else {
+	const minDenoVersion = '1.8.0';
 	if (!haveDeno) {
 		test.skip('examples are executable (Deno)...skipped (`deno` not found)', () => void 0);
+	} else if (versionCompare(denoVersion, minDenoVersion) < 0) {
+		test.skip(`examples are executable (Deno)...skipped (using Deno v${denoVersion} [v${minDenoVersion}+ needed for use of permissions API])`, () =>
+			void 0);
 	} else {
 		test('examples are executable without error (Deno)', (t) => {
 			// t.timeout(30000); // 30s timeout
