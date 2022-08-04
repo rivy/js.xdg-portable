@@ -1,7 +1,7 @@
 /* eslint-env es6, node */
 /* eslint complexity: ['error', { max: 10 }] */ // set maximum cyclomatic complexity to 10; ref: <https://eslint.org/docs/rules/complexity>
 /* eslint import/order: ["error", {"newlines-between": "always-and-inside-groups"}] */
-
+/* eslint-disable security/detect-object-injection , security/detect-non-literal-fs-filename */
 // # spell-checker:ignore (modules) Deno ESM ESMs vNodeJSMajor vNodeJSminor cyclomatic execa
 
 'use strict';
@@ -58,7 +58,6 @@ test('api', (t) => {
 	t.is(typeof mod, 'function');
 	t.deepEqual(Object.keys(mod).sort(), api.sort());
 	api.forEach((key) => {
-		// eslint-disable-next-line security/detect-object-injection
 		t.is(typeof mod[key], 'function');
 	});
 });
@@ -109,7 +108,6 @@ if (!process.env.npm_config_test_dist) {
 			const egDirPath = 'eg';
 			const extension_regexps = [/.*[.]deno[.]ts$/i];
 
-			// eslint-disable-next-line security/detect-non-literal-fs-filename
 			const files = fs.readdirSync(egDirPath);
 
 			files
@@ -144,7 +142,6 @@ if (!process.env.npm_config_test_dist) {
 		const egDirPath = 'eg';
 		const extensions = ['.js', '.cjs', '.mjs'];
 
-		// eslint-disable-next-line security/detect-non-literal-fs-filename
 		const files = fs.readdirSync(egDirPath);
 
 		files
@@ -180,7 +177,6 @@ if (!process.env.npm_config_test_dist) {
 		const egDirPath = 'eg';
 		const extensions = ['.js', '.cjs', '.mjs', '.ts'];
 
-		// eslint-disable-next-line security/detect-non-literal-fs-filename
 		const files = fs.readdirSync(egDirPath);
 
 		files
