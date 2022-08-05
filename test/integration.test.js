@@ -99,7 +99,7 @@ if (!process.env.npm_config_test_dist) {
 	if (!haveDeno) {
 		test.skip('examples are executable (Deno)...skipped (`deno` not found)', () => void 0);
 	} else if (versionCompare(denoVersion, minDenoVersion) < 0) {
-		test.skip(`examples are executable (Deno)...skipped (using Deno v${denoVersion} [v${minDenoVersion}+ needed for use of permissions API])`, () =>
+		test.skip(`examples are executable (Deno)...skipped (using Deno v${denoVersion} [v${minDenoVersion}+ needed for use of stable permissions API])`, () =>
 			void 0);
 	} else {
 		test('examples are executable without error (Deno)', (t) => {
