@@ -427,7 +427,9 @@ git add dist
 git commit --amend --no-edit
 # tag VERSION commit
 git tag -f "v${VERSION}"
-# (optional) save dependency locks
+@rem ::# (optional) update/save dependency locks
+npm install --package-lock
+rm yarn.lock && yarn import
 mkdir .deps-lock 2> /dev/null
 cp package-lock.json .deps-lock/
 cp yarn.lock .deps-lock/
@@ -447,10 +449,12 @@ git add dist
 git commit --amend --no-edit
 @rem ::# tag VERSION commit
 git tag -f "v%VERSION%"
-@rem ::# (optional) save dependency locks
+@rem ::# (optional) update/save dependency locks
+npm install --package-lock
+del yarn.lock && yarn import
 mkdir .deps-lock 2>NUL
-copy package-lock.json .deps-lock/
-copy yarn.lock .deps-lock/
+copy /y package-lock.json .deps-lock
+copy /y yarn.lock .deps-lock
 @rem ::# (optional) prerelease checkup
 npm run prerelease
 ```
