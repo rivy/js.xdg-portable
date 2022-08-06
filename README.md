@@ -420,7 +420,6 @@ VERSION=...
 perl -i -E 'use open IO => q/:raw:utf8/} while(<>) { s/^(\s*\x22version\x22\s*:\s*)\x22(?:\d+(?:[.]\d+)*)?\x22/$1\x22$ENV{VERSION}\x22/ims; print }' package.json
 git-changelog --next-tag "v${VERSION}" > CHANGELOG.mkd
 # create/commit updates and distribution
-npm run retest # optional; note: `[lint] WARN Missing commit tag ...` is ok at this point
 git add package.json CHANGELOG.mkd
 git commit -m "${VERSION}"
 npm run clean && npm run update:dist
@@ -430,7 +429,10 @@ git commit --amend --no-edit
 git tag -f "v${VERSION}"
 # (optional) save dependency locks
 mkdir .deps-lock 2> /dev/null
-cp package-lock.json yarn.lock .deps-lock/
+cp package-lock.json .deps-lock/
+cp yarn.lock .deps-lock/
+# (optional) prerelease checkup
+npm run prerelease
 #=== * WinOS
 @rem ::# next VERSION in M.m.r (semver) format
 set VERSION=...
@@ -438,7 +440,6 @@ set VERSION=...
 perl -i -E "use open IO => q/:raw:utf8/; while(<>) { s/^(\s*\x22version\x22\s*:\s*)\x22(?:\d+(?:[.]\d+)*)?\x22/$1\x22$ENV{VERSION}\x22/ims; print }" package.json
 git-changelog --next-tag "v%VERSION%" > CHANGELOG.mkd
 @rem ::# create/commit updates and distribution
-npm run retest &@rem ::# optional; note: `[lint] WARN Missing commit tag ...` is ok at this point
 git add package.json CHANGELOG.mkd
 git commit -m "%VERSION%"
 npm run clean && npm run update:dist
@@ -450,6 +451,8 @@ git tag -f "v%VERSION%"
 mkdir .deps-lock 2>NUL
 copy package-lock.json .deps-lock/
 copy yarn.lock .deps-lock/
+@rem ::# (optional) prerelease checkup
+npm run prerelease
 ```
 
 ##### Publish
@@ -462,7 +465,7 @@ npm run _:v_tag:exists || echo "[lint] ERROR Missing version matching commit tag
 git diff-index --quiet HEAD || echo "[lint] ERROR uncommitted changes" # expect no output and exit code == 0
 # *
 npm publish # `npm publish --dry-run` will perform all prepublication actions and stop just before the actual publish push
-# * if no ERRORs *
+# * if published to NPMjs with no ERRORs; push to deno.land with tag push
 git push origin --tags
 ```
 
