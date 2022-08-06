@@ -82,13 +82,13 @@ const configDirs = xdg.configDirs();
 ```ts
 import xdg from 'https://deno.land/x/xdg/src/mod.deno.ts';
 //or...
-//import xdg from 'https://deno.land/x/xdg@v9.0.0/src/mod.deno.ts';
+//import xdg from 'https://deno.land/x/xdg@v10.2.0/src/mod.deno.ts';
 //or (via CDN, with optional version/version-range/latest/commit support)...
-//import xdg from 'https://cdn.jsdelivr.net/gh/rivy/js.xdg-portable@9.0.0/src/mod.deno.ts'; // v9.0.0
-//import xdg from 'https://cdn.jsdelivr.net/gh/rivy/js.xdg-portable@9/src/mod.deno.ts'; // v9.x.y
-//import xdg from 'https://cdn.jsdelivr.net/gh/rivy/js.xdg-portable/src/mod.deno.ts'; // latest
+//import xdg from 'https://cdn.jsdelivr.net/gh/rivy/js.xdg-portable@10.2.0/src/mod.deno.ts'; // v10.2.0
+//import xdg from 'https://cdn.jsdelivr.net/gh/rivy/js.xdg-portable@10/src/mod.deno.ts'; // v10.x.y
+//import xdg from 'https://cdn.jsdelivr.net/gh/rivy/js.xdg-portable/src/mod.deno.ts'; // latest (*not* recommended for production by JSDelivr)
 //import xdg from 'https://cdn.jsdelivr.net/gh/rivy/js.xdg-portable@latest/src/mod.deno.ts'; // latest
-//import xdg from 'https://cdn.jsdelivr.net/gh/rivy/js.xdg-portable@COMMIT/src/mod.deno.ts'; // commit
+//import xdg from 'https://cdn.jsdelivr.net/gh/rivy/js.xdg-portable@COMMIT_SHA/src/mod.deno.ts'; // commit
 const configDirs = xdg.configDirs();
 //...
 ```
