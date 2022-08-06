@@ -15,9 +15,22 @@
 
 ---
 
+## [v10.1.0](https://github.com/rivy/js.xdg-portable/compare/v10.0.0...v10.1.0) <small>(2022-08-06)</small>
+
+<details open><summary><small><em>[v10.1.0; details]</em></small></summary>
+
+#### Dependency Updates
+
+* update Deno deps (up-to std[@0](https://github.com/0).150.0) &ac; [`407e0e6`](https://github.com/rivy/js.xdg-portable/commit/407e0e690d7a275b4cf1739789306e6be9565a83)
+* update *(deps)*: (up-to OSPaths-v7.0.0); uses std[@0](https://github.com/0).150.0 &ac; [`b9f841a`](https://github.com/rivy/js.xdg-portable/commit/b9f841a9854ef3eb33489981bc16149de95a2627)
+
+</details>
+
+---
+
 ## [v10.0.0](https://github.com/rivy/js.xdg-portable/compare/v9.4.0...v10.0.0) <small>(2022-08-03)</small>
 
-<details open><summary><small><em>[v10.0.0; details]</em></small></summary>
+<details><summary><small><em>[v10.0.0; details]</em></small></summary>
 
 #### Changes
 
