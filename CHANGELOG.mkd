@@ -15,9 +15,30 @@
 
 ---
 
+## [v10.2.0](https://github.com/rivy/js.xdg-portable/compare/v10.1.0...v10.2.0) <small>(2022-08-06)</small>
+
+<details open><summary><small><em>[v10.2.0; details]</em></small></summary>
+
+#### Dependency Updates
+
+* update *(deps)*: (up-to OSPaths-v7.1.1); latest &ac; [`9857460`](https://github.com/rivy/js.xdg-portable/commit/9857460cf99633d5e9b13e0a4bf092aa69543f55)
+
+#### Documentation
+
+* docs ~ (README) update versions for import examples &ac; [`c9525e0`](https://github.com/rivy/js.xdg-portable/commit/c9525e02c990d8cb694fd0b38d032a16f0b00535)
+* docs ~ (README) improve Packaging/Publishing instructions &ac; [`a64722e`](https://github.com/rivy/js.xdg-portable/commit/a64722ef21ccdb045997d8ee0e3b28556be0261c)
+
+#### Maintenance
+
+* maint *(dev)*: (package) refactor 'prerelease' and 'prepublishOnly' for clarity &ac; [`65ba035`](https://github.com/rivy/js.xdg-portable/commit/65ba035c8799db20ff920f8dd4610bb81d3872f6)
+
+</details>
+
+---
+
 ## [v10.1.0](https://github.com/rivy/js.xdg-portable/compare/v10.0.0...v10.1.0) <small>(2022-08-06)</small>
 
-<details open><summary><small><em>[v10.1.0; details]</em></small></summary>
+<details><summary><small><em>[v10.1.0; details]</em></small></summary>
 
 #### Dependency Updates
 

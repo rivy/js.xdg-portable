@@ -4012,10 +4012,10 @@ ora@^5.2.0:
     strip-ansi "^6.0.0"
     wcwidth "^1.0.1"
 
-os-paths@^7.0.0:
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/os-paths/-/os-paths-7.0.0.tgz#8d73cb082e029b148c3d358e07fab97d704f8399"
-  integrity sha512-YL9gbV3cm4epufKXK+o0ACy1GKmRL0aYPMcRjGkRUFB5ko1t8he9Tmp0GkrvvHau7sKG2vP/KsGFY3pL+hpa+g==
+os-paths@^7.1.1:
+  version "7.1.1"
+  resolved "https://registry.yarnpkg.com/os-paths/-/os-paths-7.1.1.tgz#670612631275f8cf33900069aaad55480afab384"
+  integrity sha512-FR4OqSH/YLOa6gbcBgYRbETonNoXHO6rlkLc07SuLq5J8ZTPY9hCbbOPJep6/g8ZMULfaO7DAAGSzKbVYOo5cA==
   optionalDependencies:
     fsevents "*"
 
