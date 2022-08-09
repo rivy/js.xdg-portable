@@ -250,12 +250,11 @@
 			"build/cjs/**",
 			"build/esm/**",
 			"build/umd/**",
+			"dist/**",
 			"eg/**",
 			"test/**",
-			"**/*.spec.js",
-			"**/*.test.js",
-			"**/*.spec.ts",
-			"**/*.test.ts"
+			"**/*.test.*",
+			"**/*.spec.*"
 		],
 		"reporter": [
 			"html",
