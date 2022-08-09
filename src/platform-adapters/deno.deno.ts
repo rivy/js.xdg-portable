@@ -5,7 +5,7 @@
 import * as path from 'https://deno.land/std@0.134.0/path/mod.ts';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-import osPaths from 'https://deno.land/x/os_paths@v7.1.1/src/mod.deno.ts';
+import osPaths from 'https://deno.land/x/os_paths@v7.2.0/src/mod.deno.ts';
 
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 
