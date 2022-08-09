@@ -15,9 +15,36 @@
 
 ---
 
+## [v10.3.0](https://github.com/rivy/js.xdg-portable/compare/v10.2.0...v10.3.0) <small>(2022-08-09)</small>
+
+<details open><summary><small><em>[v10.3.0; details]</em></small></summary>
+
+#### Dependency Updates
+
+* update Deno deps (*down-to* std[@0](https://github.com/0).134.0; *pin*); avoid permission prompt(s) &ac; [`241fca6`](https://github.com/rivy/js.xdg-portable/commit/241fca6f4fca8644d5b99ab4b8d44bb49fc9835c)
+* update *(deps)*: (up-to OSPaths-v7.2.0); uses std[@0](https://github.com/0).134.0 &ac; [`522a404`](https://github.com/rivy/js.xdg-portable/commit/522a4049a88f412acd74a181d787417616213334)
+
+#### Documentation
+
+* docs ~ (README) revise package locks update instructions &ac; [`989b348`](https://github.com/rivy/js.xdg-portable/commit/989b348e1f503d3938e37f1e78dd86f7cb94b05c)
+
+#### Maintenance
+
+* maint *(CICD)*: (TravisCI) expand NodeJS test versions &ac; [`7d7bb33`](https://github.com/rivy/js.xdg-portable/commit/7d7bb33a2a47bfa43910d1721d951261c3282fe0)
+* maint *(build)*: add `refresh` (aka `rebuild:all`) and `refresh:dist` run targets &ac; [`07984da`](https://github.com/rivy/js.xdg-portable/commit/07984daf2776ec28b8bf148f2de4a12bba4052f4)
+* maint *(dev)*: (package) expand/revise coverage exclusion regex &ac; [`45d30e5`](https://github.com/rivy/js.xdg-portable/commit/45d30e5e61ee2013840a885ffcac4ecba51ef675)
+
+#### Test Improvements
+
+* tests ~ revise ESLint directives (local prefferd over global) &ac; [`28cda8f`](https://github.com/rivy/js.xdg-portable/commit/28cda8f5d9c9172631eaf5f31d47e5449415a651)
+
+</details>
+
+---
+
 ## [v10.2.0](https://github.com/rivy/js.xdg-portable/compare/v10.1.0...v10.2.0) <small>(2022-08-06)</small>
 
-<details open><summary><small><em>[v10.2.0; details]</em></small></summary>
+<details><summary><small><em>[v10.2.0; details]</em></small></summary>
 
 #### Dependency Updates
 
