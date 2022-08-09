@@ -1,0 +1,5 @@
+* commit message mistakes (immutable after publish)
+compatiblity
+prefferd
+* people
+chocolateboy * chocolate@cpan.org
