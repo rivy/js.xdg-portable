@@ -15,9 +15,34 @@
 
 ---
 
+## [v10.4.0](https://github.com/rivy/js.xdg-portable/compare/v10.3.0...v10.4.0) <small>(2022-08-09)</small>
+
+<details open><summary><small><em>[v10.4.0; details]</em></small></summary>
+
+#### Documentation
+
+* docs ~ add `cspell` local exceptions dictionary word(s) &ac; [`528afd4`](https://github.com/rivy/js.xdg-portable/commit/528afd44d574c6792539642208fccfe35ba1989c)
+* docs ~ add `cspell` dictionary word(s) &ac; [`35a700a`](https://github.com/rivy/js.xdg-portable/commit/35a700aece599d25b6418f7c8f9686f72ce274b7)
+
+#### Maintenance
+
+* maint *(CICD)*: (GHA) expand NodeJS test versions &ac; [`4facadb`](https://github.com/rivy/js.xdg-portable/commit/4facadbec529eca1e36a2c634952c2346ecc7852)
+* maint *(CICD)*: (TravisCI) disable broken NodeJS v18 (basic NodeJS installation fails) &ac; [`5802b72`](https://github.com/rivy/js.xdg-portable/commit/5802b7291039099564efa184b1901ebf4587e70b)
+* maint *(build)*: (package) revise and surface availability of test harness options to user &ac; [`7aa7598`](https://github.com/rivy/js.xdg-portable/commit/7aa7598389ad3de1a5707cd3c505f58441efaa01)
+* maint *(build)*: (package) commit linters now check more deeply/robustly into past commits &ac; [`ed4bb3c`](https://github.com/rivy/js.xdg-portable/commit/ed4bb3c35f62fb70476a9ec21b4d43ce15d7de21)
+* maint *(dev)*: (CommitLint) remove default ignores; allows failures for `fixup!`/`squash!` commits &ac; [`93de893`](https://github.com/rivy/js.xdg-portable/commit/93de893ba6d474412394a70c21746a3c748f631c)
+* maint *(dev)*: (CommitLint) capture 'type' text with leading whitespace and/or internal '-' &ac; [`c926943`](https://github.com/rivy/js.xdg-portable/commit/c926943d5f7cf050d8138072af45fd6daae304da)
+* maint *(dev)*: (CommitLint) allow `git` auto-generated message 'types' (and segregate for clarity) &ac; [`32c6373`](https://github.com/rivy/js.xdg-portable/commit/32c6373cebb68644e43e7b3d1487ae0bf0892c31)
+* maint *(dev)*: (CommitLint) allow 'FORK' and 'VERSION' (from older commits) as commit tags &ac; [`7572420`](https://github.com/rivy/js.xdg-portable/commit/7572420b7405da88c61451d008a7c24a8caab40a)
+* maint *(dev)*: revise `cspell` for local exceptions &ac; [`2fc8c8d`](https://github.com/rivy/js.xdg-portable/commit/2fc8c8dc9b07b0c61b489c64a90fdfe1e9b926c1)
+
+</details>
+
+---
+
 ## [v10.3.0](https://github.com/rivy/js.xdg-portable/compare/v10.2.0...v10.3.0) <small>(2022-08-09)</small>
 
-<details open><summary><small><em>[v10.3.0; details]</em></small></summary>
+<details><summary><small><em>[v10.3.0; details]</em></small></summary>
 
 #### Dependency Updates
 
