@@ -1,6 +1,6 @@
 // CommitLint configuration
 // ref: <https://commitlint.js.org/#/reference-configuration>
-// v2022-07-30 [rivy]
+// v2022-08-09 [rivy]
 
 // spell-checker:ignore (names) commitLint (people) Roy Ivy III * rivy (words) maint
 
@@ -17,6 +17,7 @@ const commitTags = [
 	'Fix',
 	'Fixed',
 	'Fixes',
+	'FORK',
 	'Maint',
 	'Merge',
 	'Perf',
@@ -28,6 +29,7 @@ const commitTags = [
 	'Update',
 	'Updated',
 	'Upkeep',
+	'VERSION',
 	'WIP',
 ];
 
