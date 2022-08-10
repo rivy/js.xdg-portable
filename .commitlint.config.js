@@ -41,7 +41,8 @@ module.exports = {
 	extends: ['@commitlint/config-conventional'],
 	parserPreset: {
 		parserOpts: {
-			headerPattern: /^(\w+)!?(?:\s*(?:[/(]([\w,/]+)[)]?))?!?\s*[~:]?\s*(.*)$/,
+			// headerPattern ~ tested at <https://regex101.com/r/ez7wQS/1>
+			headerPattern: /^(\s*\w[\w-]*)(?:\s*(?:[/(]([\w,/]+)[)]?))?!?\s*[~:]?\s*(.*)$/,
 			headerCorrespondence: ['type', 'scope', 'subject'],
 		},
 	},
