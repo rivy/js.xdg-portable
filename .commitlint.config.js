@@ -19,10 +19,8 @@ const commitTags = [
 	'Fixes',
 	'FORK',
 	'Maint',
-	'Merge',
 	'Perf',
 	'Refactor',
-	'Revert',
 	'Style',
 	'Test',
 	'Tests',
@@ -31,6 +29,12 @@ const commitTags = [
 	'Upkeep',
 	'VERSION',
 	'WIP',
+	// * git automated messages
+	'Automatic',
+	'Auto-merged',
+	'Merge',
+	'Merged',
+	'Revert',
 ];
 
 module.exports = {
