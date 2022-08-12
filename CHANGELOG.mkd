@@ -15,9 +15,32 @@
 
 ---
 
+## [v10.5.0](https://github.com/rivy/js.xdg-portable/compare/v10.4.0...v10.5.0) <small>(2022-08-11)</small>
+
+<details open><summary><small><em>[v10.5.0; details]</em></small></summary>
+
+#### Maintenance
+
+* maint *(CICD)*: (GHA) add platform label to coverage uploads (via `--flags=...`) &ac; [`b0e39bc`](https://github.com/rivy/js.xdg-portable/commit/b0e39bc0eba96bbbb8a871c67b83854c95e6fcf7)
+* maint *(build)*: (package) fix broken use of escapes for (WinOS) lint:commits code &ac; [`c447168`](https://github.com/rivy/js.xdg-portable/commit/c447168d914efdf83bff26ac1a5fb8aa39b6cf41)
+* maint *(build)*: (package) revise help generation to match HELP_TEXT more narrowly; add/revise comments &ac; [`3929070`](https://github.com/rivy/js.xdg-portable/commit/39290701ada762592bcbb91d8e52f02414a2937a)
+* maint *(build)*: (package) revise 'test:code' to support options via `--test-code=...` &ac; [`69d8534`](https://github.com/rivy/js.xdg-portable/commit/69d853483d2512191f46e1b612b56649f29bc499)
+* maint *(build)*: (package) revise 'cov:send' to support user-defined options &ac; [`9980aaa`](https://github.com/rivy/js.xdg-portable/commit/9980aaa8deeee3f022ff1c5a63f5b252834ad9d3)
+* maint *(build)*: (package) add '_:debug:env' run target &ac; [`48492a3`](https://github.com/rivy/js.xdg-portable/commit/48492a3442b2b6a539e0b222889e8cd4f264aeee)
+* maint *(dev)*: (CommitLint) allow fixup!/squash! commits iff not prerelease &ac; [`9fe8918`](https://github.com/rivy/js.xdg-portable/commit/9fe89180e4d845636b895378837a0b4edb430b50)
+* maint *(dev)*: add CodeCov config (reports will be solely informational/no-fail) &ac; [`b534914`](https://github.com/rivy/js.xdg-portable/commit/b534914b3e3ffc1bf762b8d8f95be1f6bb1573c9)
+
+#### Test Improvements
+
+* test *(refactor)*: move version consistency checks from 'package' lint to distribution test &ac; [`bafa24c`](https://github.com/rivy/js.xdg-portable/commit/bafa24c69080dcdcb8e01e3b881d93128924fe3f)
+
+</details>
+
+---
+
 ## [v10.4.0](https://github.com/rivy/js.xdg-portable/compare/v10.3.0...v10.4.0) <small>(2022-08-09)</small>
 
-<details open><summary><small><em>[v10.4.0; details]</em></small></summary>
+<details><summary><small><em>[v10.4.0; details]</em></small></summary>
 
 #### Documentation
 
