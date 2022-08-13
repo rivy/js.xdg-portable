@@ -15,9 +15,21 @@
 
 ---
 
+## [v10.5.1](https://github.com/rivy/js.xdg-portable/compare/v10.5.0...v10.5.1) <small>(2022-08-13)</small>
+
+<details open><summary><small><em>[v10.5.1; details]</em></small></summary>
+
+#### Documentation
+
+* docs ~ (README) fix/revise Help, Package/Publish notes &ac; [`1ac303b`](https://github.com/rivy/js.xdg-portable/commit/1ac303b363d27256d879829a519a3ccdf87a630a)
+
+</details>
+
+---
+
 ## [v10.5.0](https://github.com/rivy/js.xdg-portable/compare/v10.4.0...v10.5.0) <small>(2022-08-11)</small>
 
-<details open><summary><small><em>[v10.5.0; details]</em></small></summary>
+<details><summary><small><em>[v10.5.0; details]</em></small></summary>
 
 #### Maintenance
 
