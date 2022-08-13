@@ -401,7 +401,7 @@ retest              clean and (re-)test project
 reset:hard          remove *all* generated files and reinstall dependencies
 show:deps           show package dependencies
 test                test package
-test:code           test package code (use `--test=...` to pass options to test harness)
+test:code           test package code (use `--test-code=...` to pass options to testing harness)
 test:types          test for type declaration errors (using `tsd`)
 update              update/prepare for distribution [alias: 'dist']
 update:changelog    update CHANGELOG (using `git changelog ...`)
@@ -426,14 +426,16 @@ git commit -m "${VERSION}"
 npm run clean && npm run update:dist
 git add dist
 git commit --amend --no-edit
-# tag VERSION commit
-git tag -f "v${VERSION}"
 @rem ::# (optional) update/save dependency locks
 npm install --package-lock
 rm yarn.lock && yarn import
 mkdir .deps-lock 2> /dev/null
 cp package-lock.json .deps-lock/
 cp yarn.lock .deps-lock/
+git add .deps-lock
+git commit --amend --no-edit
+# tag VERSION commit
+git tag -f "v${VERSION}"
 # (optional) prerelease checkup
 npm run prerelease
 #=== * WinOS
@@ -448,14 +450,16 @@ git commit -m "%VERSION%"
 npm run clean && npm run update:dist
 git add dist
 git commit --amend --no-edit
-@rem ::# tag VERSION commit
-git tag -f "v%VERSION%"
 @rem ::# (optional) update/save dependency locks
 npm install --package-lock
-del yarn.lock && yarn import
+del yarn.lock 2>NUL && yarn import
 mkdir .deps-lock 2>NUL
 copy /y package-lock.json .deps-lock
 copy /y yarn.lock .deps-lock
+git add .deps-lock
+git commit --amend --no-edit
+@rem ::# tag VERSION commit
+git tag -f "v%VERSION%"
 @rem ::# (optional) prerelease checkup
 npm run prerelease
 ```
@@ -465,8 +469,7 @@ npm run prerelease
 ```shell
 # publish
 # * optional (will be done in 'prePublishOnly' by `npm publish`)
-npm run clean && npm run test && npm run dist && git-changelog > CHANGELOG.mkd
-npm run _:v_tag:exists || echo "[lint] ERROR Missing version matching commit tag" # expect no output and exit code == 0
+npm run clean && npm run test && npm run dist && git-changelog > CHANGELOG.mkd #expect exit code == 0
 git diff-index --quiet HEAD || echo "[lint] ERROR uncommitted changes" # expect no output and exit code == 0
 # *
 npm publish # `npm publish --dry-run` will perform all prepublication actions and stop just before the actual publish push
