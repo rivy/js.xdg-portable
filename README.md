@@ -19,7 +19,6 @@
 > Determine [XDG Base Directory](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html) paths (OS/platform portable)
 
 [![Build status (GHA)][gha-image]][gha-url]
-[![Build status (Travis-CI)][travis-image]][travis-url]
 [![Build status (AppVeyor)][appveyor-image]][appveyor-url]
 [![Coverage status][coverage-image]][coverage-url]
 [![License][license-image]][license-url]
@@ -328,7 +327,6 @@ This module was forked from [sindresorhus/xdg-basedir](https://github.com/sindre
 
 [![Repository][repository-image]][repository-url]
 [![Build status (GHA)][gha-image]][gha-url]
-[![Build status (Travis-CI)][travis-image]][travis-url]
 [![Build status (AppVeyor)][appveyor-image]][appveyor-url]
 [![Coverage status][coverage-image]][coverage-url]
 &nbsp; <br/>
@@ -514,8 +512,6 @@ By contributing to the project, you are agreeing to provide your contributions u
 [appveyor-url]: https://ci.appveyor.com/project/rivy/js-xdg-portable
 [gha-image]: https://img.shields.io/github/workflow/status/rivy/js.xdg-portable/CI?label=CI&logo=github
 [gha-url]: https://github.com/rivy/js.xdg-portable/actions?query=workflow%3ACI
-[travis-image]: https://img.shields.io/travis/rivy/js.xdg-portable/master.svg?style=flat&logo=travis
-[travis-url]: https://travis-ci.org/rivy/js.xdg-portable
 
 <!-- Code quality -->
 
@@ -550,3 +546,5 @@ By contributing to the project, you are agreeing to provide your contributions u
 <!-- [style-url]: https://standardjs.com -->
 <!-- [travis-image]: https://img.shields.io/travis/rivy/js.xdg-portable/master.svg?style=flat&logo=Travis-CI&logoColor=silver -->
 <!-- [travis-image]: https://travis-ci.org/rivy/js.xdg-portable.svg?branch=master -->
+<!-- [travis-image]: https://img.shields.io/travis/rivy/js.xdg-portable/master.svg?style=flat&logo=travis -->
+<!-- [travis-url]: https://travis-ci.org/rivy/js.xdg-portable -->
