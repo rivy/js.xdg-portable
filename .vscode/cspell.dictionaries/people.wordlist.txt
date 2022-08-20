@@ -1,6 +1,10 @@
 Dimitri Benin * BendingBender
 Oden * ops991923
 Roy Ivy III * rivy
+    Roy
+    Ivy
+    III
+    rivy
 Selwyn * siilwyn
 Simon Kjellberg * simon.kjellberg
 Sindre Sorhus * SindreSorhus
