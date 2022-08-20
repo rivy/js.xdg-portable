@@ -357,7 +357,7 @@ npm install-test
 
 ```shell
 git clone "https://github.com/rivy/js.xdg-portable"
-cd js.os-paths
+cd js.xdg-portable
 # * note: for WinOS, replace `cp` with `copy`
 # npm
 cp .deps-lock/package-lock.json .
