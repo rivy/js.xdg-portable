@@ -510,7 +510,7 @@ By contributing to the project, you are agreeing to provide your contributions u
 
 [appveyor-image]: https://img.shields.io/appveyor/ci/rivy/js-xdg-portable/master.svg?style=flat&logo=AppVeyor&logoColor=deepskyblue
 [appveyor-url]: https://ci.appveyor.com/project/rivy/js-xdg-portable
-[gha-image]: https://img.shields.io/github/workflow/status/rivy/js.xdg-portable/CI?label=CI&logo=github
+[gha-image]: https://img.shields.io/github/actions/workflow/status/rivy/js.xdg-portable/CI.yml?branch=master&label=CI&logo=github
 [gha-url]: https://github.com/rivy/js.xdg-portable/actions?query=workflow%3ACI
 
 <!-- Code quality -->
