@@ -1,0 +1,9 @@
+version: 10.5.1
+commit: '%.%.%'
+files:
+  package.json: '"version": "%.%.%"'
+  README.md:
+    - 'git:github.com/rivy/js.xdg-portable#v%.%.%'
+    - 'https://cdn.jsdelivr.net/gh/rivy/js.xdg-portable@v%.%.%'
+    - 'https://deno.land/x/xdg_portable@v%.%.%'
+  VERSION: '%.%.%'
