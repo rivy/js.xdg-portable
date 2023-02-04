@@ -17,9 +17,9 @@ const spawn = require('cross-spawn');
 const modulePath = '../build/lab/src/mod.cjs.js'; // ? change to package.main?
 const packagePath = '../package.json';
 
-// eslint-disable-next-line security/detect-non-literal-require , security-node/detect-non-literal-require-calls
+// eslint-disable-next-line security-node/detect-non-literal-require-calls
 const mod = require(modulePath);
-// eslint-disable-next-line security/detect-non-literal-require , security-node/detect-non-literal-require-calls
+// eslint-disable-next-line security-node/detect-non-literal-require-calls
 const pkg = require(packagePath);
 
 const haveDeno = commandExists.sync('deno');
@@ -109,7 +109,6 @@ if (!process.env.npm_config_test_dist) {
 			const egDirPath = 'eg';
 			const extensionRxs = [/.*[.]deno[.]ts$/i];
 
-			// eslint-disable-next-line security/detect-non-literal-fs-filename
 			const files = fs.readdirSync(egDirPath);
 
 			files
@@ -144,7 +143,6 @@ if (!process.env.npm_config_test_dist) {
 		const egDirPath = 'eg';
 		const extensions = ['.js', '.cjs', '.mjs'];
 
-		// eslint-disable-next-line security/detect-non-literal-fs-filename
 		const files = fs.readdirSync(egDirPath);
 
 		files
@@ -180,7 +178,6 @@ if (!process.env.npm_config_test_dist) {
 		const egDirPath = 'eg';
 		const extensions = ['.js', '.cjs', '.mjs', '.ts'];
 
-		// eslint-disable-next-line security/detect-non-literal-fs-filename
 		const files = fs.readdirSync(egDirPath);
 
 		files
