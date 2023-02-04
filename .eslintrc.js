@@ -17,6 +17,7 @@ module.exports = {
 		'[._@#$]coverage',
 		'.eslintrc.js',
 		'.nyc_output',
+		'.yarn',
 		'build',
 		'coverage',
 		'dist',
