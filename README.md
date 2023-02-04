@@ -42,12 +42,14 @@ XDG references
 
 ## Installation (CJS/ESM/TypeScript)
 
+<!-- ref: [JSDelivr ~ GitHub](https://www.jsdelivr.com/documentation#id-github) @@ <https://archive.is/c8s9Y> -->
+
 ```shell
 npm install xdg-portable
 # or... `npm install "git:github.com/rivy/js.xdg-portable"`
 # or... `npm install "git:github.com/rivy/js.xdg-portable#v10.5.1"`
+# or... `npm install "https://cdn.jsdelivr.net/gh/rivy/js.xdg-portable@v10.5.1/dist/xdg-portable.tgz"`
 # or... `npm install "https://cdn.jsdelivr.net/gh/rivy/js.xdg-portable@COMMIT_SHA/dist/xdg-portable.tgz"`
-# or... `npm install "https://cdn.jsdelivr.net/gh/rivy/js.xdg-portable@VERSION/dist/xdg-portable.tgz"`
 ```
 
 ## Usage
@@ -79,16 +81,13 @@ const configDirs = xdg.configDirs();
 
 #### Deno
 
+<!-- ref: [JSDelivr ~ GitHub](https://www.jsdelivr.com/documentation#id-github) @@ <https://archive.is/c8s9Y> -->
+
 ```ts
-import xdg from 'https://deno.land/x/xdg/src/mod.deno.ts';
-//or...
-//import xdg from 'https://deno.land/x/xdg@v10.5.1/src/mod.deno.ts';
-//or (via CDN, with optional commit/version/version-range/latest support)...
-//import xdg from 'https://cdn.jsdelivr.net/gh/rivy/js.xdg-portable@COMMIT_SHA/src/mod.deno.ts'; // commit
-//import xdg from 'https://cdn.jsdelivr.net/gh/rivy/js.xdg-portable@10.5.1/src/mod.deno.ts'; // v10.5.1
-//import xdg from 'https://cdn.jsdelivr.net/gh/rivy/js.xdg-portable@10/src/mod.deno.ts'; // v10.x.y
-//import xdg from 'https://cdn.jsdelivr.net/gh/rivy/js.xdg-portable@latest/src/mod.deno.ts'; // latest
-//import xdg from 'https://cdn.jsdelivr.net/gh/rivy/js.xdg-portable/src/mod.deno.ts'; // latest (*not* recommended for production by JSDelivr)
+import xdg from 'https://deno.land/x/xdg_portable@v10.5.1/src/mod.deno.ts';
+//or (via CDN, [ie, JSDelivr with GitHub version/version-range, commit, 'latest' support])...
+//import xdg from 'https://cdn.jsdelivr.net/gh/rivy/js.xdg-portable@v10.5.1/src/mod.deno.ts';
+//import xdg from 'https://cdn.jsdelivr.net/gh/rivy/js.xdg-portable@COMMIT_SHA/src/mod.deno.ts';
 const configDirs = xdg.configDirs();
 //...
 ```
