@@ -53,7 +53,6 @@ lastword
 notdir
 patsubst
 
-
 # * `npm`
 corepack
 preversion
@@ -71,6 +70,7 @@ grcov
 grep
 markdownlint
 mkdir
+rimraf
 rollup
 sed
 stty
