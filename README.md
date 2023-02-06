@@ -47,8 +47,8 @@ XDG references
 ```shell
 npm install xdg-portable
 # or... `npm install "git:github.com/rivy/js.xdg-portable"`
-# or... `npm install "git:github.com/rivy/js.xdg-portable#v10.5.1"`
-# or... `npm install "https://cdn.jsdelivr.net/gh/rivy/js.xdg-portable@v10.5.1/dist/xdg-portable.tgz"`
+# or... `npm install "git:github.com/rivy/js.xdg-portable#v10.6.0"`
+# or... `npm install "https://cdn.jsdelivr.net/gh/rivy/js.xdg-portable@v10.6.0/dist/xdg-portable.tgz"`
 # or... `npm install "https://cdn.jsdelivr.net/gh/rivy/js.xdg-portable@COMMIT_SHA/dist/xdg-portable.tgz"`
 ```
 
@@ -84,9 +84,9 @@ const configDirs = xdg.configDirs();
 <!-- ref: [JSDelivr ~ GitHub](https://www.jsdelivr.com/documentation#id-github) @@ <https://archive.is/c8s9Y> -->
 
 ```ts
-import xdg from 'https://deno.land/x/xdg_portable@v10.5.1/src/mod.deno.ts';
+import xdg from 'https://deno.land/x/xdg_portable@v10.6.0/src/mod.deno.ts';
 //or (via CDN, [ie, JSDelivr with GitHub version/version-range, commit, 'latest' support])...
-//import xdg from 'https://cdn.jsdelivr.net/gh/rivy/js.xdg-portable@v10.5.1/src/mod.deno.ts';
+//import xdg from 'https://cdn.jsdelivr.net/gh/rivy/js.xdg-portable@v10.6.0/src/mod.deno.ts';
 //import xdg from 'https://cdn.jsdelivr.net/gh/rivy/js.xdg-portable@COMMIT_SHA/src/mod.deno.ts';
 const configDirs = xdg.configDirs();
 //...
