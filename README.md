@@ -271,7 +271,8 @@ console.log(xdg.config());
 
 - <small><span title="TypeScript support added in v8.0">Requires `XDG` `v8.0`+.</span></small>
 
-As of `v8.0`+, `XDG` has been converted to a TypeScript-based module. As a consequence, TypeScript type definitions are automatically generated, bundled, and exported by the module.
+As of `v8.0`+, `XDG` has been converted to a TypeScript-based module.
+As a consequence, TypeScript type definitions are automatically generated, bundled, and exported by the module.
 
 ### Deno
 
