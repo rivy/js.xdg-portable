@@ -84,7 +84,7 @@ const configDirs = xdg.configDirs();
 <!-- ref: [JSDelivr ~ GitHub](https://www.jsdelivr.com/documentation#id-github) @@ <https://archive.is/c8s9Y> -->
 
 ```ts
-import xdg from 'https://deno.land/x/xdg_portable@v10.6.0/src/mod.deno.ts';
+import xdg from 'https://deno.land/x/xdg@v10.6.0/src/mod.deno.ts';
 //or (via CDN, [ie, JSDelivr with GitHub version/version-range, commit, 'latest' support])...
 //import xdg from 'https://cdn.jsdelivr.net/gh/rivy/js.xdg-portable@v10.6.0/src/mod.deno.ts';
 //import xdg from 'https://cdn.jsdelivr.net/gh/rivy/js.xdg-portable@COMMIT_SHA/src/mod.deno.ts';
@@ -102,7 +102,7 @@ const configDirs = xdg.configDirs();
 const xdg = require('xdg-portable/cjs'); // CJS
 //or...
 //import xdg from 'xdg-portable'; // ESM/TypeScript
-//import xdg from 'https://deno.land/x/xdg/src/mod.deno.ts'; // Deno
+//import xdg from 'https://deno.land/x/xdg@v10.6.0/src/mod.deno.ts'; // Deno
 ```
 
 When importing this module, the object returned is a function object, `XDG`, augmented with attached methods. Additional `XDG` objects may be constructed by direct call of the imported `XDG` object (eg, `const x = xdg()`) or by using `new` (eg, `const x = new xdg()`). Notably, since the `XDG` object contains no user-facing instance state, all `XDG` objects will be functionally identical.
@@ -116,7 +116,7 @@ Types named here are exported individually by name (eg, as "XDG").
 ```js
 import type { XDG } from 'xdg-portable'; // TypeScript
 //or...
-//import type { XDG } from 'https://deno.land/x/xdg/src/mod.deno.ts'; // Deno
+//import type { XDG } from 'https://deno.land/x/xdg@v10.6.0/src/mod.deno.ts'; // Deno
 ```
 
 ### Methods
@@ -296,7 +296,7 @@ As a consequence, TypeScript type definitions are automatically generated, bundl
 `XDG` also fully supports use by Deno.
 
 ```js deno
-import xdg from 'https://deno.land/x/xdg/src/mod.deno.ts';
+import xdg from 'https://deno.land/x/xdg@10.6.0/src/mod.deno.ts';
 console.log(xdg.config());
 ```
 
