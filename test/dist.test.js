@@ -31,10 +31,10 @@ function flattenToValues(obj) {
 	const values = [];
 	if (isObject(obj) || Array.isArray(obj)) {
 		Object.keys(obj).forEach((key) => {
-			// eslint-disable-next-line security/detect-object-injection
+			// eslint-disable-next-line security/detect-object-injection , functional/immutable-data
 			values.push(...flattenToValues(obj[key]));
 		});
-	} else values.push(obj);
+	} else values.push(obj); // eslint-disable-line functional/immutable-data
 	return values;
 }
 

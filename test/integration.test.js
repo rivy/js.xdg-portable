@@ -56,6 +56,7 @@ test('api', (t) => {
 	const api = ['cache', 'config', 'data', 'runtime', 'state', 'configDirs', 'dataDirs'];
 
 	t.is(typeof mod, 'function');
+	// eslint-disable-next-line functional/immutable-data
 	t.deepEqual(Object.keys(mod).sort(), api.sort());
 	api.forEach((key) => {
 		// eslint-disable-next-line security/detect-object-injection
