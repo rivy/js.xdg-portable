@@ -12,7 +12,7 @@ import xdg from '../src/mod.deno.ts';
 // // @ts-ignore
 // const deno = Deno;
 
-/* eslint-disable no-console , functional/immutable-data , functional/no-return-void , security/detect-object-injection, security-node/detect-crlf , @typescript-eslint/no-explicit-any */
+/* eslint-disable no-console , functional/immutable-data , security/detect-object-injection, security-node/detect-crlf , @typescript-eslint/no-explicit-any */
 
 function objectEntries(obj: any) {
 	const map: any = {};
@@ -33,6 +33,6 @@ if (queryEnv?.state !== 'granted') {
 	Deno.exit(1);
 }
 
-/* eslint-enable no-console , functional/immutable-data , functional/no-return-void , security/detect-object-injection, security-node/detect-crlf , @typescript-eslint/no-explicit-any */
+/* eslint-enable no-console , functional/immutable-data , security/detect-object-injection, security-node/detect-crlf , @typescript-eslint/no-explicit-any */
 
 /* eslint-enable @typescript-eslint/ban-ts-comment */

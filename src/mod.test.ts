@@ -5,8 +5,6 @@ import mESM from './mod.esm.js';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const mCJS = require('./mod.cjs.js');
 
-/* eslint-disable functional/no-return-void */
-
 test('CJS <=> ESM', (t) => {
 	t.is(JSON.stringify(mCJS), JSON.stringify(mESM));
 
@@ -24,5 +22,3 @@ test('CJS <=> ESM', (t) => {
 		/* eslint-enable @typescript-eslint/no-explicit-any , security/detect-object-injection */
 	});
 });
-
-/* eslint-enable functional/no-return-void */
