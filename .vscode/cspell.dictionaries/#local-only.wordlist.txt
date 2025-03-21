@@ -1,5 +1,12 @@
-* commit message mistakes (immutable after publish)
-compatiblity
-prefferd
-* people
+# # * commit message mistakes (immutable after publish)
+# # ** note: not needed if only testing commit messages since last version
+# compatiblity
+# prefferd
+
+# * commit message words
+# ** module/package names
+chokidar
+fsevents
+
+# * people
 chocolateboy * chocolate@cpan.org
