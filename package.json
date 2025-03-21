@@ -21,22 +21,35 @@
 		"README.md",
 		"package.json"
 	],
-	"type": "commonjs",
+	"types": "./dist/types/mod.cjs.d.ts",
 	"main": "./dist/cjs/mod.cjs.js",
-	"module": "./dist/cjs/esm-wrapper/mod.esm.js",
-	"types": "./dist/types/mod.d.ts",
+	"module": "./dist/cjs/esm-wrapper/mod.esm.mjs",
 	"exports": {
 		".": {
 			"deno": "./src/mod.deno.ts",
-			"import": "./dist/cjs/esm-wrapper/mod.esm.js",
-			"require": "./dist/cjs/mod.cjs.js",
-			"types": "./dist/types/mod.d.ts",
-			"default": "./dist/cjs/mod.cjs.js"
+			"import": {
+				"types": "./dist/types/mod.esm.d.ts",
+				"default": "./dist/cjs/esm-wrapper/mod.esm.mjs"
+			},
+			"require": {
+				"types": "./dist/types/mod.cjs.d.ts",
+				"default": "./dist/cjs/mod.cjs.js"
+			},
+			"default":{
+				"types": "./dist/types/mod.cjs.d.ts",
+				"default": "./dist/cjs/mod.cjs.js"
+			}
 		},
 		"./package.json": "./package.json",
 		"./cjs": {
-			"require": "./dist/cjs/mod.cjs.js",
-			"types": "./dist/cjs/mod.cjs.d.ts"
+			"import": {
+				"types": "./dist/types/mod.esm.d.ts",
+				"default": "./dist/cjs/esm-wrapper/mod.esm.mjs"
+			},
+			"require": {
+				"types": "./dist/types/mod.cjs.d.ts",
+				"default": "./dist/cjs/mod.cjs.js"
+			}
 		}
 	},
 	"keywords": [
