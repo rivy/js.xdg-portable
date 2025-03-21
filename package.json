@@ -15,7 +15,9 @@
 	"files": [
 		"cjs",
 		"dist/cjs",
+		"dist/esm",
 		"dist/types",
+		"src/mod.deno.ts",
 		"CHANGELOG.mkd",
 		"LICENSE",
 		"README.md",
