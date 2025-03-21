@@ -296,6 +296,7 @@ As a consequence, TypeScript type definitions are automatically generated, bundl
 >
 > - `--allow-env` &middot; _allow access to the process environment variables_<br>
 >   This module/package requires access to various environment variables to determine platform configuration (eg, location of temp and user directories).
+>   <br/>**NOTE**: the module/package _may_ still be used without the `--allow-env` permission, but the module/package will not be able to determine the location of the user directories or XDG configuration and will use directory fallbacks.
 
 <!--{blockquote: .--info style="font-size:75%;"}-->
 
