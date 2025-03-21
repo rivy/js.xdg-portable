@@ -27,11 +27,16 @@ function objectEntries(obj: any) {
 console.log({ xdg });
 console.log(objectEntries(xdg));
 
-const queryEnv = await Deno?.permissions?.query({ name: 'env' });
-if (queryEnv?.state !== 'granted') {
-	console.warn('ERROR: environment permissions are required (try re-run with `--allow-env`)');
-	Deno.exit(1);
+const queryEnv = await Deno?.permissions?.querySync({ name: 'env' }); // MinSDV = 1.8.0
+// const queryEnv = Deno?.permissions?.querySync({ name: 'env' }); // MinSDV = 1.30.0
+const permitsAllOk = queryEnv?.state === 'granted';
+if (!permitsAllOk) {
+	console.warn(
+		'WARNING: degraded operation; environment permissions required for full function (try re-run with `--allow-env`)'
+	);
 }
+
+Deno.exit(permitsAllOk ? 0 : 1);
 
 /* eslint-enable no-console , functional/immutable-data , security/detect-object-injection, security-node/detect-crlf , @typescript-eslint/no-explicit-any */
 
