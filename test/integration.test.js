@@ -65,7 +65,8 @@ test('api', (t) => {
 
 // ensure *no-panic* static load for Deno
 if (!process.env.npm_config_test_dist) {
-	test.skip('module load test (Deno)...skipped (enable with `npm test --test-dist`)', () => void 0);
+	test.skip('module load test (Deno)...skipped (enable with `npm [run] test --test-dist`)', () =>
+		void 0);
 } else {
 	const minDenoVersion = '1.19.0';
 	if (!haveDeno) {
@@ -94,7 +95,8 @@ if (!process.env.npm_config_test_dist) {
 
 // test examples when using `--test-dist` (ie, with version changes or prior to distribution)
 if (!process.env.npm_config_test_dist) {
-	test.skip('examples are executable...skipped (enable with `npm test --test-dist`)', () => void 0);
+	test.skip('examples are executable...skipped (enable with `npm [run] test --test-dist`)', () =>
+		void 0);
 } else {
 	const minDenoVersion = '1.8.0';
 	if (!haveDeno) {
