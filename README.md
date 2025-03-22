@@ -438,6 +438,52 @@ update:dist         update distribution content
 verify              fully (and verbosely) test package
 ```
 
+#### Testing
+
+<br/>
+
+> POSIX
+
+<!--{blockquote: .--posix}-->
+
+```shell
+# test package and code
+npm test
+# test package code
+npm run test:code
+# * for verbose test output, pass `--verbose` to the test harness via `--test-code=...`
+npm run test:code --test-code=--verbose
+# test package, code, and distribution
+npm run test --test-dist
+# * with verbose test output
+npm run test --test-code=--verbose --test-dist
+# clean/rebuild, then test package, code, and distribution
+npm run prerelease
+# * with verbose test output
+npm run prerelease --test-code=--verbose
+```
+
+> WinOS
+
+<!--{blockquote: .--winos}-->
+
+```shell
+@rem # test package and code
+npm test
+@rem # test package code
+npm run test:code
+@rem # * for verbose test output, pass `--verbose` to the test harness via `--test-code=...`
+npm run test:code --test-code=--verbose
+@rem # test package, code, and distribution
+npm run test --test-dist
+@rem # * with verbose test output
+npm run test --test-code=--verbose --test-dist
+@rem # clean/rebuild, then test package, code, and distribution
+npm run prerelease
+@rem # * with verbose test output
+npm run prerelease --test-code=--verbose
+```
+
 #### Packaging & Publishing
 
 ##### Package
