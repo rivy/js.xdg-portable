@@ -3,6 +3,7 @@
 	"version": "10.6.0",
 	"description": "Determine XDG Base Directory paths (OS/platform portable)",
 	"license": "MIT",
+	"#x-spell": "/* spell-checker:ignore () mnpx (config) ecrc (script) realclean */",
 	"repository": "rivy/js.xdg-portable",
 	"author": {
 		"name": "Roy Ivy III",
