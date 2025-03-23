@@ -18,8 +18,8 @@ const packagePath = '../package.json';
 // eslint-disable-next-line security-node/detect-non-literal-require-calls
 const pkg = require(packagePath);
 
-const packageCJSPath = path.resolve(__dirname, packagePath, '..', pkg.exports['.'].require);
-const packageESMPath = path.resolve(__dirname, packagePath, '..', pkg.exports['.'].import);
+const packageCJSPath = path.resolve(__dirname, packagePath, '..', pkg.exports['.'].require.default);
+const packageESMPath = path.resolve(__dirname, packagePath, '..', pkg.exports['.'].import.default);
 
 const packageAPI = ['cache', 'config', 'data', 'runtime', 'state', 'configDirs', 'dataDirs'];
 
@@ -68,32 +68,32 @@ if (!process.env.npm_config_test_dist) {
 
 	test("package 'exports' consistency", (t) => {
 		/* eslint-disable security/detect-non-literal-fs-filename */
-		t.is(pkg.main, pkg.exports['.'].require);
-		t.is(pkg.module, pkg.exports['.'].import);
-		t.is(pkg.types, pkg.exports['.'].types);
+		t.is(pkg.types, pkg.exports['.'].require.types);
+		t.is(pkg.main, pkg.exports['.'].require.default);
+		t.is(pkg.module, pkg.exports['.'].import.default);
 
-		t.true(fs.existsSync(pkg.exports['.'].require));
-		t.true(fs.existsSync(pkg.exports['.'].import));
-		t.true(fs.existsSync(pkg.exports['.'].types));
+		t.true(fs.existsSync(pkg.types));
+		t.true(fs.existsSync(pkg.main));
+		t.true(fs.existsSync(pkg.module));
 
-		t.is(pkg.main, pkg.exports['.'].default);
+		t.is(pkg.main, pkg.exports['.'].default.default);
 
 		if (pkg.exports['./cjs']) {
-			const pathRequire = pkg.exports['./cjs'].require;
-			t.is(pkg.exports['.'].require, pathRequire);
+			const pathRequire = pkg.exports['./cjs'].require?.default;
+			t.is(pkg.exports['.'].require.default, pathRequire);
 			// const extension = path.extname(pathRequire);
 			// const basename = path.basename(pathRequire, extension);
 			// const dirname = path.dirname(pathRequire);
 			// t.is(pkg.exports['./cjs'].types, path.posix.join(dirname, basename) + '.d.ts');
-			t.true(fs.existsSync(pkg.exports['./cjs'].require));
+			t.true(fs.existsSync(pkg.exports['./cjs'].require.default));
 		}
 
 		// 'types' default to the Deno/ESM/TypeScript variant
 		if (pkg.exports['./esm']) {
-			const pathImport = pkg.exports['./esm'].import;
-			t.is(pkg.exports['.'].import, pathImport);
-			t.is(pkg.exports['.'].types, path.pkg.exports['./esm'].types);
-			t.true(fs.existsSync(pkg.exports['./esm'].require));
+			const pathImport = pkg.exports['./esm'].import?.default;
+			t.is(pkg.exports['.'].import.default, pathImport);
+			t.is(pkg.exports['.'].import.types, path.pkg.exports['./esm'].import?.types);
+			t.true(fs.existsSync(pkg.exports['./esm'].import?.default));
 		}
 		/* eslint-enable security/detect-non-literal-fs-filename */
 	});

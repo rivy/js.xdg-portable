@@ -10,7 +10,7 @@ const path = require('path');
 const test = require('ava').serial;
 const osPaths = require('os-paths');
 
-const xdg = require('../build/lab/src/mod.cjs.js');
+const xdg = require('../build/cjs/src/mod.cjs.js');
 
 const isMacOS = /^darwin$/i.test(process.platform);
 const isWinOS = /^win/i.test(process.platform);
