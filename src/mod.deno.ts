@@ -5,7 +5,7 @@
 import { Adapt } from '../dist/esm/lib/XDG.js';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-import { XDG } from '../dist/types/mod.d.ts';
+import { XDG } from '../dist/types/mod.esm.d.ts';
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
