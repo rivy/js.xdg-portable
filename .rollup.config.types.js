@@ -13,7 +13,7 @@ export default [
 	// * ref: <https://github.com/Swatinem/rollup-plugin-dts>
 	{
 		input: './build/types/src/mod.esm.d.ts',
-		output: [{ file: './dist/types/mod.d.ts', format: 'esm' }],
+		output: [{ file: './dist/types/mod.esm.d.ts', format: 'esm' }],
 		plugins: [dts()],
 	},
 	{
