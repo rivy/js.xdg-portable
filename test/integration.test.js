@@ -24,9 +24,9 @@ const pkg = require(packagePath);
 
 const haveDeno = commandExists.sync('deno');
 const denoVersion =
-	/* `-T` (interpret as TypeScript; available v1.0+); used for older `deno` versions (< v1.16.2) which cache eval compilation incorrectly; ref: <https://github.com/denoland/deno/issues/9733> */
+	/* `-V` (display Deno version) */
 	((
-		spawn.sync('deno', ['eval', '-T', '"console.log(Deno.version.deno)"'], {
+		spawn.sync('deno', ['-V'], {
 			encoding: 'utf-8',
 			shell: true,
 		}).stdout || ''

@@ -1,7 +1,7 @@
 /* eslint-env es6, node */
 'use strict';
 
-import xdg from '../dist/cjs/esm-wrapper/mod.esm.js';
+import xdg from '../dist/cjs/esm-wrapper/mod.esm.mjs';
 
 /* eslint-disable no-console , security/detect-object-injection, security-node/detect-crlf */
 
