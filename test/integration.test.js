@@ -150,7 +150,11 @@ if (!process.env.npm_config_test_dist) {
 				return extensions.includes(path.extname(file));
 			})
 			.forEach((file) => {
-				if (settledSupportForESMs || path.extname(file) === '.js') {
+				if (
+					settledSupportForESMs ||
+					path.extname(file) === '.js' ||
+					path.extname(file) === '.cjs'
+				) {
 					const command = 'node';
 					const script = path.join(egDirPath, file);
 					const args = [script];
@@ -189,31 +193,29 @@ if (!process.env.npm_config_test_dist) {
 				return extensions.includes(extension) && !isDenoTS;
 			})
 			.forEach((file) => {
-				if (settledSupportForESMs || path.extname(file) === '.js' || path.extname(file) === '.ts') {
-					const command = 'node';
-					const script = path.join(egDirPath, file);
-					const args = ['node_modules/ts-node/dist/bin.js', script];
-					const options = { shell: true, encoding: 'utf8' };
+				const command = 'node';
+				const script = path.join(egDirPath, file);
+				const args = ['node_modules/ts-node/dist/bin.js', script];
+				const options = { shell: true, encoding: 'utf8' };
 
-					const { error, status, stdout, stderr } = spawn.sync(command, args, options);
+				const { error, status, stdout, stderr } = spawn.sync(command, args, options);
 
-					const basename = path.basename(file);
-					const extension = path.extname(file);
-					const name = path.basename(file, extension);
-					const nameExtension = path.extname(name);
+				const basename = path.basename(file);
+				const extension = path.extname(file);
+				const name = path.basename(file, extension);
+				const nameExtension = path.extname(name);
 
-					if (error === null && status === 0) {
-						t.log(
-							util.inspect(script, /* showHidden */ void 0, /* depth */ void 0, /* color */ true),
-							`(exit_status=${status})`
-						);
-					} else {
-						t.log({ script, basename, name, extension, nameExtension });
-						t.log({ script, error, status, stdout, stderr });
-					}
-
-					t.deepEqual({ error, status }, { error: null, status: 0 });
+				if (error === null && status === 0) {
+					t.log(
+						util.inspect(script, /* showHidden */ void 0, /* depth */ void 0, /* color */ true),
+						`(exit_status=${status})`
+					);
+				} else {
+					t.log({ script, basename, name, extension, nameExtension });
+					t.log({ script, error, status, stdout, stderr });
 				}
+
+				t.deepEqual({ error, status }, { error: null, status: 0 });
 			});
 	});
 }
