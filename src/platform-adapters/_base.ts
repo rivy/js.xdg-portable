@@ -1,5 +1,5 @@
 // eslint-disable-next-line @typescript-eslint/no-namespace
-export namespace Platform {
+export declare namespace Platform {
 	export type Adapter = {
 		readonly atImportPermissions: {
 			/** Is general environment access granted at module import time?

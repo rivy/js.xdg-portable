@@ -1,6 +1,6 @@
 // # spell-checker:ignore macos APPDATA LOCALAPPDATA
 
-import { Platform } from '../platform-adapters/_base.js';
+import type { Platform } from '../platform-adapters/_base.js';
 
 // XDG references
 // # ref: <https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html> @@ <https://archive.is/aAhtw>
@@ -134,5 +134,6 @@ function Adapt(adapter_: Platform.Adapter): { readonly XDG: XDG } {
 	return { XDG: new XDG_() as XDG };
 }
 
+export type { Platform };
 export type { XDG };
 export { Adapt };
