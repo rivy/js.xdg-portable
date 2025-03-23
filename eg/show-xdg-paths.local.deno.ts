@@ -5,7 +5,7 @@
 // eslint-disable-next-line @typescript-eslint/triple-slash-reference
 /// <reference path='../vendor/types/deno.d.ts'/>
 
-// @ts-ignore
+// @ts-ignore ## suppress TS warnings about Deno-specific code
 import xdg from '../src/mod.deno.ts';
 
 // // create a local reference to refer to `Deno` (for better linting without need for multiple `// @ts-ignore` directives)
@@ -27,6 +27,7 @@ function objectEntries(obj: any) {
 console.log({ xdg });
 console.log(objectEntries(xdg));
 
+// @ts-ignore ## suppress TS warnings about Deno-specific code
 const queryEnv = await Deno?.permissions?.querySync({ name: 'env' }); // MinSDV = 1.8.0
 // const queryEnv = Deno?.permissions?.querySync({ name: 'env' }); // MinSDV = 1.30.0
 const permitsAllOk = queryEnv?.state === 'granted';

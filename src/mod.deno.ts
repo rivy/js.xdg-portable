@@ -1,15 +1,16 @@
 // spell-checker:ignore Deno
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+
+// @ts-ignore ## suppress TS warnings about Deno-specific code
 import { Adapt } from '../dist/esm/lib/XDG.js';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
+// @ts-ignore ## suppress TS warnings about Deno-specific code
 import { XDG } from '../dist/types/mod.esm.d.ts';
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
+// @ts-ignore ## suppress TS warnings about Deno-specific code
 import { adapter } from './platform-adapters/deno.deno.ts';
+
+/* eslint-enable @typescript-eslint/ban-ts-comment */
 
 const _: XDG = Adapt(adapter).XDG;
 
