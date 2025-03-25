@@ -65,7 +65,7 @@ npm install xdg-portable
 #### CommonJS (CJS)
 
 ```js
-const xdg = require('xdg-portable/cjs');
+const xdg = require('xdg-portable');
 
 const configDirs = xdg.configDirs();
 const stateDir = xdg.state();
@@ -107,7 +107,7 @@ const configDirs = xdg.configDirs();
 #### `XDG()`
 
 ```js
-const xdg = require('xdg-portable/cjs'); // CJS
+const xdg = require('xdg-portable'); // CJS
 //or...
 //import xdg from 'xdg-portable'; // ESM/TypeScript
 //import xdg from 'https://deno.land/x/xdg@v10.6.0/src/mod.deno.ts'; // Deno
@@ -256,13 +256,9 @@ const dataDirs = xdg.dataDirs();
 CJS is the basic supported output (with support for NodeJS versions as early as NodeJS-v4).
 
 ```js
-const xdg = require('xdg-portable/cjs');
+const xdg = require('xdg-portable');
 console.log(xdg.config());
 ```
-
-> Note: for CJS, `require('xdg-portable')` is supported for backward-compatibility and will execute correctly at run-time. However, `require('xdg-portable')` links to the default package type declarations which, though _correct_ for Deno/ESM/TypeScript, are _incorrect_ for CJS. This, then, leads to incorrect analysis of CJS files by static analysis tools such as TypeScript and Intellisense.
->
-> Using `require('xdg-portable/cjs')` is preferred as it associates the proper CJS type declarations and provides correct information to static analysis tools.
 
 #### ECMAScript modules (ESM; `*.mjs`)
 
@@ -308,6 +304,26 @@ As a consequence, TypeScript type definitions are automatically generated, bundl
 import xdg from 'https://deno.land/x/xdg@10.6.0/src/mod.deno.ts';
 console.log(xdg.config());
 ```
+
+## Typings
+
+<br/>`XDG` includes typings for all supported platforms (NodeJS \[CJS and ESM\], TypeScript, and Deno).
+
+### CommonJS modules
+
+For versions of `XDG` `v10.7.0+`, `require('xdg-portable/cjs')` is _no longer required_ within CJS files in order to import correct CJS typings (for static analysis by TypeScript or Intellisense or use in various IDEs). And simply using `require('xdg-portable')` will import correct CJS typings.
+
+Note that `require('xdg-portable/cjs')` is still supported, but is no longer required, and is deprecated for planned removal at the next major version release.
+
+### Interaction with Deno, TypeScript, and VSCode
+
+As of 2025-03-01, when using Deno with VSCode, the official Deno language server extension is incompatible with the built-in JavaScript (CJS/ESM) and TypeScript IntelliSense support. The Deno extension will provide full Intellisense support for imported code when it is enabled for the workspace. But, unfortunately, when enabled, the Deno extension blocks operation of IntelliSense for all non-Deno files (CJS, ESM, and any _TypeScript_ using non-Deno-compatible imports).
+
+> #### Deno vs TypeScript module specifiers
+>
+> Deno imports follow the browser convention and require explicit file or URL paths, including the file extension, for module resolution. In contrast, TypeScript (with Node.js or other environments) uses a more complex module resolution algorithm, which translates module specifiers into local file paths, potentially resolving them from `node_modules` or relative paths without needing explicit extensions. As a result, the module resolution strategies of Deno and TypeScript are not compatible, and each will complain and fail to resolve module specifiers that follow the other's conventions.
+
+Ultimately, either IntelliSense support can be enabled for Deno files or non-Deno files, but not both simultaneously.
 
 ## Discussion
 
