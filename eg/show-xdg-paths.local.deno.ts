@@ -12,12 +12,13 @@ import xdg from '../src/mod.deno.ts';
 // // @ts-ignore
 // const deno = Deno;
 
-/* eslint-disable no-console , functional/immutable-data , security/detect-object-injection, security-node/detect-crlf , @typescript-eslint/no-explicit-any */
+/* eslint-disable no-console , functional/immutable-data , security/detect-object-injection, security-node/detect-crlf */
 
-function objectEntries(obj: any) {
-	const map: any = {};
-	Object.keys(obj).forEach((key) => {
-		const value = obj[key];
+function objectEntries(obj: unknown) {
+	const o = obj as Record<string, unknown>;
+	const map: Record<string, unknown> = {};
+	Object.keys(o).forEach((key) => {
+		const value = o[key];
 		const val = typeof value === 'function' ? value() : value;
 		map[key] = val;
 	});
@@ -39,6 +40,6 @@ if (!permitsAllOk) {
 
 Deno.exit(permitsAllOk ? 0 : 1);
 
-/* eslint-enable no-console , functional/immutable-data , security/detect-object-injection, security-node/detect-crlf , @typescript-eslint/no-explicit-any */
+/* eslint-enable no-console , functional/immutable-data , security/detect-object-injection, security-node/detect-crlf */
 
 /* eslint-enable @typescript-eslint/ban-ts-comment */
