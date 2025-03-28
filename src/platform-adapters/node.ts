@@ -1,3 +1,4 @@
+// NodeJS platform adapter
 import * as path from 'path';
 
 import osPaths from 'os-paths';

@@ -1,3 +1,4 @@
+// Deno platform adapter
 // spell-checker:ignore Deno
 
 /* eslint-disable @typescript-eslint/ban-ts-comment */
@@ -7,8 +8,8 @@ import * as path from 'https://deno.land/std@0.134.0/path/mod.ts';
 // @ts-ignore ## suppress TS warnings about Deno-specific code
 import osPaths from 'https://deno.land/x/os_paths@v7.2.0/src/mod.deno.ts';
 
-// @ts-ignore ## suppress TS warnings about Deno-specific code
-import type { Platform } from './_base.ts';
+// @ts-types='./_base.ts' ## allows type analysis regardless of Deno LSP status
+import type { Platform } from './_base.js';
 
 // create a local reference to refer to `Deno` (for better linting without need for multiple `// @ts-ignore` directives)
 // @ts-ignore ## suppress TS warnings about Deno-specific code

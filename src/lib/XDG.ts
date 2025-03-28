@@ -1,5 +1,8 @@
 // # spell-checker:ignore macos APPDATA LOCALAPPDATA
+// * suppress Deno lint warnings (prefer eslint for non-'.deno.ts' cross-platform TS file)
+// deno-lint-ignore-file
 
+// @ts-types='../platform-adapters/_base.ts' ## allows type analysis regardless of Deno LSP status
 import type { Platform } from '../platform-adapters/_base.js';
 
 // XDG references
