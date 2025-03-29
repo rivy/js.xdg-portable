@@ -22,15 +22,29 @@ const mod = require(modulePath);
 // eslint-disable-next-line security-node/detect-non-literal-require-calls
 const pkg = require(packagePath);
 
+const haveBun = commandExists.sync('bun');
+// const bunVersion =
+// 	/* `--version` (display Deno version) */
+// 	((haveBun &&
+// 		(
+// 			spawn.sync('bun', ['--version'], {
+// 				encoding: 'utf-8',
+// 				shell: true,
+// 			}).stdout || ''
+// 		).match(/(?<=^|\s)\d+(?:[.]\d+)*/ /* eslint-disable-line security/detect-unsafe-regex */)) || [
+// 		'0.0.0',
+// 	])[0];
+
 const haveDeno = commandExists.sync('deno');
 const denoVersion =
 	/* `-V` (display Deno version) */
-	((
-		spawn.sync('deno', ['-V'], {
-			encoding: 'utf-8',
-			shell: true,
-		}).stdout || ''
-	).match(/(?<=^|\s)\d+(?:[.]\d+)*/ /* eslint-disable-line security/detect-unsafe-regex */) || [
+	((haveDeno &&
+		(
+			spawn.sync('deno', ['-V'], {
+				encoding: 'utf-8',
+				shell: true,
+			}).stdout || ''
+		).match(/(?<=^|\s)\d+(?:[.]\d+)*/ /* eslint-disable-line security/detect-unsafe-regex */)) || [
 		'0.0.0',
 	])[0];
 
@@ -102,6 +116,54 @@ if (!process.env.npm_config_test_dist) {
 	test.skip('examples are executable...skipped (enable with `npm [run] test --test-dist`)', () =>
 		void 0);
 } else {
+	if (!haveBun) {
+		test.skip('examples are executable (Bun)...skipped (`bun` not found)', () => void 0);
+	} else {
+		test('examples are executable without error (Bun)', (t) => {
+			// t.timeout(30000); // 30s timeout
+
+			const egDirPath = 'eg';
+			const extensions = ['.js', '.cjs', '.mjs', '.ts'];
+
+			const files = fs.readdirSync(egDirPath);
+
+			files
+				.filter((file) => {
+					const extension = path.extname(file);
+					const name = path.basename(file, extension);
+					const nameExtension = path.extname(name);
+					const isDenoTS = extension === '.ts' && nameExtension === '.deno';
+					return extensions.includes(extension) && !isDenoTS;
+				})
+				.forEach((file) => {
+					const command = 'bun';
+					const scriptPath = path.join(egDirPath, file);
+					const args = [scriptPath];
+					const options = { shell: true, encoding: 'utf8' };
+
+					const { error, status, stdout, stderr } = spawn.sync(command, args, options);
+
+					const basename = path.basename(file);
+					const extension = path.extname(file);
+					const name = path.basename(file, extension);
+					const nameExtension = path.extname(name);
+
+					const msgs = [
+						util.inspect(scriptPath, /* showHidden */ void 0, /* depth */ void 0, /* color */ true),
+						`(exit_status=${status})`,
+						error !== null || status !== 0
+							? { script: scriptPath, basename, name, extension, nameExtension }
+							: void 0,
+						error !== null || status !== 0 ? { error, status, stdout, stderr } : void 0,
+					].filter(Boolean);
+
+					t.log(...msgs);
+
+					t.deepEqual({ error, status }, { error: null, status: 0 });
+				});
+		});
+	}
+
 	const minDenoVersion = '1.8.0';
 	if (!haveDeno) {
 		test.skip('examples are executable (Deno)...skipped (`deno` not found)', () => void 0);
