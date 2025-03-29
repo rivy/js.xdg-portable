@@ -1,4 +1,4 @@
-import xdg from '../';
+import xdg from '..';
 
 /* eslint-disable no-console , functional/immutable-data , security/detect-object-injection, security-node/detect-crlf */
 

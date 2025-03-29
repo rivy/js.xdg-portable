@@ -1,7 +1,7 @@
 /* eslint-env es6, node */
 'use strict';
 
-const xdg = require('../');
+const xdg = require('..');
 
 /* eslint-disable no-console , security/detect-object-injection, security-node/detect-crlf */
 
