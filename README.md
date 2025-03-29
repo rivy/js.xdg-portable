@@ -317,13 +317,15 @@ Note that `require('xdg-portable/cjs')` is still supported, but is no longer req
 
 ### Interaction with Deno, TypeScript, and VSCode
 
-As of 2025-03-01, when using Deno with VSCode, the official Deno language server extension is incompatible with the built-in JavaScript (CJS/ESM) and TypeScript IntelliSense support. The Deno extension will provide full Intellisense support for imported code when it is enabled for the workspace. But, unfortunately, when enabled, the Deno extension blocks operation of IntelliSense for all non-Deno files (CJS, ESM, and any _TypeScript_ using non-Deno-compatible imports).
+As of 2025-03-01, when using Deno with VSCode, the official Deno language server extension is incompatible with the built-in JavaScript (CJS/ESM) and TypeScript IntelliSense support. The Deno extension will provide full Intellisense support for imported code when it is enabled for the workspace. But, unfortunately, when enabled, the Deno extension blocks operation of IntelliSense for all non-Deno files (CJS, ESM, and any _TypeScript_ that uses non-Deno-compatible imports).
 
 > #### Deno vs TypeScript module specifiers
 >
 > Deno imports follow the browser convention and require explicit file or URL paths, including the file extension, for module resolution. In contrast, TypeScript (with Node.js or other environments) uses a more complex module resolution algorithm, which translates module specifiers into local file paths, potentially resolving them from `node_modules` or relative paths without needing explicit extensions. As a result, the module resolution strategies of Deno and TypeScript are not compatible, and each will complain and fail to resolve module specifiers that follow the other's conventions.
 
 Ultimately, either IntelliSense support can be enabled for Deno files or non-Deno files, but not both simultaneously.
+
+> Note that vendored Deno types can be used with a disabled Deno LSP which allows a work-around for TypeScript.
 
 ## Discussion
 
