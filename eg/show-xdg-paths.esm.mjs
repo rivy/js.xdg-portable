@@ -13,11 +13,17 @@ const xdg = xdgM;
 
 /* eslint-disable no-console , security/detect-object-injection, security-node/detect-crlf */
 
-console.log({ xdg });
+function objectEntries(obj) {
+	const map = {};
+	Object.keys(obj).forEach((key) => {
+		/* eslint-disable-next-line functional/immutable-data */
+		map[key] = typeof obj[key] === 'function' ? obj[key]() : obj[key];
+	});
+	return map;
+}
 
-Object.keys(xdg).forEach((key) => {
-	console.log(key, '=', typeof xdg[key] === 'function' ? xdg[key]() : xdg[key]);
-});
+console.log({ xdg });
+console.log(objectEntries(xdg));
 
 /* eslint-enable no-console , security/detect-object-injection, security-node/detect-crlf */
 
