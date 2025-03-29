@@ -2,15 +2,12 @@
 
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 
-// eslint-disable-next-line @typescript-eslint/triple-slash-reference
-/// <reference path='../vendor/types/deno.d.ts'/>
+// import Deno typings for IntelliSense
+/* eslint-disable-next-line @typescript-eslint/triple-slash-reference */
+/// <reference path='../vendor/@types/deno@1.46.3/deno.d.ts'/>
 
-// @ts-ignore ## suppress TS warnings about Deno-specific code
+// @ts-ignore ## suppress TS warnings about Deno-specific code/imports
 import xdg from '../src/mod.deno.ts';
-
-// // create a local reference to refer to `Deno` (for better linting without need for multiple `// @ts-ignore` directives)
-// // @ts-ignore
-// const deno = Deno;
 
 /* eslint-disable no-console , functional/immutable-data , security/detect-object-injection, security-node/detect-crlf */
 
@@ -28,9 +25,10 @@ function objectEntries(obj: unknown) {
 console.log({ xdg });
 console.log(objectEntries(xdg));
 
-// @ts-ignore ## suppress TS warnings about Deno-specific code
+// @ts-ignore ## suppress TS warnings about Deno-specific code/imports
 const queryEnv = await Deno?.permissions?.querySync({ name: 'env' }); // MinSDV = 1.8.0
 // const queryEnv = Deno?.permissions?.querySync({ name: 'env' }); // MinSDV = 1.30.0
+
 const permitsAllOk = queryEnv?.state === 'granted';
 if (!permitsAllOk) {
 	console.warn(
