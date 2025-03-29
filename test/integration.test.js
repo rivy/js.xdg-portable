@@ -84,9 +84,13 @@ if (!process.env.npm_config_test_dist) {
 
 			const { error, status, stdout, stderr } = spawn.sync(command, args, options);
 
-			if (!(error === null && status === 0)) {
-				t.log({ denoModulePath, error, status, stdout, stderr });
-			}
+			const msgs = [
+				util.inspect(denoModulePath, /* showHidden */ void 0, /* depth */ void 0, /* color */ true),
+				`(exit_status=${status})`,
+				error !== null || status !== 0 ? { error, status, stdout, stderr } : void 0,
+			].filter(Boolean);
+
+			t.log(...msgs);
 
 			t.deepEqual({ error, status }, { error: null, status: 0 });
 		});
@@ -119,20 +123,19 @@ if (!process.env.npm_config_test_dist) {
 				})
 				.forEach((file) => {
 					const command = 'deno';
-					const script = path.join(egDirPath, file);
-					const args = ['run', '--allow-all', script];
+					const scriptPath = path.join(egDirPath, file);
+					const args = ['run', '--allow-all', scriptPath];
 					const options = { shell: true, encoding: 'utf-8' };
 
 					const { error, status, stdout, stderr } = spawn.sync(command, args, options);
 
-					if (error === null && status === 0) {
-						t.log(
-							util.inspect(script, /* showHidden */ void 0, /* depth */ void 0, /* color */ true),
-							`(exit_status=${status})`
-						);
-					} else {
-						t.log({ script, error, status, stdout, stderr });
-					}
+					const msgs = [
+						util.inspect(scriptPath, /* showHidden */ void 0, /* depth */ void 0, /* color */ true),
+						`(exit_status=${status})`,
+						error !== null || status !== 0 ? { error, status, stdout, stderr } : void 0,
+					].filter(Boolean);
+
+					t.log(...msgs);
 
 					t.deepEqual({ error, status }, { error: null, status: 0 });
 				});
@@ -158,20 +161,19 @@ if (!process.env.npm_config_test_dist) {
 					path.extname(file) === '.cjs'
 				) {
 					const command = 'node';
-					const script = path.join(egDirPath, file);
-					const args = [script];
+					const scriptPath = path.join(egDirPath, file);
+					const args = [scriptPath];
 					const options = { shell: true, encoding: 'utf-8' };
 
 					const { error, status, stdout, stderr } = spawn.sync(command, args, options);
 
-					if (error === null && status === 0) {
-						t.log(
-							util.inspect(script, /* showHidden */ void 0, /* depth */ void 0, /* color */ true),
-							`(exit_status=${status})`
-						);
-					} else {
-						t.log({ script, error, status, stdout, stderr });
-					}
+					const msgs = [
+						util.inspect(scriptPath, /* showHidden */ void 0, /* depth */ void 0, /* color */ true),
+						`(exit_status=${status})`,
+						error !== null || status !== 0 ? { error, status, stdout, stderr } : void 0,
+					].filter(Boolean);
+
+					t.log(...msgs);
 
 					t.deepEqual({ error, status }, { error: null, status: 0 });
 				}
@@ -196,8 +198,8 @@ if (!process.env.npm_config_test_dist) {
 			})
 			.forEach((file) => {
 				const command = 'node';
-				const script = path.join(egDirPath, file);
-				const args = ['node_modules/ts-node/dist/bin.js', script];
+				const scriptPath = path.join(egDirPath, file);
+				const args = ['node_modules/ts-node/dist/bin.js', scriptPath];
 				const options = { shell: true, encoding: 'utf8' };
 
 				const { error, status, stdout, stderr } = spawn.sync(command, args, options);
@@ -207,15 +209,16 @@ if (!process.env.npm_config_test_dist) {
 				const name = path.basename(file, extension);
 				const nameExtension = path.extname(name);
 
-				if (error === null && status === 0) {
-					t.log(
-						util.inspect(script, /* showHidden */ void 0, /* depth */ void 0, /* color */ true),
-						`(exit_status=${status})`
-					);
-				} else {
-					t.log({ script, basename, name, extension, nameExtension });
-					t.log({ script, error, status, stdout, stderr });
-				}
+				const msgs = [
+					util.inspect(scriptPath, /* showHidden */ void 0, /* depth */ void 0, /* color */ true),
+					`(exit_status=${status})`,
+					error !== null || status !== 0
+						? { script: scriptPath, basename, name, extension, nameExtension }
+						: void 0,
+					error !== null || status !== 0 ? { error, status, stdout, stderr } : void 0,
+				].filter(Boolean);
+
+				t.log(...msgs);
 
 				t.deepEqual({ error, status }, { error: null, status: 0 });
 			});
